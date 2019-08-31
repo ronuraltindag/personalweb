@@ -1,0 +1,137 @@
+baseurl = "http://onuraltindag.info"
+title = "Onur Altındağ"
+
+theme = "hugo-coder"
+
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+canonifyurls = true
+
+pygmentsstyle = "b2"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+#disqusShortname = "yourdiscussshortname"
+
+[params]
+    author = "Onur Altındağ"
+    description = "Onur Altındağ, personal web page"
+    keywords = "economics,health,migration"
+    info = "Assistant Professor of Economics"
+    avatarurl = "/images/oa1.JPG"
+     footercontent = "nosce te ipsum"
+
+    dateformat = "January 2, 2006"
+
+    hideCredits = true
+    hideCopyright = true
+
+    # Git Commit in Footer, uncomment the line below to enable it.
+    #commit = "hello worlds"
+
+    rtl = false
+
+    # Use inverted colors
+    inverted = false
+
+    # Series see also post count
+    maxSeeAlsoItems = 5
+
+    # Custom CSS
+    custom_css = []
+    
+    # Custom JS
+    custom_js = []
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+[[params.social]]
+    name = "e-mail"
+    icon = "fas fa-envelope"
+    weight = 1
+    url = "mailto:oaltindag@bentley.edu"
+[[params.social]]
+    name = "google scholar"
+    icon = "fab fa-google"
+    weight = 2
+    url = "https://scholar.google.com/citations?user=Ds24wSAAAAAJ&hl=en"
+[[params.social]]
+    name = "github"
+    icon = "fab fa-github"
+    weight = 3
+    url = "https://github.com/ronuraltindag"
+[[params.social]]
+    name = "twitter"
+      icon = "fab fa-twitter"
+    weight = 4
+    url = "https://twitter.com/ronuraltindag"
+
+[[params.social]]
+    name = "instagram"
+    icon = "fab fa-instagram"
+    weight = 5
+    url = "https://www.instagram.com/quoting_marx/"
+
+
+[languages]
+    [languages.en]
+        languagename = "English"
+
+        [[languages.en.menu.main]]
+        name = "Vita"
+        weight = 1
+        url = "about/"
+
+        [[languages.en.menu.main]]
+        name = "Research"
+        weight = 2
+        url = "research/"
+
+        [[languages.en.menu.main]]
+        name = "Teaching"
+        weight = 3
+        url = "teaching/"
+
+        [[languages.en.menu.main]]
+        name = "Contact me"
+        weight = 5
+        url = "contact/"
+
+
+    [languages.pt-tr]
+        languagename = "Türkçe"
+        title = "Onur Altındağ"
+
+        [languages.pt-tr.params]
+            author = "Onur Altındağ"
+            info = "İktisatçı, Yrd. Doç. Dr."
+            description = "Onur Altındağ, kişisel web sitesi"
+            keywords = "blog,ekonomi, politika"
+            #footercontent = "Coloque algum texto aqui."
+
+        [languages.pt-tr.menu]
+
+            [[languages.pt-tr.menu.main]]
+            name = "Özgeçmiş"
+            weight = 1
+            url = "about/"
+
+            [[languages.pt-tr.menu.main]]
+            name = "Araştırma/Yayın"
+            weight = 2
+            url = "research/"
+
+            [[languages.pt-tr.menu.main]]
+            name = "Blog"
+            weight = 3
+            url = "posts/"
+
+            [[languages.pt-tr.menu.main]]
+            name = "Bana Ulaşın"
+            weight = 4
+            url = "contact/"
+
