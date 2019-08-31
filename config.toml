@@ -1,4 +1,7 @@
+
+
 baseurl = "https://onuraltindag.netlify.com/"
+
 title = "Onur Altındağ"
 
 theme = "hugo-coder"
@@ -20,7 +23,7 @@ pygmentscodefencesguesssyntax = true
     description = "Onur Altındağ, personal web page"
     keywords = "economics,health,migration"
     info = "Assistant Professor of Economics"
-    avatarurl = "/images/oa1.JPG"
+    avatarurl = "/images/N90.jpg"
      footercontent = "nosce te ipsum"
 
     dateformat = "January 2, 2006"
