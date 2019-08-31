@@ -22,8 +22,8 @@ pygmentscodefencesguesssyntax = true
     author = "Onur Altındağ"
     description = "Onur Altındağ, personal web page"
     keywords = "economics,health,migration"
-    info = "Assistant Professor of Economics and so on"
-    avatarurl = "/images/N90.jpg"
+    info = "Assistant Professor of Economics"
+    avatarurl = "/images/oa.JPG"
      footercontent = "nosce te ipsum"
 
     dateformat = "January 2, 2006"
