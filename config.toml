@@ -1,4 +1,6 @@
+
 baseurl = "https://onuraltindag.netlify.com/"
+
 title = "Onur Altındağ"
 
 theme = "hugo-coder"
