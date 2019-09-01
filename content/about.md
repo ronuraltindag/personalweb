@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: August 18, 2019 <br> 
+Last update: August 31, 2019 <br> 
 ### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/onur_updated_web.pdf)  <br>
 
 ### **Onur Altındağ** <br> 
