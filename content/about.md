@@ -7,13 +7,13 @@ draft: false
 ---
 
 
-Last update: August 31, 2019 <br> 
-### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/onur_updated_web.pdf)  <br>
+Last update: October 30, 2019 <br> 
+### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/onur_updated_web.pdf)  
 
 ### **Onur Altındağ** <br> 
 2017 -  <br>
 **Assistant Professor of Economics** <br>
-[Bentley University](http://www.bentley.edu/)  <br>
+[Bentley University](http://www.bentley.edu/)  
 
 
 ### **PROFESSIONAL AFFILIATIONS**
@@ -26,8 +26,7 @@ Development Analytics, Research Associate.
 Harvard University Center for Population and Development Studies, Visiting Scientist. 
 
 2016 - 2017 <br> 
-Harvard University, Center for Population and Development Studies, David E. Bell Postdoctoral Fellow.. 
-
+Harvard University, Center for Population and Development Studies, David E. Bell Postdoctoral Fellow. 
 
 
 ### **EDUCATION**
@@ -46,6 +45,9 @@ B.A. in Economics, Galatasaray University. <br>
 
 
 ### **PRESENTATIONS and SEMINARS**
+2020 - scheduled <br> 
+Emory University, Joint Data Center on Forced Displacement in Copenhagen.
+
 2019 - including scheduled <br> 
 Heriot-Watt University, Harvard Center for Population and Development Studies, Population Association of America, Harvard T.H. Chan School of Public Health, International Health Economics Association, IZA Annual Migration Meeting.
 
