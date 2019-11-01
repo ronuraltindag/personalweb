@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.5.7)  30 OCT 2019 20:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.5.7)  31 OCT 2019 23:29
 entering extended mode
 **C:/Users/13473/Dropbox/personalweb/content/static/pdfs/CV/onur_updated_web.te
 x
@@ -600,33 +600,33 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip65
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 32.
+Package hyperref Info: Option `colorlinks' set `true' on input line 31.
  (onur_updated_web.aux)
 \openout1 = `onur_updated_web.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 45.
 
 ("C:\Users\13473\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 LaTeX Font Info:    Try loading font information for OT1+Roboto-LF on input lin
-e 46.
+e 45.
 
 ("C:\Users\13473\AppData\Local\Programs\MiKTeX 2.9\tex/latex/roboto\ot1roboto-l
 f.fd"
@@ -634,7 +634,7 @@ File: OT1Roboto-LF.fd 2019/04/19 (autoinst) Font definitions for OT1/Roboto-LF.
 
 )
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/regular/n' will be
-(Font)              scaled to size 12.0pt on input line 46.
+(Font)              scaled to size 12.0pt on input line 45.
 \c@mv@tabular=\count128
 \c@mv@boldtabular=\count129
 
@@ -676,15 +676,15 @@ G,.JBIG2,.JB2,.eps]
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(39.74872pt, 534.79756pt, 39.74872pt)
-* v-part:(T,H,B)=(39.74872pt, 715.47255pt, 39.74872pt)
+* h-part:(L,W,R)=(50.58878pt, 513.11745pt, 50.58878pt)
+* v-part:(T,H,B)=(50.58878pt, 693.79243pt, 50.58878pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=534.79756pt
-* \textheight=715.47255pt
-* \oddsidemargin=-32.52127pt
-* \evensidemargin=-32.52127pt
-* \topmargin=-69.52127pt
+* \textwidth=513.11745pt
+* \textheight=693.79243pt
+* \oddsidemargin=-21.68121pt
+* \evensidemargin=-21.68121pt
+* \topmargin=-58.68121pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -713,7 +713,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 46.
+Package hyperref Info: Link coloring ON on input line 45.
 
 ("C:\Users\13473\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -725,47 +725,47 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count136
 )
-LaTeX Info: Redefining \ref on input line 46.
-LaTeX Info: Redefining \pageref on input line 46.
-LaTeX Info: Redefining \nameref on input line 46.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
  (onur_updated_web.out) (onur_updated_web.out)
 \@outlinefile=\write3
 \openout3 = `onur_updated_web.out'.
 
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/regular/n' will be
-(Font)              scaled to size 17.28pt on input line 57.
+(Font)              scaled to size 17.28pt on input line 56.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/bold/n' will be
-(Font)              scaled to size 17.28pt on input line 57.
+(Font)              scaled to size 17.28pt on input line 56.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/bold/n' will be
-(Font)              scaled to size 12.0pt on input line 72.
+(Font)              scaled to size 12.0pt on input line 62.
 
-Overfull \hbox (32.42747pt too wide) in alignment at lines 50--90
+Overfull \hbox (14.86531pt too wide) in alignment at lines 49--90
  [] [] [] [] [] 
  []
 
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 99.
+(Font)              scaled to size 10.0pt on input line 97.
 
-Overfull \hbox (32.42747pt too wide) in alignment at lines 90--121
+Overfull \hbox (14.86531pt too wide) in alignment at lines 90--120
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (32.42747pt too wide) in alignment at lines 121--148
+Overfull \hbox (14.86531pt too wide) in alignment at lines 120--147
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (32.42747pt too wide) in alignment at lines 148--194
+Overfull \hbox (14.86531pt too wide) in alignment at lines 147--188
  [] [] [] [] [] 
  []
 
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/regular/sl' in size <12> not avai
 lable
 (Font)              Font shape `OT1/Roboto-LF/regular/it' tried instead on inpu
-t line 194.
+t line 188.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/regular/it' will be
-(Font)              scaled to size 12.0pt on input line 194.
+(Font)              scaled to size 12.0pt on input line 188.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 14.49998pt.
@@ -775,12 +775,8 @@ This may cause the page layout to be inconsistent, however.
 [1{C:/Users/13473/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
-Overfull \hbox (32.42747pt too wide) in alignment at lines 194--221
- [] [] [] [] [] 
- []
-
 LaTeX Font Info:    Try loading font information for TS1+Roboto-LF on input lin
-e 238.
+e 192.
 
 ("C:\Users\13473\AppData\Local\Programs\MiKTeX 2.9\tex/latex/roboto\ts1roboto-l
 f.fd"
@@ -788,37 +784,42 @@ File: TS1Roboto-LF.fd 2019/04/19 (autoinst) Font definitions for TS1/Roboto-LF.
 
 )
 LaTeX Font Info:    Font shape `TS1/Roboto-LF/regular/n' will be
-(Font)              scaled to size 12.0pt on input line 238.
+(Font)              scaled to size 12.0pt on input line 192.
 
-Overfull \hbox (32.42747pt too wide) in alignment at lines 221--245
+Overfull \hbox (14.86531pt too wide) in alignment at lines 188--215
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (14.86531pt too wide) in alignment at lines 215--236
  [] [] [] [] [] 
  []
 
 [2]
-Overfull \hbox (32.42747pt too wide) in alignment at lines 245--270
+Overfull \hbox (14.86531pt too wide) in alignment at lines 236--265
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (32.42747pt too wide) in alignment at lines 270--296
+Overfull \hbox (14.86531pt too wide) in alignment at lines 265--292
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (32.42747pt too wide) in alignment at lines 296--320
+Overfull \hbox (14.86531pt too wide) in alignment at lines 292--325
  [] [] [] [] [] 
  []
 
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 327.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 332.
  [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 327.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 332.
  (onur_updated_web.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 327.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 327.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 332.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 332.
 Package rerunfilecheck Info: File `onur_updated_web.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 327.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
  9707 strings out of 492895
@@ -827,7 +828,7 @@ Here is how much of TeX's memory you used:
  13474 multiletter control sequences out of 15000+200000
  15926 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,11n,68p,297b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,11n,68p,327b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/13473/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/roboto/rbto
 _sbly3j.enc}{C:/Users/13473/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/r
 oboto/rbto_schjax.enc}<C:/Users/13473/AppData/Local/Programs/MiKTeX 2.9/fonts/t
@@ -837,7 +838,7 @@ l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/13473/
 AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
 /Users/13473/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 msy8.pfb>
-Output written on onur_updated_web.pdf (4 pages, 82639 bytes).
+Output written on onur_updated_web.pdf (4 pages, 82810 bytes).
 PDF statistics:
  49 PDF objects out of 1000 (max. 8388607)
  6 named destinations out of 1000 (max. 500000)

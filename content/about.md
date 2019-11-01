@@ -32,43 +32,15 @@ Harvard University, Center for Population and Development Studies, David E. Bell
 ### **EDUCATION**
 
 2010 - 2016 <br>
-Ph.D. in Economics, City University of New York <br>
+City University of New York, Ph.D. in Economics.  <br>
 
 
 2007 - 2008 <br> 
-M.A. in Economics, University of Paris I Panthéon - Sorbonne.  <br> 
+ University of Paris I Panthéon - Sorbonne, M.A. in Economics.  <br> 
 
 
 2001 - 2007 <br>
-B.A. in Economics, Galatasaray University. <br>
-
-
-
-### **PRESENTATIONS and SEMINARS**
-2020 - scheduled <br> 
-Emory University, Joint Data Center on Forced Displacement in Copenhagen.
-
-2019 - including scheduled <br> 
-Heriot-Watt University, Harvard Center for Population and Development Studies, Population Association of America, Harvard T.H. Chan School of Public Health, International Health Economics Association, IZA Annual Migration Meeting.
-
-2018 <br>
-Paris I Panthéon-Sorbonne University, USC Marshall School of Business, Boğaziçi University, The Rockwool Foundation, VIVE - The Danish Center for Social Science Research, Midwest Economics Association.  
-
-2017 <br>
-Oxford University, Harvard University, Bentley University, Eastern Economic Association, Population
-Association of America, Koç University, International Health Economics Association. <br>
-
-
-2016 <br>
-Istanbul Conference on Human Capital, Boğaziçi University, Sabancı University, Koç University,
-Bilgi University, Auckland University of Technology, Bentley University. <br>
-
-
-pre-2016 <br>
-Istanbul Conference on Human Capital, Association for Public Policy Analysis and Management,
-Population Association of America, CUNY Graduate Center, American Society of Health Economists,
-Association for Education Finance and Policy, Bilgi University, CUNY Graduate Center. <br>
-
+Galatasaray University, B.A. in Economics. <br>
 
 ### **GRANTS**
 2018 - 2022  <br>
@@ -87,6 +59,57 @@ Role: PI <br>
 Bentley University TLN Research Seed Fund  <br>
 Award amount:  $1,500 <br>
 Role: PI <br>
+
+
+
+
+### **PRESENTATIONS and SEMINARS**
+2020 - scheduled <br> 
+Economics Department Seminar, Emory University. <br> 
+Conference on Forced Displacement, Joint Data Center on Forced Displacement in Copenhagen.
+
+2019 <br> 
+Research Initiative on the Economics of the Middle East (RIEME 2019), Heriot-Watt University. <br> 
+Friday Lunch Seminar, Harvard Center for Population and Development Studies. <br> 
+Population Association of America (PAA 2019). <br> 
+International Health Economics Association (iHEA 2019). <br> 
+IZA Annual Migration Meeting, UCD Geary Institute for Public Policy. <br> 
+
+
+2018 <br>
+Research Initiative on the Economics of the Middle East (RIEME 2018), Paris 1-Sorbonne University. <br>
+Conference on the Impacts of Refugees in Hosting Economies,  USC Marshall School of Business. <br>
+Social Policy and Development Seminars, Bogazici University. <br>
+Seminar, The Rockwool Foundation. <br>
+Seminar, VIVE - The Danish Center for Social Science Research. <br>
+Midwest Economics Association, SOLE special session. <br>
+
+
+
+2017 <br>
+Research Initiative on the Economics of the Middle East (RIEME 2018), Oxford University. <br>
+Friday Lunch Seminar, Harvard Center for Population and Development Studies. <br>
+Economic Department Seminar, Bentley University. <br>
+Eastern Economic Association (EEA 2017) <br>
+Population Association of America (PAA 2017) <br>
+Economics Department Seminar, Koc University <br>
+International Health Economics Association (iHEA 2017) <br>
+
+
+
+2016 <br>
+
+Conference on Human Capital, Galatasaray University. <br>
+Economics Department Seminar, Bogazici University. <br>
+Economics Department Seminar, Sabanci University. <br>
+Economics Department Seminar, Koc University.  <br>
+Economics Department Seminar, Bilgi University. <br>
+Economics Department Seminar, TOBB University.  <br>
+Economics Department Seminar, Auckland University of Technology. <br>
+Economics Department Seminar, Bentley University. <br>
+
+
+
 
 
 ### **FELLOWSHIPS** 
