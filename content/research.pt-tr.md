@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: October 30, 2019 <br>
+Last update: **Dec 7, 2019** <br>
 
 
 
@@ -18,14 +18,14 @@ Last update: October 30, 2019 <br>
 &dagger;: equal co-authorship <br>
 
 [Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](/static/pdfs/published/AK_Oct.pdf) <br> 
-Altindag, O., Kaushal, N., 2019. <br>
-**Public Choice**, conditionally accepted.  <br> 
+Altindag, O., Kaushal, N. <br>
+**Public Choice**, forthcoming.  <br> 
 
 
 [Can Nonexperimental Methods Provide Unbiased Estimates of a Breastfeeding
 Intervention?: A Within-Study Comparison of Peer Counseling in Oregon.](/static/pdfs/published/ER2019CanExp.pdf)   
 Altindag, O., Joyce, T., and Reeder, J. A., 2019. <br> 
-**Evaluation Review**, forthcoming.  <br>
+**Evaluation Review**, 43(3–4), 152–188.  <br>
 
 
 

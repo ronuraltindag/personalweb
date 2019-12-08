@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: October 30, 2019 <br> 
+Last update: **Dec 7, 2019** <br> 
 ### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/onur_updated_web.pdf)  
 
 ### **Onur Altındağ** <br> 
@@ -43,18 +43,22 @@ City University of New York, Ph.D. in Economics.  <br>
 Galatasaray University, B.A. in Economics. <br>
 
 ### **GRANTS**
+2019 - 2020 <br>
+Bentley University, BRC Grant. <br>
+Award amount: $7,000, Role: PI <br>
+
 2018 - 2022  <br>
 Novo Nordisk Foundation <br> 
 The Socioeconomic Impact of Research-based Innovations and Long-term Consequences of Population-based Childhood Vaccine Programs <br>
 with Torben Tranæs, Jane Greve, and Erdal Tekin <br>
-Award amount:  $1,543,500 <br>
-Role: Co-PI
+Award amount:  $1,543,500, Role: Co-PI <br>
+
 
 
 2018 Summer  <br>
 Bentley University FAC  Grant   <br>
-Award amount:  $2,500 <br>
-Role: PI <br>
+Award amount:  $2,500, Role: PI  <br>
+
 
 Bentley University TLN Research Seed Fund  <br>
 Award amount:  $1,500 <br>
@@ -65,8 +69,9 @@ Role: PI <br>
 
 ### **PRESENTATIONS and SEMINARS**
 2020 - scheduled <br> 
+Population Association of America, (PAA 2020). <br> 
 Economics Department Seminar, Emory University. <br> 
-Conference on Forced Displacement, Joint Data Center on Forced Displacement in Copenhagen.
+Conference on Forced Displacement, Joint Data Center on Forced Displacement in Copenhagen. <br> 
 
 2019 <br> 
 Research Initiative on the Economics of the Middle East (RIEME 2019), Heriot-Watt University. <br> 
