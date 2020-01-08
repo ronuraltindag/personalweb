@@ -1,10 +1,23 @@
 ---
-title: "Flipping 'Metrics"
-date: "2018/08/01"
+title: " "
+date: 11/01/2017
 description: " "
 weight: 4
 draft: false
 ---
 
-[Stephen D. O'Connell](https://www.stephenoconnell.org/) (Emory University) and I are working on a joint project to integrate R into the undergraduate econometrics courses offered at both universities. The aim is to develop an applied and data-oriented course which will contain all learning material hosted online, while spending the classroom time on hands-on learning. The project is in development and we are aiming to finish a beta version by Spring 2019.
 
+## Introduction to Econometrics - EC282 
+
+
+* [Homework assignments and lecture notes](https://ronuraltindag.github.io/metrics/)
+* [E-book: Introduction to Econometrics with R](https://www.econometrics-with-r.org/)
+* [Schedule an appointment - max 30 min](https://calendly.com/oaltindag/sample-30min)
+* [Eco-Fi-Stat Learning Center](http://www.bentley.edu/academics/departments/economics/eco-fi-stat-learning-center)
+
+## Intermediate Price Theory - EC224
+
+* [E-book and homework assignments](https://www.cengage.com/dashboard/#/course-confirmation/MTPNZT3NM92Z/initial-course-confirmation) 
+* [Lecture notes](/static/pdfs/teaching/EC224/EC 224 SPRING 2020.pdf)
+* [Schedule an appointment - max 30 min](https://calendly.com/oaltindag/sample-30min)
+* [Eco-Fi-Stat Learning Center](https://www.bentley.edu/offices/academic-services/eco-fi-stat-learning-center)

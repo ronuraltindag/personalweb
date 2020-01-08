@@ -7,19 +7,15 @@ draft: false
 ---
 
 
-Last update: **Dec 7, 2019** <br>
-
-
-
-
+Last update: **Jan 8, 2020** <br>
 
 
 #### **Peer-Reviewed Publications** 
 &dagger;: equal co-authorship <br>
 
-[Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](/static/pdfs/published/AK_Oct.pdf) <br> 
-Altindag, O., Kaushal, N. <br>
-**Public Choice**, forthcoming.  <br> 
+[Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](https://link.springer.com/article/10.1007%2Fs11127-019-00768-3) <br> 
+Altindag, O., Kaushal, N., 2020. <br>
+**Public Choice**, in print.  <br> 
 
 
 [Can Nonexperimental Methods Provide Unbiased Estimates of a Breastfeeding
