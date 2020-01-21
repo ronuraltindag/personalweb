@@ -1,0 +1,36 @@
+ \documentclass[12 pt]{article}
+
+
+
+
+
+\usepackage{mathptmx}
+\usepackage{tabularx, booktabs}
+\usepackage{array,multirow,graphicx}
+\usepackage{threeparttable}
+\usepackage{changepage}
+\usepackage[margin=0.70in,showframe=false]{geometry}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{fancyheadings}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=black,
+}
+ 
+\urlstyle{same}
+
+\pagestyle{fancy}
+\rhead{\footnotesize{Last update: \today}}
+
+
+\makeatletter
+\setlength{\@fptop}{30pt}
+\makeatother

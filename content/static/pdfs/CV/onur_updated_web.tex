@@ -8,20 +8,34 @@
 %\usepackage{roboto-mono}
 %\usepackage[sfdefault]{roboto}
 %\usepackage{lato}
-\usepackage{mathptmx}
+
 %\renewcommand{\familydefault}{\sfdefault}
 \usepackage{tabularx, booktabs}
 \usepackage{array,multirow,graphicx}
 %\newcolumntype{Y}{>{\centering\arraybackslash}X}
 \usepackage{threeparttable}
 \usepackage{changepage}
-\usepackage[margin=0.70in,showframe=false]{geometry}
-\usepackage{rotating}
-\usepackage{pdflscape}
-\usepackage{amsmath}
+%\usepackage[margin=0.70in,showframe=false]{geometry}
+%\usepackage{rotating}
+%\usepackage{pdflscape}
+%\usepackage{amsmath}
 \usepackage{url}
 \usepackage{longtable}
-\usepackage{fancyheadings}
+\usepackage{fancyhdr}
+\usepackage{mathptmx}
+
+\usepackage
+[
+        a4paper,% other options: a3paper, a5paper, etc
+        left=2cm,
+        right=2cm,
+        top=2cm,
+        bottom=2cm,
+        %vmargin=2cm to make vertical margins equal to 2cm.
+        %hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+]
+{geometry}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -35,11 +49,7 @@
 
 \pagestyle{fancy}
 \rhead{\footnotesize{Last update: \today}}
-%\lhead{Onur Alt{\i}nda\u{g}}
 
-\makeatletter
-\setlength{\@fptop}{30pt}
-\makeatother
 
 
 
@@ -57,8 +67,7 @@
 \multicolumn{5}{l}{\Large{\textbf{Onur Alt{\i}nda\u{g}}}}     \\
 
 
-\multicolumn{5}{l}{Assistant Professor of Economics}    \\
-\multicolumn{5}{l}{Bentley University}    \\
+\multicolumn{5}{l}{Assistant Professor of Economics, Bentley University}    \\
 \multicolumn{5}{l}{Turkish citizen, U.S. permanent resident}    \\
 
 \\
@@ -116,8 +125,8 @@
 
  \\ 
 
-  \multicolumn{5}{l}{Affordable Care Act Medicaid expansion and subjective well-being, US adult population, } \\
-    \multicolumn{5}{l}{2010 to 2016.$^{\dagger}$} \\
+  \multicolumn{5}{l}{Effects of the Affordable Care Act Medicaid Expansion on Subjective Well-Being in the US} \\
+    \multicolumn{5}{l}{Adult Population, 2010–2016.$^{\dagger}$} \\
    \multicolumn{5}{l}{\textbf{American Journal of Public Health}, 109, 1236-1271.} \\
    \multicolumn{5}{l}{Kobayashi, L., Altindag, O., Truskinovsky, Y., Berkman, L., 2019.}  \\
 
@@ -128,13 +137,11 @@
     \multicolumn{5}{l}{Altindag, O., Joyce, T., 2017.}  \\
  
 \\
-\\
    \multicolumn{5}{l}{On Measuring and Reducing Selection Bias With a Quasi-Doubly Randomized} \\
       \multicolumn{5}{l}{Preference Trial.} \\
      \multicolumn{5}{l}{\textbf{Journal of Policy Analysis and Management} 36, 438-459. } \\
       \multicolumn{5}{l}{Joyce, T., Remler, D.K., Jaeger, D.A., Altindag, O., O'Connell, S.D., Crockett, S., 2017. } \\
 
- \\
 
    \multicolumn{5}{l}{Son Preference, Fertility Decline, and the Nonmissing Girls of Turkey.} \\
      \multicolumn{5}{l}{\textbf{Demography}  53, 541-566. } \\
@@ -145,9 +152,7 @@
      \multicolumn{5}{l}{\textbf{Economics of Education Review} 46, 64-77. } \\
       \multicolumn{5}{l}{Joyce, T., Crockett, S., Jaeger, D.A., Altindag, O., O'Connell, S.D., 2015.} \\
 
- \\
-
-   \multicolumn{5}{l}{Telephone Peer Counseling of Breastfeeding Among WIC Participants: A Randomized} \\
+\\ \multicolumn{5}{l}{Telephone Peer Counseling of Breastfeeding Among WIC Participants: A Randomized} \\
       \multicolumn{5}{l}{ Controlled Trial.} \\
      \multicolumn{5}{l}{\textbf{Pediatrics} 134, e700-e709. } \\
       \multicolumn{5}{l}{Reeder, J.A., Joyce, T., Sibley, K., Arnold, D., Altindag, O., 2014. } \\
@@ -158,7 +163,13 @@
 
 \multicolumn{5}{l}{\textbf{WORKING PAPERS}}\\[2 pt]
 
- \multicolumn{5}{l}{Targeting humanitarian aid using administrative data: model design and validation.} \\ 
+ \multicolumn{5}{l}{The impact of humanitarian assistance on the economic well-being of conflict-driven refugees.$^{\dagger}$} \\
+ \multicolumn{5}{l}{Altindag, O., O'Connell Stephen S.D., 2020.}  \\
+  \multicolumn{5}{l}{(Pre-registered, ongoing analysis)}  \\
+
+  \\
+
+\multicolumn{5}{l}{Targeting humanitarian aid using administrative data: model design and validation.} \\ 
   \multicolumn{5}{l}{Altindag, O., O'Connell Stephen S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2019.} \\
 \multicolumn{5}{l}{(submitted)} \\ 
  
@@ -167,10 +178,6 @@
 
   \multicolumn{5}{l}{Altindag, O., Bakis, O., Rozo, S., 2018. (submitted)} \\
   
-
-
-
-
 \\
 
 
@@ -185,31 +192,32 @@
 
 
   \multicolumn{5}{l}{\textbf{GRANTS}}\\[2 pt]
- \multicolumn{4}{l}{2019 - 2020} \\  
-  \multicolumn{4}{l}{Bentley University, BRC Grant.} \\
-\multicolumn{4}{l}{Award amount: \$7,000, Role: PI}  \\
+ \multicolumn{5}{l}{2019 - 2020} \\  
+  \multicolumn{5}{l}{Bentley University, BRC Grant.} \\
+\multicolumn{5}{l}{Award amount: \$7,000, Role: PI}  \\
 \\  
- \multicolumn{4}{l}{2018 - 2022} \\
- \multicolumn{4}{l}{Novo Nordisk Foundation}  \\
-\multicolumn{4}{l}{The Socioeconomic Impact of Research-based Innovations and Long-term Consequences of}  \\
-  \multicolumn{4}{l}{Population-based Childhood Vaccine Programs.} \\
-  \multicolumn{4}{l}{with Torben Tran{\ae}s, Jane Greve, and Erdal Tekin}  \\
-  \multicolumn{4}{l}{Award amount: \$1,543,500, Role: Co-PI  }  \\
+ \multicolumn{5}{l}{2018 - 2022} \\
+ \multicolumn{5}{l}{Novo Nordisk Foundation}  \\
+\multicolumn{5}{l}{The Socioeconomic Impact of Research-based Innovations and Long-term Consequences of}  \\
+  \multicolumn{5}{l}{Population-based Childhood Vaccine Programs.} \\
+  \multicolumn{5}{l}{with Torben Tran{\ae}s, Jane Greve, and Erdal Tekin}  \\
+  \multicolumn{5}{l}{Award amount: \$1,543,500, Role: Co-PI  }  \\
   \\
- \multicolumn{4}{l}{2018 - 2019} \\
- \multicolumn{4}{l}{Bentley University, FAC Grant.} \\
-\multicolumn{4}{l}{Award amount: \$2,500, Role: PI}  \\
+  \\
 
- \multicolumn{4}{l}{Bentley University, TLN Research Seed Fund.} \\
-\multicolumn{4}{l}{Award amount: \$1,500, Role: PI}  \\
+ \multicolumn{5}{l}{2018 - 2019} \\
+ \multicolumn{5}{l}{Bentley University, FAC Grant.} \\
+\multicolumn{5}{l}{Award amount: \$2,500, Role: PI}  \\
 
+ \multicolumn{5}{l}{Bentley University, TLN Research Seed Fund.} \\
+\multicolumn{5}{l}{Award amount: \$1,500, Role: PI} \\
 
+\\
+\\
+\\
+\multicolumn{5}{l}{\textbf{PRESENTATIONS and SEMINARS}} \\[2 pt]
 
- 
-
-\multicolumn{5}{l}{\textbf{PRESENTATIONS and SEMINARS}}\\[2 pt]
- 
-\multicolumn{5}{l}{2020 (scheduled)}\\
+\multicolumn{5}{l}{2020 (including scheduled)} \\
 \multicolumn{5}{l}{Population Association of America, (PAA 2020).} \\ 
 \multicolumn{5}{l}{Economics Department Seminar, Emory University.} \\ 
 \multicolumn{5}{l}{Conference on Forced Displacement, Joint Data Center on Forced Displacement in Copenhagen.}\\
@@ -256,7 +264,7 @@
 
 
 \\
-
+\\
 
 
  \multicolumn{5}{l}{\textbf{FELLOWSHIPS}}\\[2 pt] 
@@ -264,12 +272,14 @@
  \multicolumn{4}{l}{David E. Bell Postdoctoral Fellowship} \\
 \multicolumn{4}{l}{T.H. Chan School of Public Health, Harvard University.}   \\
 \\
-\\
-\\
+
+
  \multicolumn{4}{l}{2014 - 2016} \\
  \multicolumn{4}{l}{Information Technology Fellowship} \\
 \multicolumn{4}{l}{Zicklin's Online Learning and Evaluation Initiative, Baruch College, CUNY.}   \\
+
 \\
+
  \multicolumn{4}{l}{2010 - 2014} \\
  \multicolumn{4}{l}{Enhanced Chancellor's Fellowship}  \\
 \multicolumn{4}{l}{The Graduate Center, CUNY.}   \\

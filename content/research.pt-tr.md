@@ -25,7 +25,7 @@ Altindag, O., Joyce, T., and Reeder, J. A., 2019. <br>
 
 
 
-[Affordable Care Act Medicaid expansion and subjective well-being, US adult population, 2010 to 2016.<sup>&dagger;</sup>](/static/pdfs/published/ajph2019effects.pdf) <br>
+[Effects of the Affordable Care Act Medicaid Expansion on Subjective Well-Being in the US Adult Population, 2010–2016.<sup>&dagger;</sup>](/static/pdfs/published/ajph2019effects.pdf) <br>
 **American Journal of Public Health**, 109, 1236-1242. <br>
 Kobayashi, L., Altindag, O., Truskinovsky, Y., Berkman, L., 2019. <br>
 
@@ -66,6 +66,12 @@ Joyce, T., Crockett, S., Jaeger, D.A., Altindag, O., O’Connell, S.D., 2015. <b
 
 
 #### **Working Papers**
+
+
+The impact of humanitarian assistance on the economic well-being of conflict-driven refugees.<sup>&dagger;</sup>  <br>
+Altindag, O., O’Connell Stephen S.D., 2020. <br>
+(Pre-registered, ongoing analysis)
+
 
 [Targeting humanitarian aid using administrative data: model design and validation.](/static/pdfs/wp/Leb_Aug2019.pdf) <br> 
 Altindag, O., O'Connell Stephen S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2019.  <br>
