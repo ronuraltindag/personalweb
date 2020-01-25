@@ -1,26 +1,39 @@
 
 %\PassOptionsToPackage{showframe}{geometry}
-\usepackage{mathptmx}
-\usepackage{titlesec}
 
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=black,
-}
+\usepackage{mathptmx}
+\usepackage{setspace}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+
+ \singlespacing
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\footnotesize{Last update: \today}}
+\rfoot{Page \thepage}
+
+%\usepackage{titlesec}
+
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true,
+%    linkcolor=blue,
+%    filecolor=magenta,      
+%    urlcolor=black,
+%}
  
-\urlstyle{same}
+%\urlstyle{same}
 
 \rhead{\footnotesize{Last update: \today}}
 
 
-\makeatletter
-\setlength{\@fptop}{30pt}
-\makeatother
+%\makeatletter
+%\setlength{\@fptop}{30pt}
+%\makeatother
 
 
 
-\titleformat{\section}
-  {\normalfont\Large\bfseries}{\thesection}{3em}{}
+%\titleformat{\section}
+%  {\normalfont\Large\bfseries}{\thesection}{3em}{}

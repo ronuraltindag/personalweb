@@ -13,15 +13,16 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Onur Altındağ
+# ONUR ALTINDAĞ
 
 Assistant Professor of Economics, Bentley University.    
 Turkish citizen, U.S. permanent resident.   
 
 ## CONTACT INFORMATION 
-AAC 181, 175 Forest St, Waltham, MA 02452.
-oaltindag@bentley.edu
 
+AAC 181, 175 Forest St, Waltham, MA 02452.   
+oaltindag@bentley.edu              
+http://onuraltindag.info
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
