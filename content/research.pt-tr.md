@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: **Jan 8, 2020** <br>
+Last update: **Feb 2, 2020** <br>
 
 
 #### **Peer-Reviewed Publications** 
@@ -69,12 +69,12 @@ Joyce, T., Crockett, S., Jaeger, D.A., Altindag, O., O’Connell, S.D., 2015. <b
 
 
 The impact of humanitarian assistance on the economic well-being of conflict-driven refugees.<sup>&dagger;</sup>  <br>
-Altindag, O., O’Connell Stephen S.D., 2020. <br>
+Altindag, O., O’Connell S.D., 2020. <br>
 (Pre-registered, ongoing analysis)
 
 
-[Targeting humanitarian aid using administrative data: model design and validation.](/static/pdfs/wp/Leb_Aug2019.pdf) <br> 
-Altindag, O., O'Connell Stephen S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2019.  <br>
+[Targeting humanitarian aid using administrative data: model design and validation.](/static/pdfs/wp/TargetLeb_Jan2020.pdf) <br> 
+Altindag, O., O'Connell S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2019.  <br>
 (submitted) <br>
 
 
