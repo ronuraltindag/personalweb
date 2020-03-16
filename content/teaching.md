@@ -12,7 +12,7 @@ draft: false
 
 * [Homework assignments and lecture notes](https://ronuraltindag.github.io/metrics/)
 * [E-book: Introduction to Econometrics with R](https://www.econometrics-with-r.org/)
-* [Schedule an appointment - max 30 min](https://calendly.com/oaltindag/sample-30min)
+* [Schedule an appointment - max 30 min](https://calendly.com/ronuraltindag/)
 * [Eco-Fi-Stat Learning Center](http://www.bentley.edu/academics/departments/economics/eco-fi-stat-learning-center)
 * [Hand-written lecture notes](/static/pdfs/teaching/EC282/EC 282 SPRING 2020.pdf)
 
@@ -20,5 +20,5 @@ draft: false
 
 * [E-book and homework assignments](https://www.cengage.com/dashboard/#/course-confirmation/MTPNZT3NM92Z/initial-course-confirmation) 
 * [Hand-written lecture notes](/static/pdfs/teaching/EC224/EC 224 SPRING 2020.pdf)
-* [Schedule an appointment - max 30 min](https://calendly.com/oaltindag/sample-30min)
+* [Schedule an appointment - max 30 min](https://calendly.com/ronuraltindag/)
 * [Eco-Fi-Stat Learning Center](https://www.bentley.edu/offices/academic-services/eco-fi-stat-learning-center)
