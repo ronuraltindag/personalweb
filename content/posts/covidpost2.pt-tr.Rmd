@@ -1,0 +1,181 @@
+---
+title: "Koronavirüs kişi başına düşen hasta ve ölüm sayıları"
+author: "Onur Altindag"
+date: "2020-03-29"
+output: md_document
+---
+
+```{r setup, include=FALSE}
+need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 
+          'tidyr','zoo','ggrepel','ggthemes','gganimate', 'magick')
+
+have <- need %in% rownames(installed.packages()) 
+if(any(!have)) install.packages(need[!have]) 
+invisible(lapply(need, library, character.only=T)) 
+```
+
+## Türkiye Koronavirüs (COVID-19) Salgını: kişi başına düşen hasta ve ölüm sayılarını 
+
+Bu grafik logaritmik ölçek kullanmadan kişi başına düşen teyit edilmiş hasta ve ölüm rakamlarının 5 ülke (İtalya, İspanya, Fransa, Güney Kore ve Türkiye) için karşılaştırıyor. Yatay eksen ilk gözlenen COVID-19 ölümü sonrasında geçen gün sayısını, dikey eksen ise 1 milyon kişi başına düşen hasta ve ölüm sayılarını   toplam ölüm sayısını gösteriyor. ikinci grafik ise benzer bir şekilde şimdiye kadar en az 10 kişinin yaşamını yitirdiği ülkeleri karşılaştırıyor. Türkiye'yi kırmızı ile belirttim.  Grafik ile ilgili veriye ve programa [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.      
+
+
+
+```{r read.df, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results = 'hide'}
+
+#these libraries need to be loaded
+
+
+#download the dataset from the ECDC website to a local temporary file
+GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate(":", ":", type="ntlm"), write_disk(tf <- tempfile(fileext = ".csv")))
+
+#read the Dataset sheet into “R”. The dataset will be called "data".
+df1<- read.csv(tf)
+
+
+
+df2 <- df1 %>%
+  mutate(cal.date = as.Date(paste(year,month,day,sep="-"))) %>%
+  filter(countriesAndTerritories=='Turkey' | 
+         countriesAndTerritories=='Italy'  | 
+         countriesAndTerritories=='Spain'  |
+         countriesAndTerritories=='France'  |
+         countriesAndTerritories=='South_Korea') %>%
+  arrange(countriesAndTerritories, cal.date) %>%
+  group_by(countriesAndTerritories) %>%
+  mutate(cdeaths = cumsum(deaths), days.since = rank(cal.date, ties.method = "first")) %>%
+  mutate(ccases = cumsum(cases), days.since = rank(cal.date, ties.method = "first")) %>%
+  filter(cdeaths>0) %>%
+  mutate(days.since = rank(cal.date, ties.method = "first")) 
+
+df2$country <- 'italya'
+df2$country[df2$countryterritoryCode=='KOR'] <- 'güney kore'
+df2$country[df2$countryterritoryCode=='ESP'] <- 'ispanya'
+df2$country[df2$countryterritoryCode=='TUR'] <- 'türkiye'
+df2$country[df2$countryterritoryCode=='FRA'] <- 'fransa'
+
+
+df2a <- df2[,c(2,3,4,6,7,9,10:13,15)] %>%
+  mutate(cat='1 milyon kişi başına düşen ölüm') %>%
+  rename(val = deaths) %>%
+  rename(cval = cdeaths)
+
+levels(df2a$cat) <- '1 milyon kişi başına düşen ölüm' 
+
+
+
+df2b <-  df2[,c(2,3,4,5,7,9,10,11,13:15)] %>%
+  mutate(cat='1 milyon kişi başına düşen hasta') %>%
+  rename(val = cases) %>%
+  rename(cval = ccases)
+
+levels(df2a$cat) <- '1 milyon kişi başına düşen hasta' 
+
+max.n <- max(df2$days.since)
+
+sc1 <- c(1,2,5,10,20,50,100,200,400,800,1500,3000,6000,10000)
+sc2 <- c(1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192)
+
+
+
+  
+
+
+df4 <- df1 %>%
+  mutate(cal.date = as.Date(paste(year,month,day,sep="-"))) %>%
+  arrange(countriesAndTerritories, cal.date) %>%
+  group_by(countriesAndTerritories) %>%
+  mutate(cdeaths = cumsum(deaths), days.since = rank(cal.date, ties.method = "first")) %>%
+  mutate(ccases = cumsum(cases), days.since = rank(cal.date, ties.method = "first")) %>%
+  filter(cdeaths>10) %>%
+  mutate(days.since = rank(cal.date, ties.method = "first")) 
+
+df4$lab <- as.character(df4$countriesAndTerritories)
+df4$lab[df4$countryterritoryCode=='USA'] <- 'USA'
+df4$lab[df4$countryterritoryCode=='GBR'] <- 'UK'
+df4$lab[df4$countryterritoryCode=='KOR'] <- 'South Korea'
+df4$lab[df4$cdeaths/df4$popData2018*1000000 <30 & df4$ccases/df4$popData2018*1000000 <500 ] <- ''
+df4$lab[df4$countryterritoryCode=='TUR'] <- 'Turkey'
+
+df4$col <- 'no'
+df4$col[df4$countryterritoryCode=='TUR'] <- 'yes'
+
+max.n2 <- max(df4$days.since)
+
+df4a <- df4[,c(2,3,4,6,7,9,10:13,15,16)] %>%
+  mutate(cat='deaths per million') %>%
+  rename(val = deaths) %>%
+  rename(cval = cdeaths) %>%
+  filter(cval/popData2018*1000000<200)
+
+
+
+df4b <-  df4[,c(2,3,4,5,7,9,10,11,13:16)] %>%
+  mutate(cat='cases per million') %>%
+  rename(val = cases) %>%
+  rename(cval = ccases) %>%
+  filter(cval/popData2018*1000000<2000)
+
+
+```
+
+```{r g1, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+
+
+
+
+
+
+g1 <- rbind(df2a,df2b) %>% 
+  ggplot(aes(x=days.since, y=cval/popData2018*1000000, group=country)) + 
+  geom_line() + 
+  geom_segment(aes(xend = max.n-4, yend = cval/popData2018*1000000), linetype = 2, colour = 'grey') + 
+  geom_point(size = 2) + 
+  geom_text(aes(x = max.n-3, label = country), hjust = 0) + 
+  theme(axis.title = element_text()) + 
+  #scale_y_continuous(breaks=c(log(sc1)), labels=sc1) +
+  transition_reveal(days.since) + 
+  coord_cartesian(clip = 'off') +
+  labs(title= 'Koronavirüs (COVID-19)', 
+       subtitle = 'ilk ölümden bu yana geçen süre : {frame_along} gün', x='',y='') +
+  theme_fivethirtyeight() + 
+  facet_wrap(~cat, scales = "free") 
+
+
+
+
+animate(g1,fps=5,height = 600, width =900)
+
+
+
+
+g2 <- rbind(df4a,df4b) %>% 
+  ggplot(aes(x=days.since, y=cval/popData2018*1000000, group=countryterritoryCode)) + 
+  geom_line(aes(colour=col)) + 
+  geom_segment(aes(xend = max.n2-8, yend = cval/popData2018*1000000), linetype = 2, colour = 'grey') + 
+  geom_point(aes(colour=col),size = 2) + 
+  geom_text(aes(x = max.n2-8.1, label = lab), hjust = 0) + 
+  theme(axis.title = element_text()) + 
+  #scale_y_continuous(breaks=c(log(sc1)), labels=sc1) +
+  scale_colour_manual(values=c('black','red'), guide = FALSE) +
+  transition_reveal(days.since) + 
+  coord_cartesian(clip = 'off') +
+  labs(title ='COVID-19',  
+    subtitle = 'number of days since 10th death:{frame_along}', x='',y=' ') +
+  theme_fivethirtyeight() +
+  facet_wrap(~cat, scales = "free") 
+
+animate(g2,fps=5, height = 600, width =900)
+
+
+
+
+
+  
+
+
+
+```
+
+
+
