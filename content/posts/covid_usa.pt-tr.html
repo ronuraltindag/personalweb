@@ -1,0 +1,35 @@
+---
+title: "U.S. COVID-19 county level spread"
+author: "Onur Altindag"
+date: "2020-03-31"
+output: md_document
+---
+
+
+
+<p>Here is a polar-coordinated animation to follow day-to-day spread of COVID-19 across the U.S. counties. Each point is a county and colors indicate the state of the county. Data is provided <a href="https://github.com/nytimes/covid-19-data">here</a> by New York Times in an ongoing repository on a daily basis.</p>
+<pre class="r"><code>urlfile=&quot;https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv&quot;
+df1 &lt;- read_csv(url(urlfile))
+
+g1 &lt;- df1 %&gt;%
+  mutate(cal.date = as.Date(date,&quot;%d%B%Y&quot;)) %&gt;%
+  arrange(state,county, cal.date) %&gt;%
+  group_by(state,county) %&gt;%
+  mutate(c.cases=cumsum(cases)) %&gt;%
+  ggplot(aes(y=cases,x=state, colour=state)) + 
+  geom_point(alpha=0.9, size=1.5) + 
+  scale_colour_hue(na.value = &quot;black&quot;) + 
+  coord_polar() + 
+  scale_y_log10() +
+  theme_fivethirtyeight() +
+  theme(legend.position=&quot;none&quot;) + 
+  theme(axis.text.x = element_text(
+  angle= -90 - 360 / length(unique(df1$state)) * seq_along(df1$state)))  +
+  labs(title = &#39;New COVID cases by county \n {frame_time}&#39;, x = &#39; &#39;, y = &#39;&#39;) +
+  theme(legend.position = &#39;none&#39;) +
+  transition_time(cal.date) +
+  ease_aes(&#39;linear&#39;) 
+
+
+animate(g1,fps=3,height = 700, width =700)</code></pre>
+<p><img src="/posts/covid_usa.pt-tr_files/figure-html/read.df-1.gif" /><!-- --></p>
