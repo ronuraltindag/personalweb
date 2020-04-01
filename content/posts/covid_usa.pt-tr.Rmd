@@ -42,6 +42,6 @@ g1 <- df1 %>%
   ease_aes('linear') 
 
 
-animate(g1,fps=3,height = 700, width =700)
+animate(g1, height = 700, width =700)
 
 ```
