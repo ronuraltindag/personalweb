@@ -7,7 +7,7 @@ output: md_document
 
 ```{r setup, include=FALSE}
 need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 
-          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate')
+          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','ftplottools')
 
 have <- need %in% rownames(installed.packages()) 
 if(any(!have)) install.packages(need[!have]) 
@@ -38,7 +38,10 @@ df2 <- df1 %>%
   filter(countriesAndTerritories=='Turkey' | 
          countriesAndTerritories=='Italy'  | 
          countriesAndTerritories=='Spain'  |
-         countriesAndTerritories=='South_Korea') %>%
+         countriesAndTerritories=='South_Korea' | 
+         countryterritoryCode=='USA' | 
+         countryterritoryCode=='GBR' | 
+         countryterritoryCode=='DEU'   ) %>%
   arrange(countriesAndTerritories, cal.date) %>%
   group_by(countriesAndTerritories) %>%
   mutate(cdeaths = cumsum(deaths), days.since = rank(cal.date, ties.method = "first")) %>%
@@ -72,6 +75,8 @@ df4$lab <- as.character(df4$countriesAndTerritories)
 df4$lab[df4$countryterritoryCode=='USA'] <- 'USA'
 df4$lab[df4$countryterritoryCode=='GBR'] <- 'UK'
 df4$lab[df4$countryterritoryCode=='KOR'] <- 'South Korea'
+
+
 df4$lab[df4$max.death<150] <- ''
 df4$lab[df4$countryterritoryCode=='TUR'] <- 'Turkey'
 
@@ -90,10 +95,13 @@ max.n2 <- max(df4$days.since)
 
 
 
-sc1 <- c(1,2,5,10,20,50,100,200,400,800,1500,3000,6000,10000)
+sc1 <- c(1,2,5,10,20,50,100,200,400,800,1500,3000,6000,10000,15000)
 sc2 <- c(1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192)
 
 
+#stat_smooth(aes(y = y1),method = "lm", formula = y ~ x + I(x^2), size = 1)
+
+pal <- c('#fdbf6f','#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c')
 
 
 
@@ -101,24 +109,36 @@ df2$country <- 'italya'
 df2$country[df2$countryterritoryCode=='KOR'] <- 'güney kore'
 df2$country[df2$countryterritoryCode=='ESP'] <- 'ispanya'
 df2$country[df2$countryterritoryCode=='TUR'] <- 'türkiye'
+df2$country[df2$countryterritoryCode=='USA'] <- 'ABD'
+df2$country[df2$countryterritoryCode=='GBR'] <- 'ingiltere'
+df2$country[df2$countryterritoryCode=='DEU'] <- 'almanya'
+
+df.fit <- df2 %>%
+  filter((countryterritoryCode)=="TUR" & cdeaths>20) %>%
+  mutate(trend=days.since-3)
+
+mo1 <-lm(data=df.fit, formula=log(cdeaths)~days.since)
+
+
 
 g2 <- df2 %>% 
   ggplot(aes(x=days.since, y=log(cdeaths), group=country)) + 
-  geom_line(aes(colour=country), size=1) + 
+  geom_abline(intercept = mo1$coefficients[1], slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
+  geom_line(aes(colour=country), size=0.9, alpha=0.9) + 
   geom_segment(aes(xend = max.n-4, yend = log(cdeaths)), linetype = 2, colour = 'grey') + 
   geom_point(size = 3,aes(colour=country)) + 
   geom_text(aes(x = max.n-3, label = country), hjust = 0) + 
   theme(axis.title = element_text()) + 
-  scale_colour_brewer(palette = "Dark2",guide = FALSE) + 
+  scale_colour_manual(values = pal ,guide = FALSE) + 
   scale_y_continuous(breaks=c(log(sc1)), labels=sc1) +
   transition_reveal(days.since) + 
   coord_cartesian(clip = 'off') +
   labs(title= 'Koronavirüs (COVID-19) sebepli toplam can kaybı', 
-       subtitle = 'ilk ölümden bu yana geçen süre : {frame_along} gün', x='',y='') +
-  theme_fivethirtyeight()
+  subtitle = 'ilk ölümden bu yana geçen süre : {frame_along} gün', x='',y='') +
+  theme_fivethirtyeight() 
 
 
-animate(g2,fps=5,height = 500, width =700)
+animate(g2,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 
 
 
