@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: **Feb 2, 2020** <br> 
+Last update: **April 3th, 2020** <br> 
 ### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/onur_updated_web.pdf)  
 
 ### **Onur Altındağ** <br> 

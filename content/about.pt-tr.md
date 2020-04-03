@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: **Feb 2, 2020** <br> 
+Last update: **April 3th, 2020** <br> 
 ### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/onur_updated_web.pdf)  
 
 ### **Onur Altındağ** <br> 
@@ -69,6 +69,7 @@ Role: PI <br>
 
 ### **PRESENTATIONS and SEMINARS**
 2020 - scheduled <br> 
+Remote seminar in Economics, Boğaziçi University, TOBB, Hacettepe University. <br>
 Population Association of America, (PAA 2020). <br> 
 Economics Department Seminar, Emory University. <br> 
 Conference on Forced Displacement, Joint Data Center on Forced Displacement in Copenhagen. <br> 
@@ -84,7 +85,7 @@ IZA Annual Migration Meeting, UCD Geary Institute for Public Policy. <br>
 2018 <br>
 Research Initiative on the Economics of the Middle East (RIEME 2018), Paris 1-Sorbonne University. <br>
 Conference on the Impacts of Refugees in Hosting Economies,  USC Marshall School of Business. <br>
-Social Policy and Development Seminars, Bogazici University. <br>
+Social Policy and Development Seminars, Boğaziçi  University. <br>
 Seminar, The Rockwool Foundation. <br>
 Seminar, VIVE - The Danish Center for Social Science Research. <br>
 Midwest Economics Association, SOLE special session. <br>
@@ -97,7 +98,7 @@ Friday Lunch Seminar, Harvard Center for Population and Development Studies. <br
 Economic Department Seminar, Bentley University. <br>
 Eastern Economic Association (EEA 2017) <br>
 Population Association of America (PAA 2017) <br>
-Economics Department Seminar, Koc University <br>
+Economics Department Seminar, Koç University <br>
 International Health Economics Association (iHEA 2017) <br>
 
 
@@ -105,9 +106,9 @@ International Health Economics Association (iHEA 2017) <br>
 2016 <br>
 
 Conference on Human Capital, Galatasaray University. <br>
-Economics Department Seminar, Bogazici University. <br>
-Economics Department Seminar, Sabanci University. <br>
-Economics Department Seminar, Koc University.  <br>
+Economics Department Seminar, Boğaziçi  University. <br>
+Economics Department Seminar, Sabancı University. <br>
+Economics Department Seminar, Koç University.  <br>
 Economics Department Seminar, Bilgi University. <br>
 Economics Department Seminar, TOBB University.  <br>
 Economics Department Seminar, Auckland University of Technology. <br>
