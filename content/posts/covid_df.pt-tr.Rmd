@@ -1,12 +1,12 @@
 ---
 title: "Koronavirüs (COVID-19)"
 author: "Onur Altindag"
-date: "2020-04-01"
+date: "2020-04-03"
 output: md_document
 ---
 
 ```{r setup, include=FALSE}
-need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 
+need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 'viridis', 'ggsci',
           'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','ftplottools')
 
 have <- need %in% rownames(installed.packages()) 
@@ -16,7 +16,7 @@ invisible(lapply(need, library, character.only=T))
 
 ## Türkiye Koronavirüs (COVID-19) Salgını: Karşılaştırmalı bir perspektif
 
-### Son Güncelleme: 1 Nisan 2020 
+### Son Güncelleme: 3 Nisan 2020 
 
 Neredeyse tüm dünyayı bir karantina alanına çeviren COVID-19 ile ilgili gelişmeleri Türkiye özelinde  karşılaştırmalı olarak takip edebilmek için aşağıdaki grafiği oluşturup vakit buldukça güncellemeye karar verdim. Bu grafikte Türkiye'de gözlemlenen ve Sağlık Bakanlığı tarafından temin edilen COVID-19 bağlantılı ölüm sayısını İtalya, İspanya ve Güney Kore ile karşılaştırıyorum.  Yatay eksen ilk gözlenen COVID-19 ölümü sonrasında geçen gün sayısını, dikey eksen ise logaritmik ölçekte toplam ölüm sayısını gösteriyor. Grafik ile ilgili veriye ve programa [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.      
 
@@ -33,7 +33,18 @@ GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate
 #read the Dataset sheet into “R”. The dataset will be called "data".
 df1<- read.csv(tf)
 
-df2 <- df1 %>%
+new.date <- "04/04/2020"
+new.cases <- 2786 
+new.deaths <- 69
+
+
+tr.update <- df1 %>%
+  filter(countryterritoryCode=="TUR") %>%
+  filter(row_number()==1) %>%
+  mutate(dateRep=new.date, cases=new.cases, deaths=new.deaths) 
+  
+
+df2 <- rbind(df1,tr.update) %>%
   mutate(cal.date = as.Date(paste(year,month,day,sep="-"))) %>%
   filter(countriesAndTerritories=='Turkey' | 
          countriesAndTerritories=='Italy'  | 
@@ -101,17 +112,16 @@ sc2 <- c(1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192)
 
 #stat_smooth(aes(y = y1),method = "lm", formula = y ~ x + I(x^2), size = 1)
 
-pal <- c('#fdbf6f','#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c')
-
-
 
 df2$country <- 'italya'
 df2$country[df2$countryterritoryCode=='KOR'] <- 'güney kore'
 df2$country[df2$countryterritoryCode=='ESP'] <- 'ispanya'
 df2$country[df2$countryterritoryCode=='TUR'] <- 'türkiye'
-df2$country[df2$countryterritoryCode=='USA'] <- 'ABD'
+df2$country[df2$countryterritoryCode=='USA'] <- 'abd'
 df2$country[df2$countryterritoryCode=='GBR'] <- 'ingiltere'
 df2$country[df2$countryterritoryCode=='DEU'] <- 'almanya'
+
+pal <- c('#377eb8','#4daf4a','#984ea3','#ff7f00','#a65628','#f781bf','#e41a1c')
 
 df.fit <- df2 %>%
   filter((countryterritoryCode)=="TUR" & cdeaths>20) %>%
@@ -124,12 +134,12 @@ mo1 <-lm(data=df.fit, formula=log(cdeaths)~days.since)
 g2 <- df2 %>% 
   ggplot(aes(x=days.since, y=log(cdeaths), group=country)) + 
   geom_abline(intercept = mo1$coefficients[1], slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
-  geom_line(aes(colour=country), size=0.9, alpha=0.9) + 
-  geom_segment(aes(xend = max.n-4, yend = log(cdeaths)), linetype = 2, colour = 'grey') + 
+  geom_line(aes(colour=country), size=1, alpha=1) + 
+  geom_segment(aes(xend = max.n-4, yend = log(cdeaths), colour = country), linetype = 2) + 
   geom_point(size = 3,aes(colour=country)) + 
-  geom_text(aes(x = max.n-3, label = country), hjust = 0) + 
+  geom_text(aes(x = max.n-3, label = country, colour=country), hjust = 0) + 
   theme(axis.title = element_text()) + 
-  scale_colour_manual(values = pal ,guide = FALSE) + 
+  scale_color_manual(values = pal, guide=FALSE) +
   scale_y_continuous(breaks=c(log(sc1)), labels=sc1) +
   transition_reveal(days.since) + 
   coord_cartesian(clip = 'off') +

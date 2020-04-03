@@ -7,11 +7,22 @@ draft: false
 ---
 
 
-Last update: **Feb 2, 2020** <br>
+Last update: **April 3rd, 2020** <br>
 
 
 #### **Peer-Reviewed Publications** 
 &dagger;: equal co-authorship 
+
+[Blessing or Burden? The Impact of Refugees on Businesses and the Informal Economy.<sup>&dagger;</sup> ](/static/pdfs/wp/AOR_May2019.pdf) <br>
+Altindag, O., Bakis, O., Rozo, S.  <br>
+**Journal of Development Economics**, accepted.    <br>
+
+* Included in the 
+  + [Forced Displacement Literature Review.](http://documents.worldbank.org/curated/en/940291575434038147/Forced-Displacement-Literature-Review-2019-2020)
+  + [Labour Economics literature review on forced migration.](https://www.sciencedirect.com/science/article/pii/S0927537119300132?via%3Dihub) 
+  + [Annual Reviews of Resource Economics.](https://www.annualreviews.org/doi/abs/10.1146/annurev-resource-090518-095629)
+
+
 
 [Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](https://link.springer.com/article/10.1007%2Fs11127-019-00768-3) <br>
 Altindag, O., Kaushal, N., 2020. <br>
@@ -62,7 +73,8 @@ Joyce, T., Crockett, S., Jaeger, D.A., Altindag, O., O’Connell, S.D., 2015. <b
 [Telephone Peer Counseling of Breastfeeding Among WIC Participants: A Randomized Controlled Trial.](/static/pdfs/published/pediatrics2014tel.pdf)  <br> **Pediatrics**, 134, e700-e709. <br> Reeder, J.A., Joyce, T., Sibley, K., Arnold, D., Altindag, O., 2014. <br>
 
 * [Online appendix](/static/pdfs/sup/pedsap.pdf) <br> 
-* Included in [Cochrane Review](https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001688.pub3/epdf/full) <br> 
+* Included in the 
+  + [Cochrane Review](https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001688.pub3/epdf/full) <br> 
 
 
 #### **Working Papers**
@@ -78,12 +90,6 @@ Altindag, O., O'Connell S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2
 (submitted) <br>
 
 
-[Blessing or Burden? The Impact of Refugees on Businesses and the Informal Economy.<sup>&dagger;</sup> ](/static/pdfs/wp/AOR_May2019.pdf) <br>
-Altindag, O., Bakis, O., Rozo, S., 2018.  <br>
-(submitted) <br>
-
-* Included in the [Labour Economics literature review on forced migration.](https://www.sciencedirect.com/science/article/pii/S0927537119300132?via%3Dihub) 
-* Included in the [Annual Reviews of Resource Economics.] (https://www.annualreviews.org/doi/abs/10.1146/annurev-resource-090518-095629)
 
 
 
