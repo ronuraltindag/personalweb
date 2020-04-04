@@ -155,7 +155,6 @@ animate(g2,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 
 
 
-
   
 
 
