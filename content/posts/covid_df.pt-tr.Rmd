@@ -1,7 +1,7 @@
 ---
 title: "Koronavirüs (COVID-19)"
 author: "Onur Altindag"
-date: "2020-04-04"
+date: "2020-05-04"
 output: md_document
 ---
 
@@ -16,7 +16,7 @@ invisible(lapply(need, library, character.only=T))
 
 ## Türkiye Koronavirüs (COVID-19) Salgını: Karşılaştırmalı bir perspektif
 
-### Son Güncelleme: 4 Nisan 2020 
+### Son Güncelleme: 5 Nisan 2020 
 
 Neredeyse tüm dünyayı bir karantina alanına çeviren COVID-19 ile ilgili gelişmeleri Türkiye özelinde  karşılaştırmalı olarak takip edebilmek için aşağıdaki grafiği oluşturup vakit buldukça güncellemeye karar verdim. Bu grafikte Türkiye'de gözlemlenen ve Sağlık Bakanlığı tarafından temin edilen COVID-19 bağlantılı ölüm sayısını İtalya, İspanya ve Güney Kore ile karşılaştırıyorum.  Yatay eksen ilk gözlenen COVID-19 ölümü sonrasında geçen gün sayısını, dikey eksen ise logaritmik ölçekte toplam ölüm sayısını gösteriyor. Grafik ile ilgili veriye ve programa [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.      
 
@@ -33,9 +33,9 @@ GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate
 #read the Dataset sheet into “R”. The dataset will be called "data".
 df1<- read.csv(tf)
 
-new.date <- "05/04/2020"
-new.cases <- 3013 
-new.deaths <- 76
+new.date <- "05/05/2020"
+new.cases <- 3135 
+new.deaths <- 73
 
 
 tr.update <- df1 %>%
