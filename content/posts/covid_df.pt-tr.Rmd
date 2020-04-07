@@ -117,7 +117,9 @@ g2 <- df2 %>%
 
 
 animate(g2,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
+```
 
+```{r g2, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 g3 <- df2 %>% 
   ggplot(aes(x=days.since, y=ccases, group=country)) + 
