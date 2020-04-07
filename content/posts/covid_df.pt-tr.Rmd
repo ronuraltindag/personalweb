@@ -1,7 +1,7 @@
 ---
 title: "Koronavirüs (COVID-19)"
 author: "Onur Altindag"
-date: "2020-04-05"
+date: "2020-04-07"
 output: md_document
 ---
 
@@ -16,7 +16,7 @@ invisible(lapply(need, library, character.only=T))
 
 ## Türkiye Koronavirüs (COVID-19) Salgını: Karşılaştırmalı bir perspektif
 
-### Son Güncelleme: 5 Nisan 2020 
+### Son Güncelleme: 7 Nisan 2020 
 
 Neredeyse tüm dünyayı bir karantina alanına çeviren COVID-19 ile ilgili gelişmeleri Türkiye özelinde  karşılaştırmalı olarak takip edebilmek için aşağıdaki grafiği oluşturup vakit buldukça güncellemeye karar verdim. Bu grafikte Türkiye'de gözlemlenen ve Sağlık Bakanlığı tarafından temin edilen COVID-19 bağlantılı ölüm sayısını İtalya, İspanya ve Güney Kore ile karşılaştırıyorum.  Yatay eksen ilk gözlenen COVID-19 ölümü sonrasında geçen gün sayısını, dikey eksen ise logaritmik ölçekte toplam ölüm sayısını gösteriyor. Grafik ile ilgili veriye ve programa [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.      
 
@@ -33,9 +33,9 @@ GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate
 #read the Dataset sheet into “R”. The dataset will be called "data".
 df1<- read.csv(tf)
 
-new.date <- "05/05/2020"
-new.cases <- 3135 
-new.deaths <- 73
+new.date <- "08/04/2020"
+new.cases <- 3892 
+new.deaths <- 76
 
 
 tr.update <- df1 %>%
@@ -55,46 +55,14 @@ df2 <- rbind(df1,tr.update) %>%
          countryterritoryCode=='DEU'   ) %>%
   arrange(countriesAndTerritories, cal.date) %>%
   group_by(countriesAndTerritories) %>%
-  mutate(cdeaths = cumsum(deaths), days.since = rank(cal.date, ties.method = "first")) %>%
+  mutate(ccases=cumsum(cases), cdeaths = cumsum(deaths), days.since = rank(cal.date, ties.method = "first")) %>%
   filter(cdeaths>0) %>%
   mutate(days.since = rank(cal.date, ties.method = "first")) 
 
-anim.s <- function(n){
-  df <- df2 %>%
-    filter(days.since<n) %>%
-    mutate(c.days.since=n)
-  
-return(df)    
-} 
+
 
 max.n <- max(df2$days.since)
-  
-df3 <- do.call(rbind.data.frame,lapply(2:max.n, anim.s)) 
 
-df4 <- df1 %>%
-  mutate(cal.date = as.Date(paste(year,month,day,sep="-"))) %>%
-  arrange(countriesAndTerritories, cal.date) %>%
-  group_by(countriesAndTerritories) %>%
-  mutate(cdeaths = cumsum(deaths), days.since = rank(cal.date, ties.method = "first")) %>%
-  mutate(max.death=max(cdeaths)) %>%
-  filter(cdeaths>10) %>%
-  mutate(days.since = rank(cal.date, ties.method = "first")) 
-
-
-
-df4$lab <- as.character(df4$countriesAndTerritories)
-df4$lab[df4$countryterritoryCode=='USA'] <- 'USA'
-df4$lab[df4$countryterritoryCode=='GBR'] <- 'UK'
-df4$lab[df4$countryterritoryCode=='KOR'] <- 'South Korea'
-
-
-df4$lab[df4$max.death<150] <- ''
-df4$lab[df4$countryterritoryCode=='TUR'] <- 'Turkey'
-
-df4$col <- 'no'
-df4$col[df4$countryterritoryCode=='TUR'] <- 'yes'
-
-max.n2 <- max(df4$days.since)
 
 
 
@@ -106,8 +74,8 @@ max.n2 <- max(df4$days.since)
 
 
 
-sc1 <- c(1,2,5,10,20,50,100,200,400,800,1500,3000,6000,10000,18000)
-sc2 <- c(1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192)
+#sc1 <- c(1,2,5,10,20,50,100,200,400,800,1500,3000,6000,10000,18000)
+
 
 
 #stat_smooth(aes(y = y1),method = "lm", formula = y ~ x + I(x^2), size = 1)
@@ -127,20 +95,20 @@ df.fit <- df2 %>%
   filter((countryterritoryCode)=="TUR" & cdeaths>20) %>%
   mutate(trend=days.since-3)
 
-mo1 <-lm(data=df.fit, formula=log(cdeaths)~days.since)
+mo1 <-lm(data=df.fit, formula=cdeaths~days.since)
 
-
+options(scipen=999)
 
 g2 <- df2 %>% 
-  ggplot(aes(x=days.since, y=log(cdeaths), group=country)) + 
-  geom_abline(intercept = mo1$coefficients[1], slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
+  ggplot(aes(x=days.since, y=cdeaths, group=country)) + 
+  #geom_abline(intercept = log(mo1$coefficients[1]), slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
   geom_line(aes(colour=country), size=1, alpha=1) + 
-  geom_segment(aes(xend = max.n-1, yend = log(cdeaths), colour = country), linetype = 2) + 
+  geom_segment(aes(xend = max.n-1, yend = cdeaths, colour = country), linetype = 2) + 
   geom_point(size = 3,aes(colour=country)) + 
   geom_text(aes(x = max.n-1, label = country, colour=country), hjust = 0) + 
   theme(axis.title = element_text()) + 
   scale_color_manual(values = pal, guide=FALSE) +
-  scale_y_continuous(breaks=c(log(sc1)), labels=sc1) +
+  scale_y_log10() +
   transition_reveal(days.since) + 
   coord_cartesian(clip = 'off') +
   labs(title= 'Koronavirüs (COVID-19) sebepli toplam can kaybı', 
@@ -151,11 +119,27 @@ g2 <- df2 %>%
 animate(g2,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 
 
+g3 <- df2 %>% 
+  ggplot(aes(x=days.since, y=ccases, group=country)) + 
+  #geom_abline(intercept = log(mo1$coefficients[1]), slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
+  geom_line(aes(colour=country), size=1, alpha=1) + 
+  geom_segment(aes(xend = max.n-1, yend = ccases, colour = country), linetype = 2) + 
+  geom_point(size = 3,aes(colour=country)) + 
+  geom_text(aes(x = max.n-1, label = country, colour=country), hjust = 0) + 
+  theme(axis.title = element_text()) + 
+  scale_color_manual(values = pal, guide=FALSE) +
+  scale_y_log10() +
+  transition_reveal(days.since) + 
+  coord_cartesian(clip = 'off') +
+  labs(title= 'Koronavirüs (COVID-19) toplam vaka sayısı ', 
+  subtitle = 'ilk ölümden bu yana geçen süre : {frame_along} gün', x='',y='') +
+  theme_fivethirtyeight() 
+
+
+animate(g3,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 
 
 
-
-  
 
 
 
