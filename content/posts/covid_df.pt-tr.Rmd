@@ -1,13 +1,13 @@
 ---
 title: "Koronavirüs (COVID-19)"
 author: "Onur Altindag"
-date: "2020-04-11"
+date: "2020-04-15"
 output: md_document
 ---
 
 ```{r setup, include=FALSE}
 need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 'viridis', 'ggsci',
-          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','ftplottools')
+          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','ftplottools','lubridate')
 
 have <- need %in% rownames(installed.packages()) 
 if(any(!have)) install.packages(need[!have]) 
@@ -16,7 +16,7 @@ invisible(lapply(need, library, character.only=T))
 
 ## Türkiye Koronavirüs (COVID-19) Salgını: Karşılaştırmalı bir perspektif
 
-### Son Güncelleme: 11 Nisan 2020 
+### Son Güncelleme: 15 Nisan 2020 
 
 Neredeyse tüm dünyayı bir karantina alanına çeviren COVID-19 ile ilgili gelişmeleri Türkiye özelinde  karşılaştırmalı olarak takip edebilmek için aşağıdaki grafiği oluşturup vakit buldukça güncellemeye karar verdim. Bu grafikte Türkiye'de gözlemlenen ve Sağlık Bakanlığı tarafından temin edilen COVID-19 bağlantılı ölüm sayısını İtalya, İspanya ve Güney Kore ile karşılaştırıyorum.  Yatay eksen ilk gözlenen COVID-19 ölümü sonrasında geçen gün sayısını, dikey eksen ise logaritmik ölçekte toplam ölüm sayısını gösteriyor. Grafik ile ilgili veriye ve programa [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.      
 
@@ -33,9 +33,9 @@ GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate
 #read the Dataset sheet into “R”. The dataset will be called "data".
 df1<- read.csv(tf)
 
-new.date <- "12/04/2020"
-new.cases <- 5138 
-new.deaths <- 95
+new.date <- "16/04/2020"
+new.cases <- 4281 
+new.deaths <- 115
 
 
 tr.update <- df1 %>%
@@ -56,6 +56,7 @@ df2 <- rbind(df1,tr.update) %>%
   arrange(countriesAndTerritories, cal.date) %>%
   group_by(countriesAndTerritories) %>%
   mutate(ccases=cumsum(cases), cdeaths = cumsum(deaths), days.since = rank(cal.date, ties.method = "first")) %>%
+  mutate(ratio=cdeaths/ccases) %>%
   filter(cdeaths>0) %>%
   mutate(days.since = rank(cal.date, ties.method = "first")) 
 
@@ -102,7 +103,7 @@ options(scipen=999)
 g2 <- df2 %>% 
   ggplot(aes(x=days.since, y=cdeaths, group=country)) + 
   #geom_abline(intercept = log(mo1$coefficients[1]), slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
-  geom_line(aes(colour=country), size=1, alpha=1) + 
+  geom_path(aes(colour=country), size=1, alpha=1) + 
   geom_segment(aes(xend = max.n-1, yend = cdeaths, colour = country), linetype = 2) + 
   geom_point(size = 3,aes(colour=country)) + 
   geom_text(aes(x = max.n-1, label = country, colour=country), hjust = 0) + 
@@ -110,6 +111,8 @@ g2 <- df2 %>%
   scale_color_manual(values = pal, guide=FALSE) +
   scale_y_log10() +
   transition_reveal(days.since) + 
+  enter_fade() + enter_grow() + 
+  view_follow() +
   coord_cartesian(clip = 'off') +
   labs(title= 'Koronavirüs (COVID-19) sebepli toplam can kaybı', 
   subtitle = 'ilk ölümden bu yana geçen süre : {frame_along} gün', x='',y='') +
@@ -124,7 +127,7 @@ animate(g2,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 g3 <- df2 %>% 
   ggplot(aes(x=days.since, y=ccases, group=country)) + 
   #geom_abline(intercept = log(mo1$coefficients[1]), slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
-  geom_line(aes(colour=country), size=1, alpha=1) + 
+  geom_path(aes(colour=country), size=1, alpha=1) + 
   geom_segment(aes(xend = max.n-1, yend = ccases, colour = country), linetype = 2) + 
   geom_point(size = 3,aes(colour=country)) + 
   geom_text(aes(x = max.n-1, label = country, colour=country), hjust = 0) + 
@@ -132,6 +135,8 @@ g3 <- df2 %>%
   scale_color_manual(values = pal, guide=FALSE) +
   scale_y_log10() +
   transition_reveal(days.since) + 
+  enter_fade() + enter_grow() + 
+    view_follow() +
   coord_cartesian(clip = 'off') +
   labs(title= 'Koronavirüs (COVID-19) toplam vaka sayısı ', 
   subtitle = 'ilk ölümden bu yana geçen süre : {frame_along} gün', x='',y='') +
@@ -141,6 +146,75 @@ g3 <- df2 %>%
 animate(g3,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 
 
+
+
+
+
+```
+
+```{r g3, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+
+f.list <- list.files(path='C:/Users/oaltindag/Dropbox/covid/1data/Rdas')
+
+
+for(i in 1:length(f.list)) {
+  load(paste('C:/Users/oaltindag/Dropbox/covid/1data/Rdas/',f.list[i],sep=""))
+  }
+
+
+agg.pr <- function(X){
+prov = unique(X$province)   
+df <- X   
+df <- df %>%
+    mutate(date = ymd(date)) %>%
+    group_by(date) %>%
+    tally() %>%
+    mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day))) %>%
+    mutate(province=prov) %>%
+    filter(month<5 & year>2015) %>%
+    filter(date !=  "2020-04-13")
+
+return(df)
+}  
+
+
+
+out1 <- lapply(list(df1,df2,df3,df4,df5,df5,df7,df8,df9,df10), agg.pr)
+mortality <- do.call(rbind, out1)
+
+
+
+
+
+
+pal1 <- c('#d9d9d9','#bdbdbd','#969696','#636363','#de2d26')
+pal2 <- c('grey','black')
+
+g1 <- mortality %>%
+  filter(week>5 & week<15) %>%
+  group_by(province, year, month, week) %>%
+  summarise(n=sum(n)) %>%
+  ggplot(aes(x=week, y=n, fill=as.factor(year), group=as.factor(year))) +
+  geom_bar(stat="identity", width=.5, position = "dodge") +
+  #geom_point() +
+  facet_wrap( ~ province, scales = "free", ncol=3) + 
+  scale_fill_manual(values=pal1, name='vefat yili') +
+  scale_x_continuous(breaks=seq(6,14,1), 
+                     labels=c('II.2','II.3','II.4','III.1','III.2','III.3','III.4','IV.1','IV.2')) +
+  labs(title= 'Haftalara gore vefat rakamlari: Subat - Nisan 15, 2016-2020', 
+  subtitle = 'Veri kaynagi: www.turkiye.gov.tr ', x='',y='') +
+  transition_manual(week, cumulative = TRUE) +
+  enter_fade() + enter_grow() + 
+  coord_cartesian(clip = 'off') +
+  #view_follow() +
+  theme_fivethirtyeight() 
+
+animate(g1,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 
 
 
