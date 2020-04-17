@@ -1,0 +1,47 @@
+---
+title: " "
+author: "Onur Altindag"
+date: " "
+output: md_document
+---
+
+
+
+<p>Hepimizin takip ettiği ve Sağlık Bakanlığı tarafından açıklanan koronovirüs bağlantılı ölüm rakamları tıbbi testler ile virüsü taşıdığı teyit edilmiş hastaların vefat rakamlarını yansıtıyor. Türkiye de diğer ülkeler gibi tanı konulmadan vefat etmiş hastaları bu istatistiklere dahil etmiyor. Bu nedenle direkt ya da dolaylı yoldan ölen hasta sayısı raporlanan rakamların altında kalmakta.</p>
+<p>Az bildirimin az ya da çok olması bir ülkenin kurumsal kapasitesi ve salgın tarafından ne derece etkilendiği ile oldukça bağlantılı. Genel olarak kalkınmakta olan ülkeler ve salgının yoğun yaşandığı yerlerde yansıtılan rakamların gerçekleşenden daha uzak olacağını öngörebiliriz. Veri girdisindeki ölçüm hatalarına ek olarak, salgının yoğun yaşandığı yerlerde virüs, hastane ve yoğun bakım talebini en üst noktalara çıkardığı için virüsten bağımsız gerçekleşen ölümlerinden artmasını beklemek mümkün. Diğer taraftan hayatın normal akışı durduğu için trafik kazalarının azalması, insanların daha sakin bir hayat tarzına geçmesi, yaşlıların bakım kalitesinin artması gibi nedenlerle resesyonun yaşam beklentisi artırması da olası.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>COVID-19 bağlantılı ölümlerle ilgili az bildirim rakamları ülkeden ülkeye çok faklılık göstermekte. The Economist dergisinin yaptığı bir <a href="https://www.economist.com/graphic-detail/2020/04/16/tracking-covid-19-excess-deaths-across-countries">çalışmada</a> İtalya ve Hollanda’da beklenenden fazla gerçekleşen ölüm sayısının (excess mortality) resmi olarak açıklanan COVID-19 nedenli ölüm sayısının <strong>iki katından</strong> fazla olduğunu öngörüyor. İspanya, İngiltere ve ABD’de az bildirim daha düşük olsa da virüs bağlantılı ölümlerin tıbbi olarak tespit edilmiş rakamların <strong>%10</strong> ile <strong>%60</strong> arasında üstünde.</p>
+<div id="istanbul-ve-türkiyedeki-covid-19-nedenli-ölümler" class="section level2">
+<h2>İstanbul ve Türkiye’deki COVID-19 nedenli ölümler</h2>
+<p>Türk Tabibler Birliği Turkiye’deki raporlamada klinik bulguları koronavirüsü işaret eden ama PCR testi negatif çıkan hastaların vefat halinde koronavirüs olarak kayıt edilmediğini <a href="http://www.cumhuriyet.com.tr/haber/ttb-saglik-bakanligi-kovid-19-olumlerini-dunya-saglik-orgutu-kodlarina-gore-raporlamiyor-1731938">söylüyor</a>. Bu nedenle Türkiye’deki az bildirim rakamlarını tahmin etmek kamu sağlığı açısından elzem. Bu çalışmada devlet tarafından yayımlanan halka açık veriler ışığında bir tahmin yapmaya çalışacağım.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>Aşağıdaki ilk grafik 2016-2020 yılları arasında Ocak-Nisan ayları arasında gerçekleşen vefat sayılarını göstermekte. İstanbul Büyükşehir Belediyesi tarafından derlenen bu rakamlar herhangi bir nedenle vefat etmiş ve İstanbul’da defnedilmiş tüm ölümleri kapsamakta.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> <strong>Kırmızı</strong> renkle gösterdiğim 2020 senesinde Mart ayı başında başlayan güçlü bir artış söz konusu. Bu anormal değişimin büyüklüğünü ölçmek için basit bir regresyon ile 2020 senesi Mart başından bugüne kadar beklenen ölüm rakamlarını belirleyip beklenenden fazla gerçekleşen ölüm sayısını tahmin etmek mümkün.</p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/istanbul1-1.png" width="672" /></p>
+<p>İkinci grafikteki <strong>kırmızı</strong> çizgi 2020 yılı için beklenenden fazla gerçekleşen ölüm sayılarını göstermekte. Basit bir tahmin ile 12 Mart - 11 Nisan tarihleri arasında İstanbul’daki vefat rakamlarının toplamda beklenenin kabaca <strong>2158</strong> kişi üstünde olduğunu söylemek mümkün. Sağlık Bakanlığı koronavirüs nedeniyle gerçekleşen ölümleri ne yazik ki il bazında sistematik olarak açıklamıyor. O nedenle tam bir karşılaştırma mumkun değil ama Sağlık Bakanlığı’nın şu ana kadar tüm Türkiye için açıkladığı rakamlara bakmak az bildirim konusunda fikir verici. Sağlık Bakanlığı’nın açıkladığı ve tüm Türkiye’yi koronavirüs nedenli ölümleri kapsayan günlük rakamları <strong>siyah</strong> çizgi ile gösteriyorum. Resmi rakamlara göre 12 Mart - 11 Nisan tarihleri arasında tüm ülkede <strong>1006</strong> kişiyi koronavirüs nedeniyle kaybettik. Aynı zaman diliminde yalnız İstanbul’da hesapladığım beklenenin üstündeki vefat sayısı bu rakamın <strong>iki</strong> katı. Bu bariz farkı açıklayacak bir kaç senaryo var:</p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/istanbul2-1.png" width="672" /></p>
+<ul>
+<li><p>Test kapasitesi yetersizliği ya da test sonucundaki belirsizlikler nedeniyle klinik olarak koronavirüs nedeniyle ölen hastalar baska bir ICD10 koduyla kaydediliyor (Zatürre, bulaşıcı hastalık gibi) ve bu resmi istatistiklere yansımıyor.</p></li>
+<li><p>İstanbul’da vefat eden ve normal şartlarda memleketine gönderilen cenazeler şehirlerarası seyahat yasakları ve dışarı çıkma yasağı gibi uygulamalar nedeniyle Istanbul’da toprağa veriliyor.</p></li>
+<li><p>İstanbul’daki yoğun bakım ve hastane kapasiteleri koronavirüs nedeniyle baskı altında olduğu için diğer hastalıklar netincesinde ölme riski bu süreçte hızlandı. Bu en az ihtimal verdiğim senaryo.</p></li>
+</ul>
+<p>İkici grafikle ilgili başka bir çarpıcı nokta ise İstanbul’da gözlenen normalin üstündeki ölüm artışının Mart başından itibaren gözleniyor olması. Sağlık Bakanlığı’nın ilk koronavirus ölüm anonsu mart ortasına denk geliyor.</p>
+</div>
+<div id="diğer-şehirler" class="section level2">
+<h2>Diğer şehirler</h2>
+<p>Benzer bir analizi veri erişiminin olduğu 9 şehir için daha gerçekleştirmek mümkün. Bu şehirlerin hiçbirinde İstanbul’daki kadar belirgin bir değişim söz konusu değil. Belki Bursa ve Sakarya’da beklenenin biraz üzerinde ölüm gözlemlense de diğer şehirler daha önceki yılları takip ediyor. İstanbul’un neden bu şehirlerden bu derece ayrıldığı önemli bir soru ama bu soruya kamuya açık verilerle cevap verebileceğimizi sanmıyorum.</p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/bursa-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/denizli-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/diyarbakir-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/erzurum-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/kocaeli-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/konya-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/malatya-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/maras-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality.pt-tr_files/figure-html/sakarya-1.png" width="672" /></p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Ekonomik durgunluk ve ölüm oranları arasındaki ilişkiyle ilgilenen çalışmaları özetleyen bir yazı <a href="https://voxeu.org/article/economic-crises-and-mortality">burada</a>.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Çalışma ile ilgili veriye ve programların tümüne <a href="https://github.com/ronuraltindag/personalweb/tree/master/content/posts">github</a> sayfamdan ulaşabilirsiniz.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>Ham veriye <a href="https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama">buradan</a> ulaşmak mümkün.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</div>

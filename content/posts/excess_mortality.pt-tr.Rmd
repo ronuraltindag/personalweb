@@ -1,0 +1,477 @@
+---
+title: " "
+author: "Onur Altindag"
+date: " "
+output: md_document
+---
+
+```{r setup, include=FALSE}
+need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 'viridis', 'ggsci',
+          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','ftplottools','lubridate')
+
+have <- need %in% rownames(installed.packages()) 
+if(any(!have)) install.packages(need[!have]) 
+invisible(lapply(need, library, character.only=T)) 
+```
+
+
+
+Hepimizin takip ettiği ve Sağlık Bakanlığı tarafından açıklanan koronovirüs bağlantılı ölüm rakamları tıbbi testler ile virüsü taşıdığı teyit edilmiş hastaların vefat rakamlarını yansıtıyor. Türkiye de diğer ülkeler gibi  tanı konulmadan vefat etmiş hastaları  bu istatistiklere dahil etmiyor. Bu nedenle direkt ya da dolaylı yoldan ölen hasta sayısı raporlanan rakamların altında kalmakta. 
+
+Az bildirimin az ya da çok olması  bir ülkenin kurumsal kapasitesi ve salgın tarafından ne derece etkilendiği ile oldukça bağlantılı. Genel olarak kalkınmakta olan ülkeler ve salgının yoğun yaşandığı yerlerde yansıtılan rakamların gerçekleşenden daha uzak olacağını öngörebiliriz. Veri girdisindeki ölçüm hatalarına ek olarak, salgının yoğun yaşandığı yerlerde virüs, hastane ve yoğun bakım  talebini en üst noktalara çıkardığı için virüsten bağımsız gerçekleşen ölümlerinden artmasını beklemek mümkün. Diğer taraftan hayatın normal akışı durduğu için trafik kazalarının azalması, insanların daha sakin bir hayat tarzına geçmesi, yaşlıların bakım kalitesinin artması gibi nedenlerle resesyonun yaşam beklentisi artırması da olası.^[Ekonomik durgunluk ve ölüm oranları arasındaki ilişkiyle ilgilenen çalışmaları  özetleyen bir yazı [burada](https://voxeu.org/article/economic-crises-and-mortality).]
+
+
+COVID-19 bağlantılı ölümlerle ilgili az bildirim rakamları ülkeden ülkeye çok faklılık göstermekte. The Economist dergisinin yaptığı bir [çalışmada](https://www.economist.com/graphic-detail/2020/04/16/tracking-covid-19-excess-deaths-across-countries) İtalya ve Hollanda'da beklenenden fazla gerçekleşen ölüm sayısının (excess mortality) resmi olarak açıklanan COVID-19 nedenli ölüm sayısının **iki katından** fazla olduğunu öngörüyor. İspanya, İngiltere ve ABD'de az bildirim daha düşük olsa da virüs bağlantılı ölümlerin tıbbi olarak tespit edilmiş rakamların  **%10** ile **%60** arasında üstünde.
+
+## İstanbul ve Türkiye'deki COVID-19 nedenli ölümler 
+
+Türk Tabibler Birliği Turkiye'deki raporlamada klinik bulguları koronavirüsü işaret eden ama PCR testi negatif çıkan hastaların vefat halinde koronavirüs olarak kayıt edilmediğini [söylüyor](http://www.cumhuriyet.com.tr/haber/ttb-saglik-bakanligi-kovid-19-olumlerini-dunya-saglik-orgutu-kodlarina-gore-raporlamiyor-1731938). Bu nedenle Türkiye'deki az bildirim rakamlarını tahmin etmek kamu sağlığı açısından elzem. Bu çalışmada devlet tarafından yayımlanan halka açık veriler ışığında bir tahmin yapmaya çalışacağım.^[Çalışma ile ilgili veriye ve programların tümüne  [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.] 
+
+Aşağıdaki ilk grafik 2016-2020 yılları arasında Ocak-Nisan ayları arasında gerçekleşen vefat  sayılarını göstermekte. İstanbul Büyükşehir Belediyesi tarafından derlenen bu rakamlar herhangi bir nedenle vefat etmiş ve İstanbul'da  defnedilmiş tüm ölümleri kapsamakta.^[Ham veriye [buradan](https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama) ulaşmak mümkün.] **Kırmızı** renkle gösterdiğim 2020 senesinde Mart ayı başında başlayan güçlü bir artış söz konusu. Bu anormal değişimin büyüklüğünü ölçmek için basit bir regresyon ile 2020 senesi Mart başından bugüne  kadar  beklenen ölüm rakamlarını belirleyip beklenenden fazla gerçekleşen ölüm sayısını tahmin etmek mümkün. 
+
+```{r read.df, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results = 'hide'}
+
+
+
+#download the dataset from the ECDC website to a local temporary file
+
+GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate(":", ":", type="ntlm"), write_disk(tf <- tempfile(fileext = ".csv")))
+
+#read the Dataset sheet into “R”. The dataset will be called "df1".
+
+df1 <- read.csv(tf) %>%
+  filter(countryterritoryCode=='TUR') %>%
+  mutate(cal.date = as.Date(paste(year,month,day,sep="-"))) 
+
+raw.df <- GET(url="https://www.dropbox.com/s/kqhjofle7spedc3/istanbul.Rda?dl=1")
+
+load(rawConnection(raw.df$content))
+
+
+
+
+
+```
+
+
+```{r istanbul1, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+ist.agg <- df5 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',4),'red')      
+
+g1 <- ist.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() + 
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "İstanbul Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='vefat sayısı', 
+  caption = "kaynak: https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama")
+
+plot(g1)
+
+```
+
+İkinci grafikteki **kırmızı** çizgi 2020 yılı için beklenenden fazla gerçekleşen ölüm sayılarını göstermekte. Basit bir tahmin ile 12 Mart - 11 Nisan tarihleri arasında İstanbul'daki vefat rakamlarının toplamda beklenenin kabaca **2158** kişi üstünde olduğunu söylemek mümkün. Sağlık Bakanlığı koronavirüs nedeniyle gerçekleşen  ölümleri ne yazik ki il bazında sistematik olarak açıklamıyor. O nedenle tam bir karşılaştırma mumkun değil ama Sağlık Bakanlığı'nın şu ana kadar tüm Türkiye için açıkladığı rakamlara bakmak az bildirim konusunda fikir verici. Sağlık Bakanlığı'nın açıkladığı ve tüm Türkiye'yi koronavirüs nedenli ölümleri kapsayan günlük rakamları **siyah** çizgi ile gösteriyorum. Resmi rakamlara göre   12 Mart - 11 Nisan tarihleri arasında tüm ülkede **1006**  kişiyi  koronavirüs nedeniyle kaybettik.  Aynı zaman diliminde yalnız İstanbul'da hesapladığım beklenenin üstündeki vefat sayısı  bu rakamın **iki** katı.  Bu bariz farkı  açıklayacak bir kaç senaryo var: 
+
+```{r istanbul2, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+reg.data <- ist.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015)
+
+mo1 <- lm(data=reg.data[reg.data$date<'2020-03-01',], n ~ as.factor(year) + as.factor(month))
+  
+
+reg.data$n.hat <- predict(mo1, reg.data, se.fit = FALSE)
+reg.data$res <- reg.data$n - reg.data$n.hat 
+
+
+
+g2 <- reg.data %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=res, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  geom_point(data=df1, aes(x= as.Date(yday(cal.date)), y=deaths),col='#252525',alpha=0.9, size=1) + 
+  geom_smooth(data=df1, aes(x= as.Date(yday(cal.date)), y=deaths),col='#252525',alpha=0.9, size=1, se=FALSE) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Beklenenden fazla gözlemlenen ölümler", 
+  subtitle = "Kırmızı: İstanbul'da beklenenden fazla gerçekleşen ölümler (ibb vefat istatistikleri) \nSiyah: Türkiye için raporlanan koronavirüs ölüm sayısı (Sağlık Bakanlığı)", 
+  y='beklenenden fazla gerceklesen vefat sayısı',x='', 
+  caption = "kaynak: (1) https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama (2) Sağlık Bakanlığı") 
+
+excess.df <- merge(reg.data,df1, by.x='date',by.y='cal.date') %>%
+  summarise(n1=round(sum(res),0), n2=sum(deaths))
+
+plot(g2)
+
+```
+
+- Test kapasitesi yetersizliği ya da test sonucundaki belirsizlikler nedeniyle klinik olarak koronavirüs nedeniyle ölen hastalar baska bir ICD10 koduyla kaydediliyor (Zatürre, bulaşıcı hastalık gibi) ve bu resmi istatistiklere yansımıyor. 
+
+- İstanbul'da vefat eden ve normal şartlarda memleketine gönderilen cenazeler  şehirlerarası seyahat yasakları ve dışarı çıkma yasağı gibi uygulamalar nedeniyle Istanbul'da toprağa veriliyor. 
+
+- İstanbul'daki yoğun bakım ve hastane kapasiteleri koronavirüs nedeniyle baskı altında olduğu için diğer hastalıklar netincesinde ölme riski bu süreçte hızlandı. Bu en az ihtimal verdiğim senaryo. 
+
+
+İkici grafikle ilgili başka bir çarpıcı nokta ise İstanbul'da gözlenen normalin üstündeki ölüm artışının Mart başından itibaren gözleniyor olması. Sağlık Bakanlığı'nın ilk koronavirus ölüm anonsu mart ortasına denk geliyor.    
+
+## Diğer şehirler 
+
+Benzer bir analizi veri erişiminin olduğu 9 şehir için daha gerçekleştirmek mümkün. Bu şehirlerin hiçbirinde İstanbul'daki kadar belirgin bir değişim söz konusu değil. Belki Bursa ve Sakarya'da beklenenin biraz üzerinde ölüm gözlemlense de diğer şehirler daha önceki yılları takip ediyor. İstanbul'un neden bu şehirlerden bu derece ayrıldığı önemli bir soru ama bu soruya kamuya açık verilerle cevap verebileceğimizi sanmıyorum.  
+
+
+```{r read.df.oth.prov, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results = 'hide'}
+
+raw.bursa <- GET(url="https://www.dropbox.com/s/46bu9xsql2hy4vq/bursa.Rda?dl=1")
+raw.denizli <-  GET(url="https://www.dropbox.com/s/vy9wzbm952uch8j/denizli.Rda?dl=1")
+raw.diyarbakir <-GET(url="https://www.dropbox.com/s/wdjvc8p0ima84ts/diyarbakir.Rda?dl=1")
+raw.erzurum <- GET(url="https://www.dropbox.com/s/xeo1aa5ife8uq32/erzurum.Rda?dl=1" )
+raw.maras <- GET(url="https://www.dropbox.com/s/ehqj6vjvuil8rv9/kahramanmaras.Rda?dl=1" )
+raw.kocaeli <- GET(url="https://www.dropbox.com/s/ixsxetry5ul5q45/kocaeli.Rda?dl=1" )
+raw.konya <- GET(url="https://www.dropbox.com/s/u3k96wlc8pzags2/konya.Rda?dl=1" )
+raw.malatya <- GET(url="https://www.dropbox.com/s/ujmaxv2zl2f345m/malatya.Rda?dl=1" )
+raw.sakarya <-  GET(url="https://www.dropbox.com/s/ymtid5sj40nrk8f/sakarya.Rda?dl=1")
+  
+load(rawConnection(raw.bursa$content))
+load(rawConnection(raw.denizli$content))
+load(rawConnection(raw.diyarbakir$content))
+load(rawConnection(raw.erzurum$content))
+load(rawConnection(raw.maras$content))
+
+load(rawConnection(raw.kocaeli$content))
+load(rawConnection(raw.konya$content))
+load(rawConnection(raw.malatya$content))
+load(rawConnection(raw.sakarya$content))
+
+```
+
+
+```{r bursa, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+bursa.agg <-   df1 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',4),'red')      
+
+g1 <- bursa.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Bursa Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+```{r denizli, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+denizli.agg <-   df2 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',4),'red')      
+
+g1 <- denizli.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Denizli Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+
+
+```{r diyarbakir, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+dbakir.agg <-   df3 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',2),'red')      
+
+g1 <- dbakir.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2017) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Diyarbakır  Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2018-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+```{r erzurum, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+erzurum.agg <-   df4 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',4),'red')      
+
+g1 <- denizli.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Erzurum Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+```{r kocaeli, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+kocaeli.agg <-   df7 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',2),'red')      
+
+g1 <- kocaeli.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2017) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Kocaeli Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+
+
+
+```{r konya, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+konya.agg <-   df8 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',2),'red')      
+
+g1 <- kocaeli.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2017) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Konya Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+
+```{r malatya, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+malatya.agg <-   df9 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',4),'red')      
+
+g1 <- malatya.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Malatya Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+```{r maras, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+maras.agg <-   df6 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',4),'red')      
+
+g1 <- maras.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Kahramanmaraş Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+
+
+```{r sakarya, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+sakarya.agg <-   df10 %>%
+      mutate(date = ymd(date)) %>%
+      mutate(date = ymd(date)) %>%
+      mutate(day = day(date),
+           month = month(date),
+           year = year(date),
+           week = week(date),
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           freq=1) %>%
+      mutate(y2020 = case_when(year==2020 ~ 1, TRUE~0)) %>%
+      group_by(year, month, week,  date) %>%
+      summarise(n = sum(freq)) 
+
+pal1 <- c(rep('grey',1),'red')      
+
+g1 <- sakarya.agg %>%
+  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2018) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Sakarya Belediyesi'nin raporladığı vefat rakamları", 
+  subtitle = '2016-2020', x='',y='', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+
+
+
+
+
+
