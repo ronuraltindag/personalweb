@@ -88,9 +88,7 @@ plot(g1)
 ```
 
 
-İkinci grafikteki **kırmızı**  çizgi 2020 yılı için beklenenden fazla gerçekleşen ölüm sayılarını gösteriyor. Basit bir tahmin ile 12 Mart-11 Nisan tarihleri arasında İstanbul’daki vefat sayılarının normalde gerçekleşmesi beklenenden 
-
-toplamda beklenenin kabaca 2,158 kişi [%95 güven aralığı: 1,976-2,340] üstünde olduğunu söylemek mümkün. Sağlık Bakanlığı koronavirüs nedeniyle gerçekleşen ölümleri il bazında açıklamıyor. Bu nedenle tam bir karşılaştırma mümkün değil ama Sağlık Bakanlığı’nın şu ana kadar tüm Türkiye için açıkladığı rakamlara bakmak az bildirimin boyutları konusunda fikir verebilir. Sağlık Bakanlığı’nın açıkladığı ve tüm Türkiye’de koronavirüs nedenli ölümleri kapsayan günlük rakamları **siyah** çizgi ile gösteriyorum. Resmi rakamlara göre 12 Mart-11 Nisan tarihleri arasında tüm ülkede 1,006 kişiyi koronavirüs nedeniyle kaybettik. Aynı zaman diliminde yalnız İstanbul’da hesapladığım beklenenin üstündeki vefat sayısı bu rakamın iki katı. Bu bariz farkı açıklayabilecek akla gelen birkaç hipotez/senaryo var:
+İkinci grafikteki **kırmızı**  çizgi 2020 yılı için beklenenden fazla gerçekleşen ölüm sayılarını gösteriyor. Basit bir tahmin ile 12 Mart-11 Nisan tarihleri arasında İstanbul’daki vefat sayılarının normalde gerçekleşmesi beklenenden 2,158 kişi [%95 güven aralığı: 1,976-2,340] fazla olduğunu söylemek mümkün. Sağlık Bakanlığı koronavirüs nedeniyle gerçekleşen ölümleri il bazında açıklamıyor. Bu nedenle tam bir karşılaştırma mümkün değil ama Sağlık Bakanlığı’nın şu ana kadar tüm Türkiye için açıkladığı rakamlara bakmak az bildirimin boyutları konusunda fikir verebilir. Sağlık Bakanlığı’nın açıkladığı ve tüm Türkiye’de koronavirüs nedenli ölümleri kapsayan günlük rakamları **siyah** çizgi ile gösteriyorum. Resmi rakamlara göre 12 Mart-11 Nisan tarihleri arasında tüm ülkede 1,006 kişiyi koronavirüs nedeniyle kaybettik. Aynı zaman diliminde yalnız İstanbul’da hesapladığım beklenenin üstündeki vefat sayısı bu rakamın iki katı. Bu bariz farkı açıklayabilecek akla gelen birkaç hipotez/senaryo var:
 
 
 
