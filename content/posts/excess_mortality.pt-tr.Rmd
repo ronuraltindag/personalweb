@@ -1,7 +1,7 @@
 ---
-title: " "
+title: "Koronavirüs vefat sayıları ne anlatıyor?"
 author: "Onur Altindag"
-date: " "
+date: "2020-04-18" 
 output: md_document
 ---
 
@@ -16,18 +16,17 @@ invisible(lapply(need, library, character.only=T))
 
 
 
-Hepimizin takip ettiği ve Sağlık Bakanlığı tarafından açıklanan koronovirüs bağlantılı ölüm rakamları tıbbi testler ile virüsü taşıdığı teyit edilmiş hastaların vefat rakamlarını yansıtıyor. Türkiye de diğer ülkeler gibi  tanı konulmadan vefat etmiş hastaları  bu istatistiklere dahil etmiyor. Bu nedenle direkt ya da dolaylı yoldan ölen hasta sayısı raporlanan rakamların altında kalmakta. 
+Hepimizin takip ettiği ve Sağlık Bakanlığı tarafından açıklanan koronovirüs bağlantılı ölüm sayıları, tıbbi testlerle virüsü taşıdığı teyit edilmiş hastaların vefatlarını yansıtıyor. Türkiye de diğer ülkeler gibi tanı konmadan vefat etmiş hastaları bu istatistiklere dahil etmiyor. Bu nedenle, direkt ya da dolaylı yoldan koronavirüs nedeniyle ölen hasta sayısı, beyan edilen rakamların üstünde.
 
-Az bildirimin az ya da çok olması  bir ülkenin kurumsal kapasitesi ve salgın tarafından ne derece etkilendiği ile oldukça bağlantılı. Genel olarak kalkınmakta olan ülkeler ve salgının yoğun yaşandığı yerlerde yansıtılan rakamların gerçekleşenden daha uzak olacağını öngörebiliriz. Veri girdisindeki ölçüm hatalarına ek olarak, salgının yoğun yaşandığı yerlerde virüs, hastane ve yoğun bakım  talebini en üst noktalara çıkardığı için virüsten bağımsız gerçekleşen ölümlerinden artmasını beklemek mümkün. Diğer taraftan hayatın normal akışı durduğu için trafik kazalarının azalması, insanların daha sakin bir hayat tarzına geçmesi, yaşlıların bakım kalitesinin artması gibi nedenlerle resesyonun yaşam beklentisi artırması da olası.^[Ekonomik durgunluk ve ölüm oranları arasındaki ilişkiyle ilgilenen çalışmaları  özetleyen bir yazı [burada](https://voxeu.org/article/economic-crises-and-mortality).]
+Vefat sayılarındaki az bildirimin derecesi, bir ülkenin kurumsal kapasitesine ve salgın tarafından ne ölçüde etkilendiği ile yakından ilgili. Genel olarak, kalkınmakta olan ülkeler ve salgının yoğun yaşandığı yerlerde, açıklanan sayıların gerçekleşenden daha uzak olacağını öngörebiliriz. Veri girişlerindeki ölçüm hatalarına ek olarak, salgının yoğun yaşandığı yerlerde virüs, hastane ve yoğun bakım talebini en üst noktalara çıkardığı için virüsten bağımsız gerçekleşen ölümlerin artması da  mümkün. Diğer yandan, hayatın normal akışı durduğu için trafik kazalarının azalması, insanların daha sakin bir hayat tarzına geçmesi ve yaşlıların bakım kalitesinin artması gibi nedenlerle, virüsten kaynaklanmayan ölümlerin sayılarında düşüş görülmesi de olası.^[Ekonomik durgunluk ve ölüm oranları arasındaki ilişkiyle ilgilenen çalışmaları  özetleyen bir yazı [burada](https://voxeu.org/article/economic-crises-and-mortality).]
 
-
-COVID-19 bağlantılı ölümlerle ilgili az bildirim rakamları ülkeden ülkeye çok faklılık göstermekte. The Economist dergisinin yaptığı bir [çalışmada](https://www.economist.com/graphic-detail/2020/04/16/tracking-covid-19-excess-deaths-across-countries) İtalya ve Hollanda'da beklenenden fazla gerçekleşen ölüm sayısının (excess mortality) resmi olarak açıklanan COVID-19 nedenli ölüm sayısının **iki katından** fazla olduğunu öngörüyor. İspanya, İngiltere ve ABD'de az bildirim daha düşük olsa da virüs bağlantılı ölümlerin tıbbi olarak tespit edilmiş rakamların  **%10** ile **%60** arasında üstünde.
+COVID-19 bağlantılı ölümlerle ilgili az bildirimin miktarı, ülkeden ülkeye büyük farklılık gösteriyor. The Economist dergisi, yaptığı bir [çalışmada](https://www.economist.com/graphic-detail/2020/04/16/tracking-covid-19-excess-deaths-across-countries) İtalya ve Hollanda’da beklenenden fazla gerçekleşen ölüm sayısının (excess mortality) resmi olarak açıklanan COVID-19 nedenli ölüm sayısının **iki** katından fazla olduğunu öngörüyor. İspanya, İngiltere ve ABD’de az bildirim daha düşük olsa da virüs bağlantılı ölümlerin açıklanan sayıların **%10** ila **%60** üstünde.
 
 ## İstanbul ve Türkiye'deki COVID-19 nedenli ölümler 
 
-Türk Tabibler Birliği Turkiye'deki raporlamada klinik bulguları koronavirüsü işaret eden ama PCR testi negatif çıkan hastaların vefat halinde koronavirüs olarak kayıt edilmediğini [söylüyor](http://www.cumhuriyet.com.tr/haber/ttb-saglik-bakanligi-kovid-19-olumlerini-dunya-saglik-orgutu-kodlarina-gore-raporlamiyor-1731938). Bu nedenle Türkiye'deki az bildirim rakamlarını tahmin etmek kamu sağlığı açısından elzem. Bu çalışmada devlet tarafından yayımlanan halka açık veriler ışığında bir tahmin yapmaya çalışacağım.^[Çalışma ile ilgili veriye ve programların tümüne  [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.] 
+Türk Tabipler Birliği, Turkiye’deki raporlamada klinik bulguları koronavirüsü işaret eden ama PCR testi negatif çıkan hastaların vefatı halinde, vefat nedeninin koronavirüs olarak kayıt edilmediğini  [açıkladı](http://www.cumhuriyet.com.tr/haber/ttb-saglik-bakanligi-kovid-19-olumlerini-dunya-saglik-orgutu-kodlarina-gore-raporlamiyor-1731938). Diğer bir deyişle, Türkiye’de de az bildirim var, ancak miktarını bilmiyoruz. Ancak  açıklanan sayıların gerçekleşenin ne kadar altında olduğunu  tahmin etmek kamu sağlığı açısından elzem. Bu çalışmada devlet tarafından yayınlanan halka açık veriler ışığında bir tahmin yapmaya çalışacağım.^[Çalışma ile ilgili veriye ve programların tümüne  [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.] 
 
-Aşağıdaki ilk grafik 2016-2020 yılları arasında Ocak-Nisan ayları arasında gerçekleşen vefat  sayılarını göstermekte. İstanbul Büyükşehir Belediyesi tarafından derlenen bu rakamlar herhangi bir nedenle vefat etmiş ve İstanbul'da  defnedilmiş tüm ölümleri kapsamakta.^[Ham veriye [buradan](https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama) ulaşmak mümkün.] **Kırmızı** renkle gösterdiğim 2020 senesinde Mart ayı başında başlayan güçlü bir artış söz konusu. Bu anormal değişimin büyüklüğünü ölçmek için basit bir regresyon ile 2020 senesi Mart başından bugüne  kadar  beklenen ölüm rakamlarını belirleyip beklenenden fazla gerçekleşen ölüm sayısını tahmin etmek mümkün. 
+Aşağıdaki ilk grafik, 2016-2020 yılları arasında Ocak-Nisan ayları arasında gerçekleşen vefat sayılarını göstermekte. İstanbul Büyükşehir Belediyesi tarafından derlenen bu sayılar, herhangi bir nedenle vefat etmiş ve İstanbul’da defnedilmiş ölümleri kapsamakta.^[Ham veriye [buradan](https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama) ulaşmak mümkün. Raporlanan rakamlar aile kabristanına defnedilenleri kapsamamakta.] **Kırmızı** renkle gösterdiğim 2020 senesinde, Mart başında başlayan güçlü bir artış söz konusu. Bu anormal değişimin büyüklüğünü ölçmek için basit bir regresyon ile 2020 senesi Mart başından bugüne kadar beklenen ölüm rakamlarını belirleyip beklenenden fazla gerçekleşen ölüm sayısını tahmin etmek mümkün.
 
 ```{r read.df, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results = 'hide'}
 
@@ -88,7 +87,12 @@ plot(g1)
 
 ```
 
-İkinci grafikteki **kırmızı** çizgi 2020 yılı için beklenenden fazla gerçekleşen ölüm sayılarını göstermekte. Basit bir tahmin ile 12 Mart - 11 Nisan tarihleri arasında İstanbul'daki vefat rakamlarının toplamda beklenenin kabaca **2158** kişi üstünde olduğunu söylemek mümkün. Sağlık Bakanlığı koronavirüs nedeniyle gerçekleşen  ölümleri ne yazik ki il bazında sistematik olarak açıklamıyor. O nedenle tam bir karşılaştırma mumkun değil ama Sağlık Bakanlığı'nın şu ana kadar tüm Türkiye için açıkladığı rakamlara bakmak az bildirim konusunda fikir verici. Sağlık Bakanlığı'nın açıkladığı ve tüm Türkiye'yi koronavirüs nedenli ölümleri kapsayan günlük rakamları **siyah** çizgi ile gösteriyorum. Resmi rakamlara göre   12 Mart - 11 Nisan tarihleri arasında tüm ülkede **1006**  kişiyi  koronavirüs nedeniyle kaybettik.  Aynı zaman diliminde yalnız İstanbul'da hesapladığım beklenenin üstündeki vefat sayısı  bu rakamın **iki** katı.  Bu bariz farkı  açıklayacak bir kaç senaryo var: 
+
+İkinci grafikteki **kırmızı**  çizgi 2020 yılı için beklenenden fazla gerçekleşen ölüm sayılarını gösteriyor. Basit bir tahmin ile 12 Mart-11 Nisan tarihleri arasında İstanbul’daki vefat sayılarının normalde gerçekleşmesi beklenenden 
+
+toplamda beklenenin kabaca 2,158 kişi [%95 güven aralığı: 1,976-2,340] üstünde olduğunu söylemek mümkün. Sağlık Bakanlığı koronavirüs nedeniyle gerçekleşen ölümleri il bazında açıklamıyor. Bu nedenle tam bir karşılaştırma mümkün değil ama Sağlık Bakanlığı’nın şu ana kadar tüm Türkiye için açıkladığı rakamlara bakmak az bildirimin boyutları konusunda fikir verebilir. Sağlık Bakanlığı’nın açıkladığı ve tüm Türkiye’de koronavirüs nedenli ölümleri kapsayan günlük rakamları **siyah** çizgi ile gösteriyorum. Resmi rakamlara göre 12 Mart-11 Nisan tarihleri arasında tüm ülkede 1,006 kişiyi koronavirüs nedeniyle kaybettik. Aynı zaman diliminde yalnız İstanbul’da hesapladığım beklenenin üstündeki vefat sayısı bu rakamın iki katı. Bu bariz farkı açıklayabilecek akla gelen birkaç hipotez/senaryo var:
+
+
 
 ```{r istanbul2, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
@@ -98,9 +102,14 @@ reg.data <- ist.agg %>%
 mo1 <- lm(data=reg.data[reg.data$date<'2020-03-01',], n ~ as.factor(year) + as.factor(month))
   
 
-reg.data$n.hat <- predict(mo1, reg.data, se.fit = FALSE)
-reg.data$res <- reg.data$n - reg.data$n.hat 
+reg.predict <-  predict(mo1, reg.data, se.fit = TRUE)
 
+reg.data$n.hat <- reg.predict$fit
+reg.data$n.hat.ub <- reg.data$n.hat + 1.96*reg.predict$se.fit
+reg.data$n.hat.lb <- reg.data$n.hat - 1.96*reg.predict$se.fit
+reg.data$res <- reg.data$n - reg.data$n.hat 
+reg.data$res.ub <- reg.data$n - reg.data$n.hat.ub 
+reg.data$res.lb <- reg.data$n - reg.data$n.hat.lb 
 
 
 g2 <- reg.data %>%
@@ -118,24 +127,23 @@ g2 <- reg.data %>%
   caption = "kaynak: (1) https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama (2) Sağlık Bakanlığı") 
 
 excess.df <- merge(reg.data,df1, by.x='date',by.y='cal.date') %>%
-  summarise(n1=round(sum(res),0), n2=sum(deaths))
+  summarise(n1=round(sum(res),0), n2=sum(deaths), n.lb = round(sum(res.lb),0), n.ub = round(sum(res.ub),0))
 
 plot(g2)
 
 ```
 
-- Test kapasitesi yetersizliği ya da test sonucundaki belirsizlikler nedeniyle klinik olarak koronavirüs nedeniyle ölen hastalar baska bir ICD10 koduyla kaydediliyor (Zatürre, bulaşıcı hastalık gibi) ve bu resmi istatistiklere yansımıyor. 
+- Test kapasitesi yetersizliği ya da test sonucundaki belirsizlikler nedeniyle klinik olarak koronavirüs nedeniyle ölen hastalar başka bir ICD10 koduyla kaydediliyor (zatürre, bulaşıcı hastalık, vb.) ve bu resmi istatistiklere yansımıyor.
 
-- İstanbul'da vefat eden ve normal şartlarda memleketine gönderilen cenazeler  şehirlerarası seyahat yasakları ve dışarı çıkma yasağı gibi uygulamalar nedeniyle Istanbul'da toprağa veriliyor. 
+- İstanbul’da vefat eden ve normal şartlarda memleketine gönderilen cenazeler şehirlerarası seyahat yasakları ve sokağa çıkma kısıtlamaları ve isteksizliği gibi nedenlerle İstanbul’da toprağa veriliyor.
 
-- İstanbul'daki yoğun bakım ve hastane kapasiteleri koronavirüs nedeniyle baskı altında olduğu için diğer hastalıklar netincesinde ölme riski bu süreçte hızlandı. Bu en az ihtimal verdiğim senaryo. 
+- İstanbul’daki yoğun bakım ve hastane kapasiteleri koronavirüs nedeniyle baskı altında olduğu için diğer hastalıklar sonucunda ölme riski bu süreçte hızlandı. Hastane kapasitesinde problem olmasa bile artan tedbir ve korku nedeniyle hastane talebi düştü. 
 
-
-İkici grafikle ilgili başka bir çarpıcı nokta ise İstanbul'da gözlenen normalin üstündeki ölüm artışının Mart başından itibaren gözleniyor olması. Sağlık Bakanlığı'nın ilk koronavirus ölüm anonsu mart ortasına denk geliyor.    
+İkinci grafikle ilgili başka bir çarpıcı nokta ise İstanbul’da gözlenen normalin üstündeki ölüm artışının Mart başından itibaren gözleniyor olması. Sağlık Bakanlığı’nın ilk koronavirus ölüm açıklaması, Mart ortasına denk geliyor.    
 
 ## Diğer şehirler 
 
-Benzer bir analizi veri erişiminin olduğu 9 şehir için daha gerçekleştirmek mümkün. Bu şehirlerin hiçbirinde İstanbul'daki kadar belirgin bir değişim söz konusu değil. Belki Bursa ve Sakarya'da beklenenin biraz üzerinde ölüm gözlemlense de diğer şehirler daha önceki yılları takip ediyor. İstanbul'un neden bu şehirlerden bu derece ayrıldığı önemli bir soru ama bu soruya kamuya açık verilerle cevap verebileceğimizi sanmıyorum.  
+Benzer bir analizi veri erişiminin mümkün olduğu dokuz il için daha gerçekleştirmek mümkün. Bu illerin hiçbirinde İstanbul’daki kadar belirgin bir değişim söz konusu değil. Belki Bursa ve Sakarya’da beklenenin biraz üzerinde ölüm gözlemlense de diğer iller daha önceki yılları takip ediyor. İstanbul’un bu illerden neden bu ölçüde ayrıldığı önemli bir soru ama bu soruya kamuya açık verilerle cevap verebileceğimizi sanmıyorum. Sağlık Bakanlığı'nın açıkladığı verilerin ne anlama geldiğini  daha şeffaf bir şekilde anlatması gerekiyor. 
 
 
 ```{r read.df.oth.prov, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results = 'hide'}
