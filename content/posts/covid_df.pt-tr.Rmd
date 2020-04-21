@@ -33,9 +33,9 @@ GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate
 #read the Dataset sheet into “R”. The dataset will be called "data".
 df1<- read.csv(tf)
 
-new.date <- "16/04/2020"
-new.cases <- 4281 
-new.deaths <- 115
+new.date <- "20/04/2020"
+new.cases <- 4674 
+new.deaths <- 123
 
 
 tr.update <- df1 %>%
@@ -125,10 +125,10 @@ animate(g2,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 ```{r g2, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 g3 <- df2 %>% 
-  ggplot(aes(x=days.since, y=ccases, group=country)) + 
+  ggplot(aes(x=days.since, y=ccases/1000, group=country)) + 
   #geom_abline(intercept = log(mo1$coefficients[1]), slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
   geom_path(aes(colour=country), size=1, alpha=1) + 
-  geom_segment(aes(xend = max.n-1, yend = ccases, colour = country), linetype = 2) + 
+  geom_segment(aes(xend = max.n-1, yend = ccases/1000, colour = country), linetype = 2) + 
   geom_point(size = 3,aes(colour=country)) + 
   geom_text(aes(x = max.n-1, label = country, colour=country), hjust = 0) + 
   theme(axis.title = element_text()) + 
@@ -152,71 +152,3 @@ animate(g3,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 
 ```
 
-```{r g3, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-
-f.list <- list.files(path='C:/Users/oaltindag/Dropbox/covid/1data/Rdas')
-
-
-for(i in 1:length(f.list)) {
-  load(paste('C:/Users/oaltindag/Dropbox/covid/1data/Rdas/',f.list[i],sep=""))
-  }
-
-
-agg.pr <- function(X){
-prov = unique(X$province)   
-df <- X   
-df <- df %>%
-    mutate(date = ymd(date)) %>%
-    group_by(date) %>%
-    tally() %>%
-    mutate(day = day(date),
-           month = month(date),
-           year = year(date),
-           week = week(date),
-           date = ymd(paste0(year,'-' ,month,'-', day))) %>%
-    mutate(province=prov) %>%
-    filter(month<5 & year>2015) %>%
-    filter(date !=  "2020-04-13")
-
-return(df)
-}  
-
-
-
-out1 <- lapply(list(df1,df2,df3,df4,df5,df5,df7,df8,df9,df10), agg.pr)
-mortality <- do.call(rbind, out1)
-
-
-
-
-
-
-pal1 <- c('#d9d9d9','#bdbdbd','#969696','#636363','#de2d26')
-pal2 <- c('grey','black')
-
-g1 <- mortality %>%
-  filter(week>5 & week<15) %>%
-  group_by(province, year, month, week) %>%
-  summarise(n=sum(n)) %>%
-  ggplot(aes(x=week, y=n, fill=as.factor(year), group=as.factor(year))) +
-  geom_bar(stat="identity", width=.5, position = "dodge") +
-  #geom_point() +
-  facet_wrap( ~ province, scales = "free", ncol=3) + 
-  scale_fill_manual(values=pal1, name='vefat yili') +
-  scale_x_continuous(breaks=seq(6,14,1), 
-                     labels=c('II.2','II.3','II.4','III.1','III.2','III.3','III.4','IV.1','IV.2')) +
-  labs(title= 'Haftalara gore vefat rakamlari: Subat - Nisan 15, 2016-2020', 
-  subtitle = 'Veri kaynagi: www.turkiye.gov.tr ', x='',y='') +
-  transition_manual(week, cumulative = TRUE) +
-  enter_fade() + enter_grow() + 
-  coord_cartesian(clip = 'off') +
-  #view_follow() +
-  theme_fivethirtyeight() 
-
-animate(g1,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
-
-
-
-
-```
