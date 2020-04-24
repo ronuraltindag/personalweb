@@ -1,7 +1,7 @@
 ---
-title: "Koronavirüs (COVID-19)"
+title: "Koronavirüs yeni vakalar"
 author: "Onur Altindag"
-date: "2020-04-24"
+date: "2020-04-25"
 output: md_document
 ---
 
@@ -16,9 +16,9 @@ invisible(lapply(need, library, character.only=T))
 
 ## Türkiye Koronavirüs (COVID-19) Salgını: Karşılaştırmalı bir perspektif
 
-### Son Güncelleme: 24 Nisan 2020 
+### Son Güncelleme: 26 Nisan 2020 
 
-Neredeyse tüm dünyayı bir karantina alanına çeviren COVID-19 ile ilgili gelişmeleri Türkiye özelinde  karşılaştırmalı olarak takip edebilmek için aşağıdaki grafiği oluşturup vakit buldukça güncellemeye karar verdim. Bu grafikte Türkiye'de gözlemlenen ve Sağlık Bakanlığı tarafından temin edilen COVID-19 bağlantılı ölüm sayısını İtalya, İspanya ve Güney Kore ile karşılaştırıyorum.  Yatay eksen ilk gözlenen COVID-19 ölümü sonrasında geçen gün sayısını, dikey eksen ise logaritmik ölçekte toplam ölüm sayısını gösteriyor. Grafik ile ilgili veriye ve programa [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.      
+Neredeyse tüm dünyayı bir karantina alanına çeviren COVID-19 ile ilgili gelişmeleri Türkiye özelinde  karşılaştırmalı olarak takip edebilmek için aşağıdaki grafiği oluşturup vakit buldukça güncellemeye karar verdim. Bu grafikte Türkiye'de gözlemlenen ve Sağlık Bakanlığı tarafından temin edilen COVID-19 bağlantılı ölüm sayısını İtalya, İspanya ve Güney Kore ile karşılaştırıyorum.  Yatay eksen ilk gözlenen COVID-19 ölümü sonrasında geçen gün sayısını, dikey eksen ise logaritmik ölçekte  ölüm vaka sayısının 3 günlük hareketli ortalamasını gösteriyor. Grafik ile ilgili veriye ve programa [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.      
 
 
 
@@ -33,9 +33,9 @@ GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate
 #read the Dataset sheet into “R”. The dataset will be called "data".
 df1<- read.csv(tf)
 
-new.date <- "24/04/2020"
-new.cases <- 3116 
-new.deaths <- 115
+new.date <- "25/04/2020"
+new.cases <- 3122 
+new.deaths <- 109
 
 
 tr.update <- df1 %>%
@@ -64,9 +64,7 @@ df2 <- rbind(df1,tr.update) %>%
   filter(cdeaths>0) %>%
   mutate(days.since = rank(cal.date, ties.method = "first")) 
 
-dft <- df2 %>%
-  filter(countryterritoryCode=="DEU") %>%
-  select(deaths, cases, roll.deaths, roll.cases, cal.date)
+
 
 max.n <- max(df2$days.since)
 
@@ -98,59 +96,70 @@ df2$country[df2$countryterritoryCode=='DEU'] <- 'almanya'
 
 pal <- c('#377eb8','#4daf4a','#984ea3','#ff7f00','#a65628','#f781bf','#e41a1c')
 
-df.fit <- df2 %>%
-  filter((countryterritoryCode)=="TUR" & cdeaths>20) %>%
-  mutate(trend=days.since-3)
-
-mo1 <-lm(data=df.fit, formula=cdeaths~days.since)
-
-options(scipen=999)
-
 g2 <- df2 %>% 
-  ggplot(aes(x=days.since,y=cdeaths, group=country)) + 
-  #geom_abline(intercept = log(mo1$coefficients[1]), slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
+  group_by(country) %>%
+  mutate(max.d = max(days.since)) %>%
+  mutate(lab1 = case_when(max.d-1==days.since ~ country)) %>%
+  filter(is.na(roll.deaths)==FALSE) %>%
+  ggplot(aes(x=days.since,y=roll.deaths, group=country)) + 
   geom_path(aes(colour=country), size=1, alpha=1) + 
-  geom_segment(aes(xend = max.n-1, yend = cdeaths, colour = country), linetype = 2) + 
   geom_point(size = 3,aes(colour=country)) + 
-  geom_text(aes(x = max.n-1, label = country, colour=country), hjust = 0) + 
+  geom_text(aes(x = max.d+2, label = lab1, colour=country), hjust = 0) + 
+  #geom_abline(intercept = log(mo1$coefficients[1]), slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
+  geom_segment(aes(xend = max.d+1.5, yend = roll.deaths, colour = lab1), linetype = 2) + 
   theme(axis.title = element_text()) + 
   scale_color_manual(values = pal, guide=FALSE) +
   scale_y_log10() +
-  transition_reveal(days.since) + 
-  enter_fade() + enter_grow() + 
-  view_follow() +
-  coord_cartesian(clip = 'off') +
-  labs(title= 'Koronavirüs (COVID-19) sebepli toplam can kaybı', 
-  subtitle = 'ilk ölümden bu yana geçen süre : {frame_along} gün', x='',y='') +
-  theme_fivethirtyeight() 
+  xlim(0, max.n+10) +
+  #transition_reveal(days.since) + 
+  #enter_fade() + enter_grow() + 
+  #view_follow() +
+  #coord_cartesian(clip = 'off') +
+  labs(title= 'Koronavirüs (COVID-19) sebepli günlük can kaybı ', 
+  subtitle = '3 günlük hareketli ortalama, son güncelleme: 26 Nisan 2020 ', x=' ',y='') +
+  theme_fivethirtyeight() + 
+  theme(axis.title = element_text(), axis.title.y = element_blank()) + 
+  xlab('ilk olumden bu yana gecen gun')
+
+options(scipen=999)
 
 
-animate(g2,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
+
 ```
 
 ```{r g2, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 g3 <- df2 %>% 
-  ggplot(aes(x=days.since, y=ccases/1000, group=country)) + 
+  group_by(country) %>%
+  mutate(max.d = max(days.since)) %>%
+  mutate(lab1 = case_when(max.d-1==days.since ~ country)) %>%
+  filter(is.na(roll.cases)==FALSE) %>%
+  ggplot(aes(x=days.since,y=roll.cases, group=country)) + 
   #geom_abline(intercept = log(mo1$coefficients[1]), slope = mo1$coefficients[2], colour='grey', linetype=2, size=2) +
   geom_path(aes(colour=country), size=1, alpha=1) + 
-  geom_segment(aes(xend = max.n-1, yend = ccases/1000, colour = country), linetype = 2) + 
   geom_point(size = 3,aes(colour=country)) + 
-  geom_text(aes(x = max.n-1, label = country, colour=country), hjust = 0) + 
+  geom_segment(aes(xend = max.d+4.5, yend = roll.cases, colour = lab1), linetype = 2) + 
+  geom_text(aes(x = max.d+5, label = lab1, colour=country), hjust = 0) + 
   theme(axis.title = element_text()) + 
   scale_color_manual(values = pal, guide=FALSE) +
   scale_y_log10() +
-  transition_reveal(days.since) + 
-  enter_fade() + enter_grow() + 
-    view_follow() +
-  coord_cartesian(clip = 'off') +
-  labs(title= 'Koronavirüs (COVID-19) toplam vaka sayısı ', 
-  subtitle = 'ilk ölümden bu yana geçen süre : {frame_along} gün', x='',y='') +
-  theme_fivethirtyeight() 
+  xlim(0, max.n+10) +
+  #transition_reveal(days.since) + 
+  #enter_fade() + enter_grow() + 
+  #view_follow() +
+  #coord_cartesian(clip = 'off') +
+  labs(title= 'Koronavirüs (COVID-19) günlük vaka sayısı,  ', 
+  subtitle = '3 günlük hareketli ortalama, son güncelleme: 26 Nisan 2020 ', x=' ',y='') +
+  theme_fivethirtyeight() + 
+  theme(axis.title = element_text(), axis.title.y = element_blank()) + 
+  xlab('ilk olumden bu yana gecen gun')
 
+options(scipen=999)
+``` 
 
-animate(g3,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
+```{r, fig.width = 9, fig.height = 7, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
+plot(g3)
 
 
 
@@ -158,3 +167,12 @@ animate(g3,fps=5,height = 500, width =700,renderer = gifski_renderer(loop = F))
 
 ```
 
+```{r, fig.width = 9, fig.height = 7, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+plot(g2)
+
+
+
+
+
+```
