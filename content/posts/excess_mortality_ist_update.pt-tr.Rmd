@@ -1,0 +1,189 @@
+---
+title: "Excess mortality updated figures for Istanbul"
+author: "Onur Altindag"
+date: "2020-04-22" 
+output: md_document
+---
+
+```{r setup, include=FALSE}
+need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 'viridis', 'ggsci',
+          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','ftplottools','lubridate')
+
+have <- need %in% rownames(installed.packages()) 
+if(any(!have)) install.packages(need[!have]) 
+invisible(lapply(need, library, character.only=T)) 
+```
+
+**Note:** Click [here](/pt-tr/posts/excess_mortality_eng/) for the original post. Below are the updated excess death figures from Istanbul death registries and COVID19-related deaths reported by the Ministry of Health for the full population. 
+
+
+
+## Excess mortality in Istanbul and COVID19-related deaths in Turkey 
+
+
+
+
+```{r read.df, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results = 'hide'}
+
+
+
+#download the dataset from the ECDC website to a local temporary file
+
+GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate(":", ":", type="ntlm"), write_disk(tf <- tempfile(fileext = ".csv")))
+
+#read the Dataset sheet into “R”. The dataset will be called "df1".
+
+df1 <- read.csv(tf) %>%
+  filter(countryterritoryCode=='TUR') %>%
+  mutate(cal.date = as.Date(paste(year,month,day,sep="-")))
+
+mortality.raw <- read.csv("../static/df/mortalityraw.csv")
+
+mortality <- mortality.raw %>%
+  filter(province == 'istanbul') %>%
+  select(date, n) %>%
+  bind_rows(tribble(~date, ~n,
+            '2020-03-25',	232,
+            '2020-03-26',	243,
+            '2020-03-27',	274,
+            '2020-03-28',	269,
+            '2020-03-29',	286,
+            '2020-03-30',	297,
+            '2020-03-31',	294,
+            '2020-04-01',	311,
+            '2020-04-02',	309,
+            '2020-04-03',	327,
+            '2020-04-04',	324,
+            '2020-04-05',	344,
+            '2020-04-06',	311,
+            '2020-04-07',	331,
+            '2020-04-08',	340,
+            '2020-04-09',	322,
+            '2020-04-10',	330,
+            '2020-04-11',	315,
+            '2020-04-12',	291,
+            '2020-04-13',	312,
+            '2020-04-14',	334,
+            '2020-04-15',	304,
+            '2020-04-16',	291,
+            '2020-04-17',	286,
+            '2020-04-18',	281,
+            '2020-04-19',	293,
+            '2020-04-20',	294,
+            '2020-04-21',	276,
+            '2020-04-22',	293,
+            '2020-04-23',	256,
+            '2020-04-24',	303,
+            '2020-04-25',	289,
+            '2020-04-26',	234,
+            '2020-04-27',	267,
+            '2020-04-28',	268,
+            '2020-04-29',	292, 
+            '2020-04-30',	242, 
+            '2020-05-01',	261 
+            )) %>%
+  mutate(date = ymd(date),
+         period = year(date + ddays(40)),
+         month = month(date),
+         year = year(date),
+         day = yday(date))
+
+
+```
+
+
+```{r istanbul1, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+ist.agg <- mortality %>%
+           mutate(
+           #date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           n.roll = rollmean(n,7,align='center', fill=NA)) 
+
+
+
+pal1 <- c('#d9d9d9','#bdbdbd','#969696','#737373','red')      
+
+g1 <- ist.agg %>%
+  filter(month<5 & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  #geom_line(aes(y=n.roll,group=as.factor(year),colour=as.factor(year))) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() + 
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Number of deaths reported by Istanbul Metropolitan Municipality", 
+  subtitle = '2016-2020', x='',y='Number of deaths', 
+  caption = "source: https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama")
+
+plot(g1)
+
+```
+
+
+
+
+```{r istanbul2, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+reg.data <- ist.agg %>%
+  filter(month<5 & year>2015)
+
+mo1 <- lm(data=reg.data[reg.data$date<'2020-03-01',], n ~ as.factor(year) + as.factor(month))
+  
+
+reg.predict <-  predict(mo1, reg.data, se.fit = TRUE)
+
+reg.data$n.hat <- reg.predict$fit
+reg.data$n.hat.ub <- reg.data$n.hat + 1.96*reg.predict$se.fit
+reg.data$n.hat.lb <- reg.data$n.hat - 1.96*reg.predict$se.fit
+reg.data$res <- reg.data$n - reg.data$n.hat 
+reg.data$res.ub <- reg.data$n - reg.data$n.hat.ub 
+reg.data$res.lb <- reg.data$n - reg.data$n.hat.lb 
+
+
+g2 <- reg.data %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=res, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  geom_point(data=df1, aes(x= as.Date(yday(cal.date)), y=deaths),col='blue',alpha=0.9, size=1) + 
+  geom_smooth(data=df1, aes(x= as.Date(yday(cal.date)), y=deaths),col='blue',alpha=0.9, size=1, se=FALSE) +
+  theme_light() +
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "Number of excess deaths", 
+  subtitle = "Red: Number of excess deaths in Istanbul \nBlue: COVID19 deaths in Turkey annouced by the Ministry of Health", 
+  y='number of excess deaths',x='', 
+  caption = "source: (1) https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama (2) Sağlık Bakanlığı") 
+
+excess.df <- merge(reg.data,df1, by.x='date',by.y='cal.date') %>%
+  summarise(n1=round(sum(res),0), n2=sum(deaths), n.lb = round(sum(res.lb),0), n.ub = round(sum(res.ub),0))
+
+plot(g2)
+
+```
+
+
+
+
+
+```{r istanbul3, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+
+
+g1 <- ist.agg %>%
+  filter(year>2015) %>%
+  ggplot(aes(x = date, y=n)) +
+  geom_point(alpha=0.9, size=1, colour='grey') + 
+  geom_line(aes(y=n.roll)) + 
+  #geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() + 
+  scale_x_date(date_breaks="3 months", date_labels="%b") + 
+  #scale_color_manual(values=pal1, name="") + 
+  labs(title= "Number of deaths reported by Istanbul Metropolitan Municipality", 
+  subtitle = '2016-2020', x='',y='Number of deaths', 
+  caption = "source: https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama")
+
+plot(g1)
+
+```
