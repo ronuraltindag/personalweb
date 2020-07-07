@@ -1,13 +1,13 @@
 ---
 title: "U.S. COVID-19 county level spread"
 author: "Onur Altindag"
-date: "2020-03-31"
+date: "2020-07-07"
 output: md_document
 ---
 
 ```{r setup, include=FALSE}
 need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 'readr',
-          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','gifski')
+          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','gifski','ftplottools')
 
 have <- need %in% rownames(installed.packages()) 
 if(any(!have)) install.packages(need[!have]) 
