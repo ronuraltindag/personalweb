@@ -22,12 +22,14 @@ Here is a polar-coordinated animation to follow day-to-day spread of COVID-19 ac
 urlfile="https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
 df1 <- read_csv(url(urlfile))
 
+options(scipen=999)
+
 g1 <- df1 %>%
   mutate(cal.date = as.Date(date,"%d%B%Y")) %>%
   arrange(state,county, cal.date) %>%
   group_by(state,county) %>%
   mutate(c.cases=cumsum(cases)) %>%
-  ggplot(aes(y=cases,x=state, colour=state)) + 
+  ggplot(aes(y=c.cases/1000,x=state, colour=state)) + 
   geom_point(alpha=0.9, size=1.5) + 
   scale_colour_hue(na.value = "black") + 
   coord_polar() + 
@@ -36,7 +38,7 @@ g1 <- df1 %>%
   theme(legend.position="none") + 
   theme(axis.text.x = element_text(
   angle= -90 - 360 / length(unique(df1$state)) * seq_along(df1$state)))  +
-  labs(title = 'New COVID cases by county \n {frame_time}', x = ' ', y = '') +
+  labs(title = 'Cumulative # of COVID cases by county \n {frame_time}', x = ' ', y = '') +
   theme(legend.position = 'none') +
   transition_time(cal.date) +
   ease_aes('linear') 
