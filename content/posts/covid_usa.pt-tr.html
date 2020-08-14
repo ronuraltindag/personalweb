@@ -11,12 +11,14 @@ output: md_document
 <pre class="r"><code>urlfile=&quot;https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv&quot;
 df1 &lt;- read_csv(url(urlfile))
 
+options(scipen=999)
+
 g1 &lt;- df1 %&gt;%
   mutate(cal.date = as.Date(date,&quot;%d%B%Y&quot;)) %&gt;%
   arrange(state,county, cal.date) %&gt;%
   group_by(state,county) %&gt;%
   mutate(c.cases=cumsum(cases)) %&gt;%
-  ggplot(aes(y=cases,x=state, colour=state)) + 
+  ggplot(aes(y=c.cases/1000,x=state, colour=state)) + 
   geom_point(alpha=0.9, size=1.5) + 
   scale_colour_hue(na.value = &quot;black&quot;) + 
   coord_polar() + 
@@ -25,7 +27,7 @@ g1 &lt;- df1 %&gt;%
   theme(legend.position=&quot;none&quot;) + 
   theme(axis.text.x = element_text(
   angle= -90 - 360 / length(unique(df1$state)) * seq_along(df1$state)))  +
-  labs(title = &#39;New COVID cases by county \n {frame_time}&#39;, x = &#39; &#39;, y = &#39;&#39;) +
+  labs(title = &#39;Cumulative # of COVID cases by county \n {frame_time}&#39;, x = &#39; &#39;, y = &#39;&#39;) +
   theme(legend.position = &#39;none&#39;) +
   transition_time(cal.date) +
   ease_aes(&#39;linear&#39;) 

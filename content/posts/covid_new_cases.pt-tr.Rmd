@@ -16,7 +16,7 @@ invisible(lapply(need, library, character.only=T))
 
 ## Türkiye Koronavirüs (COVID-19) Salgını: Karşılaştırmalı bir perspektif
 
-### Son Güncelleme: 24 Haziran  2020 
+### Son Güncelleme: 13 Agustos  2020 
 
 Neredeyse tüm dünyayı bir karantina alanına çeviren COVID-19 ile ilgili gelişmeleri Türkiye özelinde  karşılaştırmalı olarak takip edebilmek için aşağıdaki grafiği oluşturup vakit buldukça güncellemeye karar verdim. Bu grafikte Türkiye'de gözlemlenen ve Sağlık Bakanlığı tarafından temin edilen COVID-19 bağlantılı ölüm sayısını İtalya, İspanya ve Güney Kore ile karşılaştırıyorum.  Yatay eksen ilk gözlenen COVID-19 ölümü sonrasında geçen gün sayısını, dikey eksen ise logaritmik ölçekte  ölüm vaka sayısının 3 günlük hareketli ortalamasını gösteriyor. Grafik ile ilgili veriye ve programa [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.      
 
@@ -33,15 +33,15 @@ GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate
 #read the Dataset sheet into “R”. The dataset will be called "data".
 df1<- read.csv(tf)
 
-#new.date <- "06/25/2020"
-#new.cases <- 1492 
-#new.deaths <- 24
+new.date <- "08/13/2020"
+new.cases <- 1243 
+new.deaths <- 21
 
 
-#tr.update <- df1 %>%
-#  filter(countryterritoryCode=="TUR") %>%
-#  filter(row_number()==1) %>%
-#  mutate(dateRep=new.date, cases=new.cases, deaths=new.deaths) 
+tr.update <- df1 %>%
+  filter(countryterritoryCode=="TUR") %>%
+  filter(row_number()==1) %>%
+  mutate(dateRep=new.date, cases=new.cases, deaths=new.deaths) 
   
 
 df2 <- df1 %>%
@@ -49,7 +49,7 @@ df2 <- df1 %>%
   filter(countriesAndTerritories=='Turkey' | 
          countriesAndTerritories=='Italy'  | 
          countriesAndTerritories=='Spain'  |
-         countriesAndTerritories=='South_Korea' | 
+         #countriesAndTerritories=='South_Korea' | 
          countryterritoryCode=='USA' | 
          countryterritoryCode=='GBR' | 
          countryterritoryCode=='DEU'   ) %>%
@@ -87,14 +87,14 @@ max.n <- max(df2$days.since)
 
 
 df2$country <- 'italya'
-df2$country[df2$countryterritoryCode=='KOR'] <- 'güney kore'
+#df2$country[df2$countryterritoryCode=='KOR'] <- 'güney kore'
 df2$country[df2$countryterritoryCode=='ESP'] <- 'ispanya'
 df2$country[df2$countryterritoryCode=='TUR'] <- 'türkiye'
 df2$country[df2$countryterritoryCode=='USA'] <- 'abd'
 df2$country[df2$countryterritoryCode=='GBR'] <- 'ingiltere'
 df2$country[df2$countryterritoryCode=='DEU'] <- 'almanya'
 
-pal <- c('#377eb8','#4daf4a','#984ea3','#ff7f00','#a65628','#f781bf','#e41a1c')
+pal <- c('#377eb8','#4daf4a','#ff7f00','#a65628','#f781bf','#e41a1c')
 
 g2 <- df2 %>% 
   group_by(country) %>%
@@ -109,14 +109,14 @@ g2 <- df2 %>%
   geom_segment(aes(xend = max.d+1.5, yend = roll.deaths, colour = lab1), linetype = 2) + 
   theme(axis.title = element_text()) + 
   scale_color_manual(values = pal, guide=FALSE) +
-  scale_y_log10() +
+  scale_y_log10(limits=c(5,NA)) +
   xlim(0, max.n+10) +
   #transition_reveal(days.since) + 
   #enter_fade() + enter_grow() + 
   #view_follow() +
   #coord_cartesian(clip = 'off') +
   labs(title= 'Koronavirüs (COVID-19) sebepli günlük can kaybı ', 
-  subtitle = '3 günlük hareketli ortalama, son güncelleme: 4 Haziran 2020 ', x=' ',y='') +
+  subtitle = '3 günlük hareketli ortalama, son güncelleme: 8 Agustos 2020 ', x=' ',y='') +
   theme_fivethirtyeight() + 
   theme(axis.title = element_text(), axis.title.y = element_blank()) + 
   xlab("100'uncu olumden bu yana gecen gun")
@@ -149,7 +149,7 @@ g3 <- df2 %>%
   #view_follow() +
   #coord_cartesian(clip = 'off') +
   labs(title= 'Koronavirüs (COVID-19) günlük vaka sayısı,  ', 
-  subtitle = '3 günlük hareketli ortalama, son güncelleme: 14 Haziran 2020 ', x=' ',y='') +
+  subtitle = '3 günlük hareketli ortalama, son güncelleme: 8 Agustos 2020 ', x=' ',y='') +
   theme_fivethirtyeight() + 
   theme(axis.title = element_text(), axis.title.y = element_blank()) + 
   xlab("100'uncu olumden bu yana gecen gun")

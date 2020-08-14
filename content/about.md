@@ -7,8 +7,8 @@ draft: false
 ---
 
 
-Last update: **July 7th, 2020** <br> 
-### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web.pdf)  
+Last update: **August 13th, 2020** <br> 
+### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_08_13.pdf)  
 
 
 ### **EMPLOYMENT**
