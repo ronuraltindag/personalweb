@@ -13,7 +13,7 @@ Last update: **August 13th, 2020** <br>
 #### **Peer-Reviewed Publications** 
 &dagger;: equal co-authorship 
 
-[Targeting humanitarian aid using administrative data: model design and validation.](/static/pdfs/wp/TargetLeb_Jan2020.pdf)   
+[Targeting humanitarian aid using administrative data: model design and validation.](/static/pdfs/published/AOSBCJK_TargetingRefugees.pdf)   
 Altindag, O., O'Connell S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2020.    
 **Journal of Development Economics**, forthcoming. 
 

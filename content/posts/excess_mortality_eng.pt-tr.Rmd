@@ -7,7 +7,7 @@ output: md_document
 
 ```{r setup, include=FALSE}
 need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 'viridis', 'ggsci',
-          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','ftplottools','lubridate')
+          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','lubridate')
 
 have <- need %in% rownames(installed.packages()) 
 if(any(!have)) install.packages(need[!have]) 
