@@ -7,13 +7,13 @@ draft: false
 ---
 
 
-Last update: **August 13th, 2020** <br>
+Last update: **Sep 10th, 2020** <br>
 
 
 #### **Peer-Reviewed Publications** 
 &dagger;: equal co-authorship 
 
-[Targeting humanitarian aid using administrative data: model design and validation.](/static/pdfs/wp/TargetLeb_Jan2020.pdf)   
+[Targeting humanitarian aid using administrative data: model design and validation.](/static/pdfs/published/AOSBCJK_TargetingRefugees.pdf)   
 Altindag, O., O'Connell S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2020.    
 **Journal of Development Economics**, forthcoming. 
 
@@ -82,6 +82,10 @@ Reeder, J.A., Joyce, T., Sibley, K., Arnold, D., Altindag, O., 2014.
 
 
 #### **Working Papers**
+
+[Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey <sup>&dagger;</sup>](/static/pdfs/wp/altindag_erten_keskin_2020.pdf).  
+Altindag, O., Erten, B., Keskin, P., 2020.   
+
 
 The impact of humanitarian assistance on the economic well-being of conflict-driven refugees.<sup>&dagger;</sup>     
 Altindag, O., O’Connell S.D., 2020.      

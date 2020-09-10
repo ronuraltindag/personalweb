@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: **August 13th, 2020** <br>
+Last update: **Sep 10th, 2020** <br>
 
 
 #### **Peer-Reviewed Publications** 
@@ -82,6 +82,10 @@ Reeder, J.A., Joyce, T., Sibley, K., Arnold, D., Altindag, O., 2014.
 
 
 #### **Working Papers**
+
+[Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey <sup>&dagger;</sup>](/static/pdfs/wp/altindag_erten_keskin_2020.pdf).  
+Altindag, O., Erten, B., Keskin, P., 2020.   
+
 
 The impact of humanitarian assistance on the economic well-being of conflict-driven refugees.<sup>&dagger;</sup>     
 Altindag, O., O’Connell S.D., 2020.      

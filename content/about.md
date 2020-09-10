@@ -7,8 +7,8 @@ draft: false
 ---
 
 
-Last update: **August 13th, 2020** <br> 
-### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_08_13.pdf)  
+Last update: **Sep 10, 2020** <br> 
+### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_10_09.pdf)  
 
 
 ### **EMPLOYMENT**
@@ -69,6 +69,9 @@ Award amount:  $1,500, Role: PI.
 
 ### **PRESENTATIONS and SEMINARS**
 2020 (including scheduled)   
+Middle East Economic Association Annual Meeting, MEAA (2020).    
+Economics Department Seminar, University of Connecticut.    
+United Nations High Commissioner for Refugees, Lebanon.   
 Remote seminar in Economics, Boğaziçi University, TOBB, Hacettepe University.   
 Population Association of America, (PAA 2020).     
 Economics Department Seminar, Emory University.     
