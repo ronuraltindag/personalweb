@@ -1,0 +1,203 @@
+---
+title: "Fazladan ölümler güncelleme"
+author: "Onur Altindag"
+date: "2020-09-10" 
+output: md_document
+---
+
+```{r setup, include=FALSE}
+need <- c('glue', 'dplyr','readxl', 'haven', 'ggplot2', 'utils','httr', 'viridis', 'ggsci',
+          'tidyr','zoo','ggrepel','ggthemes','kableExtra','gganimate','lubridate')
+
+have <- need %in% rownames(installed.packages()) 
+if(any(!have)) install.packages(need[!have]) 
+invisible(lapply(need, library, character.only=T)) 
+```
+
+
+
+**Note:** Click [here](/pt-tr/posts/excess_mortality_eng/) for the English version of this post. 
+
+Hepimizin takip ettiği ve Sağlık Bakanlığı tarafından açıklanan koronovirüs bağlantılı ölüm sayıları, tıbbi testlerle virüsü taşıdığı teyit edilmiş hastaların vefatlarını yansıtıyor. Türkiye de diğer ülkeler gibi tanı konmadan vefat etmiş hastaları bu istatistiklere dahil etmiyor. Bu nedenle, direkt ya da dolaylı yoldan koronavirüs nedeniyle ölen hasta sayısı, beyan edilen rakamların üstünde.
+
+Vefat sayılarındaki az bildirimin derecesi, bir ülkenin kurumsal kapasitesine ve salgın tarafından ne ölçüde etkilendiği ile yakından ilgili. Genel olarak, kalkınmakta olan ülkeler ve salgının yoğun yaşandığı yerlerde, açıklanan sayıların gerçekleşenden daha uzak olacağını öngörebiliriz. Veri girişlerindeki ölçüm hatalarına ek olarak, salgının yoğun yaşandığı yerlerde virüs, hastane ve yoğun bakım talebini en üst noktalara çıkardığı için virüsten bağımsız gerçekleşen ölümlerin artması da  mümkün. Diğer yandan, hayatın normal akışı durduğu için trafik kazalarının azalması, insanların daha sakin bir hayat tarzına geçmesi ve yaşlıların bakım kalitesinin artması gibi nedenlerle, virüsten kaynaklanmayan ölümlerin sayılarında düşüş görülmesi de olası.^[Ekonomik durgunluk ve ölüm oranları arasındaki ilişkiyle ilgilenen çalışmaları  özetleyen bir yazı [burada](https://voxeu.org/article/economic-crises-and-mortality).]
+
+COVID-19 bağlantılı ölümlerle ilgili az bildirimin miktarı, ülkeden ülkeye büyük farklılık gösteriyor. The Economist dergisi, yaptığı bir [çalışmada](https://www.economist.com/graphic-detail/2020/04/16/tracking-covid-19-excess-deaths-across-countries) İtalya ve Hollanda’da beklenenden fazla gerçekleşen ölüm sayısının (excess mortality) resmi olarak açıklanan COVID-19 nedenli ölüm sayısının **iki** katından fazla olduğunu öngörüyor. İspanya, İngiltere ve ABD’de az bildirim daha düşük olsa da virüs bağlantılı ölümlerin açıklanan sayıların **%10** ila **%60** üstünde.
+
+## İstanbul ve Türkiye'deki COVID-19 nedenli ölümler 
+
+Türk Tabipler Birliği, Turkiye’deki raporlamada klinik bulguları koronavirüsü işaret eden ama PCR testi negatif çıkan hastaların vefatı halinde, vefat nedeninin koronavirüs olarak kayıt edilmediğini  [açıkladı](http://www.cumhuriyet.com.tr/haber/ttb-saglik-bakanligi-kovid-19-olumlerini-dunya-saglik-orgutu-kodlarina-gore-raporlamiyor-1731938). Diğer bir deyişle, Türkiye’de de az bildirim var, ancak miktarını bilmiyoruz. Ancak  açıklanan sayıların gerçekleşenin ne kadar altında olduğunu  tahmin etmek kamu sağlığı açısından elzem. Bu çalışmada devlet tarafından yayınlanan halka açık veriler ışığında bir tahmin yapmaya çalışacağım.^[Çalışma ile ilgili veriye ve programların tümüne  [github](https://github.com/ronuraltindag/personalweb/tree/master/content/posts) sayfamdan ulaşabilirsiniz.] 
+
+Aşağıdaki ilk grafik, 2016-2020 yılları arasında Ocak-Nisan ayları arasında gerçekleşen vefat sayılarını göstermekte. İstanbul Büyükşehir Belediyesi tarafından derlenen bu sayılar, herhangi bir nedenle vefat etmiş ve İstanbul’da defnedilmiş ölümleri kapsamakta.^[Ham veriye [buradan](https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama) ulaşmak mümkün. Raporlanan rakamlar aile kabristanına defnedilenleri kapsamamakta.] **Kırmızı** renkle gösterdiğim 2020 senesinde, Mart başında başlayan güçlü bir artış söz konusu. Bu anormal değişimin büyüklüğünü ölçmek için basit bir regresyon ile 2020 senesi Mart başından bugüne kadar beklenen ölüm rakamlarını belirleyip beklenenden fazla gerçekleşen ölüm sayısını tahmin etmek mümkün. Çalışmada kullandığım veriye [buradan](/static/df/mortalityraw.csv) ve [buradan](/static/df/tur_covid19.csv) ulaşabilirsiniz. Tahminleri ve görselleri yaratan kaynak kodu [github](https://github.com/ronuraltindag/personalweb/blob/master/content/posts/excess_mortality_eng.pt-tr.Rmd)  sayfamda bulabilirsiniz. 
+
+```{r read.df, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results = 'hide'}
+
+
+
+#download the dataset from the ECDC website to a local temporary file
+
+GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate(":", ":", type="ntlm"), write_disk(tf <- tempfile(fileext = ".csv")))
+
+#read the Dataset sheet into “R”. The dataset will be called "df1".
+
+df1 <- read.csv(tf) %>%
+  filter(countryterritoryCode=='TUR') %>%
+  mutate(cal.date = as.Date(dateRep, format="%d/%m/%Y"))
+
+mortality.ist1 <- read.csv("../static/df/mortalityraw.csv") %>%
+  filter(province=="istanbul")
+
+mortality.2019 <- read.csv("../static/df/mortality_2019.csv") %>%
+  rename(date=1) %>%
+  gather(key="province", value="n", -date) %>%
+  mutate(day=day(date), 
+         month = month(date), 
+         year = year(date), 
+         week=week(date), 
+         X = row_number())  
+
+mortality.2020 <- read.csv("../static/df/mortality_2020.csv") %>%
+  rename(date=1) %>%
+  gather(key="province", value="n", -date) %>%
+  mutate(day=day(date), 
+         month = month(date), 
+         year = year(date), 
+         week=week(date), 
+         X = row_number())  
+
+
+
+mortality.ist2 <- read.csv("../static/df/mortality_2020.csv") %>%
+  rename(date=1) %>%
+  gather(key="province", value="n", -date) %>%
+  mutate(day=day(date), 
+         month = month(date), 
+         year = year(date), 
+         week=week(date), 
+         X = row_number()) %>%
+  mutate(flag=case_when(province=="tekirdag" & date>as.Date("2020-01-03") ~ 1, 
+                        province=="malatya" & date> as.Date("2020-04-06") ~ 1,
+                        province=="denizli" & date> as.Date("2020-04-07") ~ 1,
+                        province=="diyarbakir" & date> as.Date("2020-04-07") ~ 1,
+                        province=="erzurum" & date> as.Date("2020-04-07") ~ 1,
+                        province=="kahramanmaras" & date> as.Date("2020-04-07") ~ 1,
+                        province=="konya" & date> as.Date("2020-04-07") ~ 1,
+                        province=="sakarya" & date> as.Date("2020-04-07") ~ 1,
+                        province=="bursa" & date> as.Date("2020-04-13") ~ 1,
+                        province=="istanbul" & date> as.Date("2020-04-13") ~ 1,
+                        province=="kocaeli" & date> as.Date("2020-04-14") ~ 1,
+                        TRUE ~ 0)) %>%
+  filter(flag== 1& province=="istanbul") %>%
+  select(-flag) 
+
+mortality.ist <- rbind(mortality.ist1, mortality.ist2)
+mortality.all <- rbind(mortality.2019, mortality.2020)
+
+```
+
+
+```{r istanbul1, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+ist.agg <- mortality.ist  %>%
+           mutate(
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
+
+pal1 <- c(rep('grey',4),'red')      
+
+g1 <- ist.agg %>%
+  filter(month<9 & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_line(aes(y=n.roll,group=as.factor(year),colour=as.factor(year))) + 
+  #geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() + 
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "İstanbul Belediyesi'nin raporladığı vefat sayilari", 
+  subtitle = '2016-2020', x='',y='vefat sayısı', 
+  caption = "kaynak: https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama")
+
+plot(g1)
+
+```
+
+
+
+```{r tr11, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+tr11.agg <- mortality.all  %>%
+            group_by(date) %>%
+            summarize(n=sum(as.numeric(n), na.rm = TRUE), day=mean(day), month=mean(month), year=mean(year), week=mean(week))              %>%
+           mutate(
+           date = ymd(paste0(year,'-' ,month,'-', day)),
+           my = format(date, format="%m-%d"), 
+           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
+
+pal1 <- c('blue','red')      
+
+g1 <- tr11.agg %>%
+  filter(month<9 & year>2015) %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_line(aes(y=n.roll,group=as.factor(year),colour=as.factor(year))) + 
+  #geom_smooth(se=FALSE, alpha=0.9, size=1) +
+  theme_light() + 
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "11 ilin raporladığı gunluk vefat sayilari", 
+  subtitle = '2019-2020 \nbursa, denizli, diyarbakir, erzurum, istanbul, kocaeli, konya, malatya, maras, sakarya, tekirdag', x='',y='vefat sayısı', 
+  caption = "kaynak: https://www.turkiye.gov.tr/")
+
+plot(g1)
+
+```
+
+
+
+```{r tr112, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+reg.data <- tr11.agg %>%
+  filter(month<10 & is.na(n)==FALSE) %>%
+  mutate(n=as.numeric(n))
+
+
+mo1 <- lm(data=na.omit(reg.data), n ~ as.factor(year) + as.factor(month))
+  
+
+reg.predict <-  predict(mo1, reg.data, se.fit = TRUE)
+
+reg.data$n.hat <- reg.predict$fit
+reg.data$n.hat.ub <- reg.data$n.hat + 1.96*reg.predict$se.fit
+reg.data$n.hat.lb <- reg.data$n.hat - 1.96*reg.predict$se.fit
+reg.data$res <- reg.data$n - reg.data$n.hat 
+reg.data$res.ub <- reg.data$n - reg.data$n.hat.ub 
+reg.data$res.lb <- reg.data$n - reg.data$n.hat.lb 
+
+
+g2 <- reg.data %>%
+  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=res, group=as.factor(year),colour=as.factor(year))) +
+  geom_point(alpha=0.9, size=1) + 
+  geom_smooth(se=FALSE, alpha=0.9, size=1, span=0.1) +
+  #geom_point(data=df1, aes(x= as.Date(yday(date)), y=res),col='#252525',alpha=0.9, size=1) + 
+  #geom_line(data=df1, aes(x= as.Date(yday(date)), y=res),col='#252525',alpha=0.9, size=1) +
+  theme_light() + 
+  
+  scale_x_date(date_breaks="months", date_labels="%b") + 
+  scale_color_manual(values=pal1, name="") + 
+  labs(title= "istanbul'da beklenenden fazla gözlemlenen ölümler", 
+  subtitle = "Kırmızı: İstanbul'da beklenenden fazla gerçekleşen ölümler (ibb vefat istatistikleri) \nSiyah: Türkiye için raporlanan koronavirüs ölüm sayısı (Sağlık Bakanlığı)", 
+  y='beklenenden fazla gerceklesen vefat sayısı',x='', 
+  caption = "kaynak: (1) https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama (2) Sağlık Bakanlığı") 
+
+#excess.df <- merge(reg.data,df1, by.x='date',by.y='cal.date') %>%
+#  summarise(n1=round(sum(res),0), n2=sum(deaths_weekly), n.lb = round(sum(res.lb),0), n.ub = round(sum(res.ub),0))
+
+plot(g2)
+
+```
+
+
+
+

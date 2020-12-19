@@ -73,11 +73,6 @@ pygmentscodefencesguesssyntax = true
     weight = 4
     url = "https://twitter.com/ronuraltindag"
 
-[[params.social]]
-    name = "instagram"
-    icon = "fab fa-instagram"
-    weight = 5
-    url = "https://www.instagram.com/quoting_marx/"
 
 
 [languages]

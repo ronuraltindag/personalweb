@@ -32,98 +32,15 @@ The graphic below shows the daily number of reported deaths/burials between Janu
 
 
 
-```{r read.df, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results = 'hide'}
 
+![](/static/images/posts/excess_mortality/istanbul1-1.png)
 
-
-#download the dataset from the ECDC website to a local temporary file
-
-GET("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv", authenticate(":", ":", type="ntlm"), write_disk(tf <- tempfile(fileext = ".csv")))
-
-#read the Dataset sheet into “R”. The dataset will be called "df1".
-
-df1 <- read.csv(tf) %>%
-  filter(countryterritoryCode=='TUR') %>%
-  mutate(cal.date = as.Date(paste(year,month,day,sep="-")))
-
-mortality <- read.csv("../static/df/mortalityraw.csv")
-
-```
-
-
-```{r istanbul1, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-ist.agg <- mortality %>%
-      filter(province=="istanbul") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-
-pal1 <- c(rep('grey',4),'red')      
-
-g1 <- ist.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  #geom_line(aes(y=n.roll,group=as.factor(year),colour=as.factor(year))) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() + 
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths reported by Istanbul Metropolitan Municipality", 
-  subtitle = '2016-2020', x='',y='Number of deaths', 
-  caption = "source: https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama")
-
-plot(g1)
-
-```
 
 
 The **red** line in the second graph shows these estimated excess mortality figures, which indicates an excess mortality of 2,158 individuals [95% CI: 1,976 - 2,340] in Istanbul between March 12 - April 11. The Turkish Ministry of Health does not report COVID19 deaths by province but the total COVID19 deaths reported during the same period was only [1,006](https://opendata.ecdc.europa.eu/covid19/casedistribution/csv) for the entire country. The black line on the same graph shows the total number of COVID deaths announced by the Turkish Ministry of Health.  The excess mortality in Istanbul, in other words, was twice the official number of COVID19 deaths in Turkey between mid-March and mid-April. 
 
 There are many reasons why we might see a discrepancy between the official numbers and the excess mortality that comes from burial statistics. For example: 
 
-
-
-```{r istanbul2, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-reg.data <- ist.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015)
-
-mo1 <- lm(data=reg.data[reg.data$date<'2020-03-01',], n ~ as.factor(year) + as.factor(month))
-  
-
-reg.predict <-  predict(mo1, reg.data, se.fit = TRUE)
-
-reg.data$n.hat <- reg.predict$fit
-reg.data$n.hat.ub <- reg.data$n.hat + 1.96*reg.predict$se.fit
-reg.data$n.hat.lb <- reg.data$n.hat - 1.96*reg.predict$se.fit
-reg.data$res <- reg.data$n - reg.data$n.hat 
-reg.data$res.ub <- reg.data$n - reg.data$n.hat.ub 
-reg.data$res.lb <- reg.data$n - reg.data$n.hat.lb 
-
-
-g2 <- reg.data %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=res, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  geom_point(data=df1, aes(x= as.Date(yday(cal.date)), y=deaths),col='#252525',alpha=0.9, size=1) + 
-  geom_smooth(data=df1, aes(x= as.Date(yday(cal.date)), y=deaths),col='#252525',alpha=0.9, size=1, se=FALSE) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of excess deaths", 
-  subtitle = "Red: Number of excess deaths in Istanbul \nBlack: COVID19 deaths in Turkey annouced by the Ministry of Health", 
-  y='number of excess deaths',x='', 
-  caption = "source: (1) https://www.turkiye.gov.tr/istanbul-buyuksehir-belediyesi-vefat-sorgulama (2) Sağlık Bakanlığı") 
-
-excess.df <- merge(reg.data,df1, by.x='date',by.y='cal.date') %>%
-  summarise(n1=round(sum(res),0), n2=sum(deaths), n.lb = round(sum(res.lb),0), n.ub = round(sum(res.ub),0))
-
-plot(g2)
-
-```
 
 - Due to lack of testing capacity coupled with false negative test results, **patients are registered with a secondary ICD10 code** such as pneumonia or infectious disease when they die with clinical COVID19 symptoms.  
 
@@ -133,6 +50,9 @@ plot(g2)
 
 Another striking pattern in the second graph is the abrupt increase in excess mortality which began earlier than the first reported COVID19 deaths in Turkey. The uptick in excess mortality is around the beginning of March whereas the first reported COVID19 cases come around mid-March.   
 
+![](/static/images/posts/excess_mortality/istanbul2-1.png)
+
+
 ## Other Provinces
 
 
@@ -141,257 +61,19 @@ The funeral data are publicly available for another 9 provinces in Turkey. None 
 
 
 
-```{r bursa, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-bursa.agg <- mortality %>%
-      filter(province=="bursa") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
 
-pal1 <- c(rep('grey',4),'red')      
+![](/static/images/posts/excess_mortality/bursa-1.png)
+![](/static/images/posts/excess_mortality/denizli-1.png)
+![](/static/images/posts/excess_mortality/diyarbakir-1.png)
+![](/static/images/posts/excess_mortality/erzurum-1.png)
+![](/static/images/posts/excess_mortality/kocaeli-1.png)
 
-g1 <- bursa.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Bursa", 
-  subtitle = '2016-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
+![](/static/images/posts/excess_mortality/konya-1.png)
 
-plot(g1)
+![](/static/images/posts/excess_mortality/malatya-1.png)
 
-```
+![](/static/images/posts/excess_mortality/maras-1.png)
 
-```{r denizli, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-denizli.agg <- mortality %>%
-      filter(province=="denizli") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-
-pal1 <- c(rep('grey',4),'red')      
-
-g1 <- denizli.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Denizli", 
-  subtitle = '2016-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
-
-plot(g1)
-
-```
-
-
-
-```{r diyarbakir, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-dbakir.agg <- mortality %>%
-      filter(province=="diyarbakir") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-pal1 <- c(rep('grey',2),'red')      
-
-g1 <- dbakir.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2017) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Diyarbakir", 
-  subtitle = '2018-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
-
-plot(g1)
-
-```
-
-```{r erzurum, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-erzurum.agg <- mortality %>%
-      filter(province=="erzurum") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-pal1 <- c(rep('grey',4),'red')     
-
-    
-
-g1 <- erzurum.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Erzurum", 
-  subtitle = '2016-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
-
-plot(g1)
-
-```
-
-```{r kocaeli, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-kocaeli.agg <- mortality %>%
-      filter(province=="kocaeli") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-
-
-
-
-pal1 <- c(rep('grey',2),'red')      
-
-g1 <- kocaeli.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2017) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Kocaeli", 
-  subtitle = '2016-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
-
-plot(g1)
-
-```
-
-
-
-
-```{r konya, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-konya.agg <- mortality %>%
-      filter(province=="konya") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-  
-
-pal1 <- c(rep('grey',2),'red')      
-
-g1 <- konya.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2017) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Konya", 
-  subtitle = '2016-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
-
-plot(g1)
-
-```
-
-
-```{r malatya, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-malatya.agg <- mortality %>%
-      filter(province=="malatya") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-
-
-pal1 <- c(rep('grey',4),'red')      
-
-g1 <- malatya.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Malatya", 
-  subtitle = '2016-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
-
-plot(g1)
-
-```
-
-```{r maras, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-maras.agg <- mortality %>%
-      filter(province=="kahramanmaras") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-  
-
-pal1 <- c(rep('grey',4),'red')      
-
-g1 <- maras.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2015) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Kahramanmaras", 
-  subtitle = '2016-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
-
-plot(g1)
-
-```
-
-
-
-```{r sakarya, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-sakarya.agg <- mortality %>%
-      filter(province=="sakarya") %>%
-           mutate(
-           date = ymd(paste0(year,'-' ,month,'-', day)),
-           my = format(date, format="%m-%d"), 
-           n.roll = rollmean(n,5,fill = list(NA, NULL, NA)))
-
-pal1 <- c(rep('grey',1),'red')      
-
-g1 <- sakarya.agg %>%
-  filter(month<5 & date!='2020-04-13' & date!='2020-04-12' & year>2018) %>%
-  ggplot(aes(x = as.Date(yday(date), "1970-01-01"), y=n, group=as.factor(year),colour=as.factor(year))) +
-  geom_point(alpha=0.9, size=1) + 
-  geom_smooth(se=FALSE, alpha=0.9, size=1) +
-  theme_light() +
-  scale_x_date(date_breaks="months", date_labels="%b") + 
-  scale_color_manual(values=pal1, name="") + 
-  labs(title= "Number of deaths in Sakarya", 
-  subtitle = '2016-2020', x='',y='', 
-  caption = "kaynak: https://www.turkiye.gov.tr/")
-
-plot(g1)
-
-```
-
-
-
-
-
+![](/static/images/posts/excess_mortality/sakarya-1.png)
 
 

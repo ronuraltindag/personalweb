@@ -7,20 +7,29 @@ draft: false
 ---
 
 
-Last update: **Sep 10th, 2020** <br>
-
-
-#### **Peer-Reviewed Publications** 
+Last update: **Dec 19th, 2020**     
 &dagger;: equal co-authorship 
 
-[Targeting humanitarian aid using administrative data: model design and validation.](/static/pdfs/published/AOSBCJK_TargetingRefugees.pdf)   
-Altindag, O., O'Connell S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2020.    
-**Journal of Development Economics**, forthcoming. 
+
+#### **Peer-Reviewed Publications and Working Papers**    
+
+#### Development & Migration 
+
+
+Unconditional cash-based assistance to the poor: What do at-scale programs achieve?<sup>&dagger;</sup>     
+Altindag, O., O’Connell S.D., 2020. (Working paper).        
+*UCT's positive impact on economic wellbeing of refugees is short-lived.*
+
+[Targeting Humanitarian Aid Using Administrative Data: Model Design and Validation.](/static/pdfs/published/AOSBCJK_TargetingRefugees.pdf)   
+Altindag, O., O'Connell S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2021.    
+**Journal of Development Economics**, 148, 102564.    
+*Organizations can efficiently target humanitarian assistance using basic administrative data.*     
 
 
 [Blessing or Burden? The Impact of Refugees on Businesses and the Informal Economy.<sup>&dagger;</sup>     ](https://www.sciencedirect.com/science/article/abs/pii/S0304387820300651?via%3Dihub)      
 Altindag, O., Bakis, O., Rozo, S., 2020.         
 **Journal of Development Economics**, 146, 102490.  
+*Refugee inflows lead to an economic boom in host regions*.
 
 * Included in the 
   + [Forced Displacement Literature Review.](http://documents.worldbank.org/curated/en/940291575434038147/Forced-Displacement-Literature-Review-2019-2020)
@@ -32,67 +41,82 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 [Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](https://link.springer.com/article/10.1007%2Fs11127-019-00768-3)    
 Altindag, O., Kaushal, N., 2020.    
 **Public Choice**.  
+*Refugee inflows polarize voters but do not change election outcomes.*
 
-[Can Nonexperimental Methods Provide Unbiased Estimates of a Breastfeeding
-Intervention?: A Within-Study Comparison of Peer Counseling in Oregon.](/static/pdfs/published/ER2019CanExp.pdf)   
-Altindag, O., Joyce, T., and Reeder, J. A., 2019.      
-**Evaluation Review**, 43(3–4), 152–188.      
 
+
+
+#### Health 
+
+[Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/wp/altindag_erten_keskin_2020.pdf)       
+Altindag, O., Erten, B., Keskin, P., 2020.   
+(Revision requested from **American Economic Journal: Applied Economics**)     
+*Social and physical isolation are bad for mental health.* 
 
 
 [Effects of the Affordable Care Act Medicaid Expansion on Subjective Well-Being in the US Adult Population, 2010–2016.<sup>&dagger;</sup>](/static/pdfs/published/ajph2019effects.pdf)     
 Kobayashi, L., Altindag, O., Truskinovsky, Y., Berkman, L., 2019.      
-**American Journal of Public Health**, 109, 1236-1242. 
+**American Journal of Public Health**, 109, 1236-1242.    
+*ACA Medicaid Expansion had precisely zero impact on the subjective well-being of Americans.* 
 
 [Judicial Bypass for Minors Obtaining an Abortion: Ten years of Data from Arkansas.](/static/pdfs/published/ajph2017judicial.pdf)     
  Altindag, O., Joyce, T., 2017.      
- **American Journal of Public Health**, 107, 1266-1271. 
-
-[On Measuring and Reducing Selection Bias with a Quasi-Doubly Randomized Preference Trial.](/static/pdfs/published/jpam2017onmeas.pdf)      
-Joyce, T., Remler, D.K., Jaeger, D.A., Altindag, O., O’Connell, S.D., Crockett, S., 2017.     
-**Journal of Policy Analysis and Management**, 36(2), 36, 438-459. 
-
-* [JPAM featured article](http://www.appam.org/jpam-featured-article-on-measuring-and-reducing-selection-bias-with-a-quasi-doubly-randomized-preference-trial/)    
-
+ **American Journal of Public Health**, 107, 1266-1271.    
+*Many of the minors who obtain abortion in AR go through judicial bypass, have late terminations, and travel from nearby states.* 
 
 
 [Son Preference, Fertility Decline, and the Nonmissing Girls of Turkey.](/static/pdfs/published/dempgraphy2016sonpr.pdf)     
 Altindag, O., 2016.    
-**Demography**, 53(2), 53, 541-566. 
+**Demography**, 53(2), 53, 541-566.   
+*Turkish parents try to have at least one son, and invest more in a son's health.*
 
 * [Online appendix,](/static/pdfs/sup/AppendixCombined11212015.pdf) [data,](/static/rep/demography2016/replicationdata.zip) [replication kit](/static/rep/demography2016/ProgramsAndLogFiles.zip)     
 
 
 
-[Does Classroom Time Matter?](/static/pdfs/published/eer2015does.pdf)      
-Joyce, T., Crockett, S., Jaeger, D.A., Altindag, O., O’Connell, S.D., 2015.   
-**Economics of Education Review**, 46, 64-77.      
-  
- 
-* Coverage: [Marginal Revolution](http://marginalrevolution.com/marginalrevolution/2014/04/does-classroom-time-matter.html) | [Mankiw's Blog](http://gregmankiw.blogspot.com/2014/04/do-more-lectures-improve-student.html) | [Education Next](http://educationnext.org/a-silver-lining-for-online-higher-education/)      
-
 
 [Telephone Peer Counseling of Breastfeeding Among WIC Participants: A Randomized Controlled Trial.](/static/pdfs/published/pediatrics2014tel.pdf)     
 Reeder, J.A., Joyce, T., Sibley, K., Arnold, D., Altindag, O., 2014.     
 **Pediatrics**, 134, e700-e709.   
+*Telephone peer counseling increases breastfeeding duration among low-income women.* 
 
 * [Online appendix](/static/pdfs/sup/pedsap.pdf)     
 * Included in the 
   + [Cochrane Review](https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001688.pub3/epdf/full)      
 
-
-#### **Working Papers**
-
-[Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey <sup>&dagger;</sup>](/static/pdfs/wp/altindag_erten_keskin_2020.pdf).  
-Altindag, O., Erten, B., Keskin, P., 2020.   
-
-
-The impact of humanitarian assistance on the economic well-being of conflict-driven refugees.<sup>&dagger;</sup>     
-Altindag, O., O’Connell S.D., 2020.      
-(Pre-registered, ongoing analysis).
-
-
-
 [The Great Recession, Older Workers with Disabilities, and Implications for Retirement Security.<sup>&dagger;</sup>](/static/pdfs/wp/wp277.pdf)    
 Michigan Retirement Research Center Research Paper, WP 2012-277.     
-Altindag, O., Schmidt, L., Sevak, P. 2012. (dormant)   
+Altindag, O., Schmidt, L., Sevak, P. 2012. (Permanent working paper).   
+*The Great Recession was particularly hard on American workers with disabilities.*
+
+
+
+#### Other 
+
+[Can Nonexperimental Methods Provide Unbiased Estimates of a Breastfeeding
+Intervention?: A Within-Study Comparison of Peer Counseling in Oregon.](/static/pdfs/published/ER2019CanExp.pdf)   
+Altindag, O., Joyce, T., and Reeder, J. A., 2019.      
+**Evaluation Review**, 43(3–4), 152–188.      
+*Nonconsent bias in randomized experiments is real.*
+
+
+[On Measuring and Reducing Selection Bias with a Quasi-Doubly Randomized Preference Trial.](/static/pdfs/published/jpam2017onmeas.pdf)      
+Joyce, T., Remler, D.K., Jaeger, D.A., Altindag, O., O’Connell, S.D., Crockett, S., 2017.     
+**Journal of Policy Analysis and Management**, 36(2), 36, 438-459.   
+*Observational studies do well when self-selection into treatment is hard.* 
+
+* [JPAM featured article](http://www.appam.org/jpam-featured-article-on-measuring-and-reducing-selection-bias-with-a-quasi-doubly-randomized-preference-trial/)    
+
+
+[Does Classroom Time Matter?](/static/pdfs/published/eer2015does.pdf)      
+Joyce, T., Crockett, S., Jaeger, D.A., Altindag, O., O’Connell, S.D., 2015.   
+**Economics of Education Review**, 46, 64-77.      
+*Classroom time increases academic achievement in college students, even in large lectures.*  
+
+* Coverage: [Marginal Revolution](http://marginalrevolution.com/marginalrevolution/2014/04/does-classroom-time-matter.html) | [Mankiw's Blog](http://gregmankiw.blogspot.com/2014/04/do-more-lectures-improve-student.html) | [Education Next](http://educationnext.org/a-silver-lining-for-online-higher-education/)      
+
+
+
+
+
+

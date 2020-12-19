@@ -1,7 +1,7 @@
 ---
-title: "Koronavirüs vefat sayıları ne anlatıyor?"
+title: "Fazladan ölümler güncelleme"
 author: "Onur Altindag"
-date: "2020-04-18" 
+date: "2020-09-10" 
 output: md_document
 ---
 
@@ -15,28 +15,9 @@ output: md_document
 <h2>İstanbul ve Türkiye’deki COVID-19 nedenli ölümler</h2>
 <p>Türk Tabipler Birliği, Turkiye’deki raporlamada klinik bulguları koronavirüsü işaret eden ama PCR testi negatif çıkan hastaların vefatı halinde, vefat nedeninin koronavirüs olarak kayıt edilmediğini <a href="http://www.cumhuriyet.com.tr/haber/ttb-saglik-bakanligi-kovid-19-olumlerini-dunya-saglik-orgutu-kodlarina-gore-raporlamiyor-1731938">açıkladı</a>. Diğer bir deyişle, Türkiye’de de az bildirim var, ancak miktarını bilmiyoruz. Ancak açıklanan sayıların gerçekleşenin ne kadar altında olduğunu tahmin etmek kamu sağlığı açısından elzem. Bu çalışmada devlet tarafından yayınlanan halka açık veriler ışığında bir tahmin yapmaya çalışacağım.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>Aşağıdaki ilk grafik, 2016-2020 yılları arasında Ocak-Nisan ayları arasında gerçekleşen vefat sayılarını göstermekte. İstanbul Büyükşehir Belediyesi tarafından derlenen bu sayılar, herhangi bir nedenle vefat etmiş ve İstanbul’da defnedilmiş ölümleri kapsamakta.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> <strong>Kırmızı</strong> renkle gösterdiğim 2020 senesinde, Mart başında başlayan güçlü bir artış söz konusu. Bu anormal değişimin büyüklüğünü ölçmek için basit bir regresyon ile 2020 senesi Mart başından bugüne kadar beklenen ölüm rakamlarını belirleyip beklenenden fazla gerçekleşen ölüm sayısını tahmin etmek mümkün. Çalışmada kullandığım veriye <a href="/static/df/mortalityraw.csv">buradan</a> ve <a href="/static/df/tur_covid19.csv">buradan</a> ulaşabilirsiniz. Tahminleri ve görselleri yaratan kaynak kodu <a href="https://github.com/ronuraltindag/personalweb/blob/master/content/posts/excess_mortality_eng.pt-tr.Rmd">github</a> sayfamda bulabilirsiniz.</p>
-<p><img src="/static/images/posts/excess_mortality/istanbul1-1.png" /></p>
-<p>İkinci grafikteki <strong>kırmızı</strong> çizgi 2020 yılı için beklenenden fazla gerçekleşen ölüm sayılarını gösteriyor. Basit bir tahmin ile 12 Mart-11 Nisan tarihleri arasında İstanbul’daki vefat sayılarının normalde gerçekleşmesi beklenenden 2,158 kişi [%95 güven aralığı: 1,976-2,340] fazla olduğunu söylemek mümkün. Sağlık Bakanlığı koronavirüs nedeniyle gerçekleşen ölümleri il bazında açıklamıyor. Bu nedenle tam bir karşılaştırma mümkün değil ama Sağlık Bakanlığı’nın şu ana kadar tüm Türkiye için açıkladığı rakamlara bakmak az bildirimin boyutları konusunda fikir verebilir. Sağlık Bakanlığı’nın açıkladığı ve tüm Türkiye’de koronavirüs nedenli ölümleri kapsayan günlük rakamları <strong>siyah</strong> çizgi ile gösteriyorum. Resmi rakamlara göre 12 Mart-11 Nisan tarihleri arasında tüm ülkede 1,006 kişiyi koronavirüs nedeniyle kaybettik. Aynı zaman diliminde yalnız İstanbul’da hesapladığım beklenenin üstündeki vefat sayısı bu rakamın iki katı. Bu bariz farkı açıklayabilecek akla gelen birkaç hipotez/senaryo var:</p>
-<ul>
-<li><p>Test kapasitesi yetersizliği ya da test sonucundaki belirsizlikler nedeniyle klinik olarak koronavirüs nedeniyle ölen hastalar başka bir ICD10 koduyla kaydediliyor (zatürre, bulaşıcı hastalık, vb.) ve bu resmi istatistiklere yansımıyor.</p></li>
-<li><p>İstanbul’da vefat eden ve normal şartlarda memleketine gönderilen cenazeler şehirlerarası seyahat yasakları ve sokağa çıkma kısıtlamaları ve isteksizliği gibi nedenlerle İstanbul’da toprağa veriliyor.</p></li>
-<li><p>İstanbul’daki yoğun bakım ve hastane kapasiteleri koronavirüs nedeniyle baskı altında olduğu için diğer hastalıklar sonucunda ölme riski bu süreçte hızlandı. Hastane kapasitesinde problem olmasa bile artan tedbir ve korku nedeniyle hastane talebi düştü.</p></li>
-</ul>
-<p>İkinci grafikle ilgili başka bir çarpıcı nokta ise İstanbul’da gözlenen normalin üstündeki ölüm artışının Mart başından itibaren gözleniyor olması. Sağlık Bakanlığı’nın ilk koronavirus ölüm açıklaması, Mart ortasına denk geliyor.</p>
-<p><img src="/static/images/posts/excess_mortality/istanbul2-1.png" /></p>
-</div>
-<div id="diğer-şehirler" class="section level2">
-<h2>Diğer şehirler</h2>
-<p>Benzer bir analizi veri erişiminin mümkün olduğu dokuz il için daha gerçekleştirmek mümkün. Bu illerin hiçbirinde İstanbul’daki kadar belirgin bir değişim söz konusu değil. Belki Bursa ve Sakarya’da beklenenin biraz üzerinde ölüm gözlemlense de diğer iller daha önceki yılları takip ediyor. İstanbul’un bu illerden neden bu ölçüde ayrıldığı önemli bir soru ama bu soruya kamuya açık verilerle cevap verebileceğimizi sanmıyorum. Sağlık Bakanlığı’nın açıkladığı verilerin ne anlama geldiğini daha şeffaf bir şekilde anlatması gerekiyor. Araştırmaya ait verilere <a href="/static/df/mortalityraw.csv">buradan</a> ve <a href="/static/df/tur_covid19.csv">buradan</a> ulaşabilirsiniz. Analiz ve grafikleri oluşturan bilgisayar kodlarını <a href="https://github.com/ronuraltindag/personalweb/blob/master/content/posts/excess_mortality.pt-tr.Rmd">github</a> sayfamdan indirebilirsiniz.</p>
-<p><img src="/static/images/posts/excess_mortality/bursa-1.png" />
-<img src="/static/images/posts/excess_mortality/denizli-1.png" />
-<img src="/static/images/posts/excess_mortality/diyarbakir-1.png" />
-<img src="/static/images/posts/excess_mortality/erzurum-1.png" />
-<img src="/static/images/posts/excess_mortality/kocaeli-1.png" /></p>
-<p><img src="/static/images/posts/excess_mortality/konya-1.png" /></p>
-<p><img src="/static/images/posts/excess_mortality/malatya-1.png" /></p>
-<p><img src="/static/images/posts/excess_mortality/maras-1.png" /></p>
-<p><img src="/static/images/posts/excess_mortality/sakarya-1.png" /></p>
+<p><img src="/posts/excess_mortality_updateSep.pt-tr_files/figure-html/istanbul1-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality_updateSep.pt-tr_files/figure-html/tr11-1.png" width="672" /></p>
+<p><img src="/posts/excess_mortality_updateSep.pt-tr_files/figure-html/tr112-1.png" width="672" /></p>
 </div>
 <div class="footnotes">
 <hr />

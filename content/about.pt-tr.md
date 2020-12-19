@@ -1,13 +1,13 @@
 ---
-title: ""
+title: ''
+description: ' '
 date: "2018/08/01"
-description: " "
+draft: no
 weight: 4
-draft: false
 ---
 
 
-Last update: **Sep 10, 2020** <br> 
+Last update: **Dec 18, 2020** <br> 
 ### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_10_09.pdf)  
 
 
@@ -68,7 +68,10 @@ Award amount:  $1,500, Role: PI.
 
 
 ### **PRESENTATIONS and SEMINARS**
-2020 (including scheduled)   
+2020   
+Fifth Annual Population Health Science Research Workshop (PHS 2020).    
+NBER Health Economics Program 2020 Fall Meeting.  
+Economics Seminar, Bentley University. 
 Middle East Economic Association Annual Meeting, MEAA (2020).    
 Economics Department Seminar, University of Connecticut.    
 United Nations High Commissioner for Refugees, Lebanon.   
@@ -118,8 +121,6 @@ Economics Department Seminar, Bentley University.
 
 
 
-
-
 ### **FELLOWSHIPS** 
 2016 - 2017    
 [Harvard University, T.H. Chan School of Public Health](https://www.hsph.harvard.edu/) 
@@ -137,7 +138,7 @@ Enhanced Chancellor's Fellow.
 
 2017 -     
 Bentley University    
-Introduction to Econometrics (×3)  
+Introduction to Econometrics (x5)  
 Intermediate Price Theory (×3)
 Mathematical Statistics    
 Principles of Microeconomics (×4) 
