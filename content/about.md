@@ -8,6 +8,7 @@ weight: 4
 
 
 Last update: **Dec 19, 2020** <br> 
+
 ### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_12_18.pdf)  
 
 
