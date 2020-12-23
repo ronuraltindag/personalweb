@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: **Dec 19th, 2020**     
+Last update: **Dec 22th, 2020**     
 &dagger;: equal co-authorship 
 
 
@@ -16,17 +16,20 @@ Last update: **Dec 19th, 2020**
 #### Development & Migration 
 
 
-Unconditional cash-based assistance to the poor: What do at-scale programs achieve?<sup>&dagger;</sup>     
-Altindag, O., O’Connell S.D., 2020. (Working paper).        
+[Unconditional cash-based assistance to the poor: What do at-scale programs achieve?<sup>&dagger;</sup>     
+Altindag, O., O’Connell S.D., 2020](/static/pdfs/wp/AOC_RefugeeAidEfx.pdf). (Working paper).        
 *UCT's positive impact on economic wellbeing of refugees is short-lived.*
 
-[Targeting Humanitarian Aid Using Administrative Data: Model Design and Validation.](/static/pdfs/published/AOSBCJK_TargetingRefugees.pdf)   
+* [OSF Pre-analysis plan.](https://osf.io/pnauc/?view_only=a32fb02e9540408da8b2ed7bff83e046)
+
+[Targeting Humanitarian Aid Using Administrative Data: Model Design and Validation.](/static/pdfs/published/AOSBCJK_JDE_2021.pdf)   
 Altindag, O., O'Connell S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2021.    
 **Journal of Development Economics**, 148, 102564.    
 *Organizations can efficiently target humanitarian assistance using basic administrative data.*     
 
 
-[Blessing or Burden? The Impact of Refugees on Businesses and the Informal Economy.<sup>&dagger;</sup>     ](https://www.sciencedirect.com/science/article/abs/pii/S0304387820300651?via%3Dihub)      
+
+[Blessing or Burden? The Impact of Refugees on Businesses and the Informal Economy.<sup>&dagger;</sup>     ](/static/pdfs/published/ABR_JDE_2020.pdf)       
 Altindag, O., Bakis, O., Rozo, S., 2020.         
 **Journal of Development Economics**, 146, 102490.  
 *Refugee inflows lead to an economic boom in host regions*.
@@ -38,7 +41,7 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 
 
 
-[Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](https://link.springer.com/article/10.1007%2Fs11127-019-00768-3)    
+[Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](/static/pdfs/published/AK_2020_Public_Choice.pdf)     
 Altindag, O., Kaushal, N., 2020.    
 **Public Choice**.  
 *Refugee inflows polarize voters but do not change election outcomes.*

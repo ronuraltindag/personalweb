@@ -9,9 +9,9 @@ weight: 4
 
 
 
-Last update:  **Dec 19, 2020**     
+Last update:  **Dec 22, 2020**     
 
-### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_12_18.pdf)  
+### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_12_22.pdf)  
 
 
 ### **EMPLOYMENT**
@@ -145,7 +145,7 @@ Bentley University
 Introduction to Econometrics (x5)  
 Intermediate Price Theory (×3)
 Mathematical Statistics    
-Principles of Microeconomics (×4) 
+Principles of Microeconomics (×5) 
 
 2012 - 2014    
 City University of New York, Baruch College    
