@@ -69,13 +69,18 @@ Award amount:  $1,500, Role: PI.
 
 
 ### **PRESENTATIONS and SEMINARS**
+
+2021 (Includes scheduled)   
+Economic Research Forum Annual Conference  
+
+
 2020   
 Fifth Annual Population Health Science Research Workshop (PHS 2020).    
 NBER Health Economics Program 2020 Fall Meeting.  
-Economics Department Seminar, Bentley University. 
-Humanities Seminar, Bentley University. 
-Middle East Economic Association Annual Meeting, MEAA (2020).    
-Economics Department Seminar, University of Connecticut.    
+Economics Department Seminar, Bentley University.    
+Humanities Seminar, Bentley University.    
+Middle East Economic Association Annual Meeting, MEAA (2020).         
+Economics Department Seminar, University of Connecticut.         
 United Nations High Commissioner for Refugees, Lebanon.   
 Remote seminar in Economics, Boğaziçi University, TOBB, Hacettepe University.   
 Population Association of America, (PAA 2020).     
