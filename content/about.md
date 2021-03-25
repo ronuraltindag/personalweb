@@ -7,7 +7,8 @@ weight: 4
 ---
 
 
-Last update:  **Mar 24, 2021**     
+
+Last update:  **Mar 24, 2021**        
 
 ### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_03_24.pdf)  
 
@@ -66,6 +67,7 @@ Award amount:  $1,500, Role: PI.
 
 
 
+ 
 
 
 ### **PRESENTATIONS and SEMINARS**
@@ -167,6 +169,7 @@ Lead Specialist/Principal Investigator.
 **Language:** Turkish (native), English, French.    
 **Programming:** R, Stata.
 
+  
 ### **NON-ACADEMIC INTERESTS**   
 [CMAS](https://www.cmas.org/en) &#9733; &#9733; &#9733; divemaster, [NAUI](www.naui.org) Enriched Air Nitrox Diver.    
 Proud member of [Somerville Road Runners](https://www.srr.org/). 
