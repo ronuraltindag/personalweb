@@ -7,9 +7,9 @@ weight: 4
 ---
 
 
-Last update:  **Dec 22, 2020**     
+Last update:  **Mar 24, 2021**     
 
-### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_12_22.pdf)  
+### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_03_24.pdf)  
 
 
 ### **EMPLOYMENT**
@@ -71,8 +71,9 @@ Award amount:  $1,500, Role: PI.
 ### **PRESENTATIONS and SEMINARS**
 
 2021 (Includes scheduled)   
-Economic Research Forum Annual Conference  
-
+ERF 27th Annual Conference, Cairo.  
+Economics Department Seminar, Bentley University.  
+Economics Department Seminar, TOBB University.   
 
 2020   
 Fifth Annual Population Health Science Research Workshop (PHS 2020).    
@@ -145,8 +146,8 @@ Enhanced Chancellor's Fellow.
 
 2017 -     
 Bentley University    
-Introduction to Econometrics (x5)  
-Intermediate Price Theory (×3)
+Introduction to Econometrics (x6)  
+Intermediate Price Theory (×4)
 Mathematical Statistics    
 Principles of Microeconomics (×5) 
 

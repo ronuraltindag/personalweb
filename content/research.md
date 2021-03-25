@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: **Dec 22th, 2020**     
+Last update: **Mar 24th, 2020**     
 &dagger;: equal co-authorship 
 
 
@@ -17,7 +17,7 @@ Last update: **Dec 22th, 2020**
 
 
 [Unconditional cash-based assistance to the poor: What do at-scale programs achieve?<sup>&dagger;</sup>     
-Altindag, O., O’Connell S.D., 2020](/static/pdfs/wp/AOC_RefugeeAidEfx.pdf). (Working paper).        
+Altindag, O., O’Connell S.D., 2020](/static/pdfs/wp/AOC_RefugeeAidEfx_Feb2021.pdf). (Working paper).        
 *UCT's positive impact on economic wellbeing of refugees is short-lived.*
 
 * [OSF Pre-analysis plan.](https://osf.io/pnauc/?view_only=a32fb02e9540408da8b2ed7bff83e046)
@@ -51,9 +51,13 @@ Altindag, O., Kaushal, N., 2020.
 
 #### Health 
 
-[Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/wp/altindag_erten_keskin_2020.pdf)       
+[Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Mar2021.pdf) 
+NBER Working Paper No. 28621 
+*Effective public health policy can save lives and mitigate early life health disparities*
+
+[Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/wp/altindag_erten_keskin_Jan2021.pdf)       
 Altindag, O., Erten, B., Keskin, P., 2020.   
-(Revision requested from **American Economic Journal: Applied Economics**)     
+(Conditionally accepted at **American Economic Journal: Applied Economics**)     
 *Social and physical isolation are bad for mental health.* 
 
 
