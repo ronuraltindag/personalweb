@@ -44,6 +44,7 @@ df1 <- read.csv(tf) %>%
   filter(countryterritoryCode=='TUR') %>%
   mutate(cal.date = as.Date(dateRep, format="%d/%m/%Y"))
 
+
 mortality.ist1 <- read.csv("../static/df/mortalityraw.csv") %>%
   filter(province=="istanbul")
 

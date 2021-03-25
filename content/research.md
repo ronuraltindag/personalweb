@@ -52,8 +52,8 @@ Altindag, O., Kaushal, N., 2020.
 #### Health 
 
 [Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Mar2021.pdf) 
-NBER Working Paper No. 28621 
-*Effective public health policy can save lives and mitigate early life health disparities*
+NBER Working Paper No. 28621.         
+*Effective public health policy can save lives and mitigate early life health disparities.*
 
 [Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/wp/altindag_erten_keskin_Jan2021.pdf)       
 Altindag, O., Erten, B., Keskin, P., 2020.   
