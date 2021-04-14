@@ -8,9 +8,9 @@ weight: 4
 
 
 
-Last update:  **Mar 24, 2021**        
+Last update:  **Apr 13, 2021**        
 
-### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_03_24.pdf)  
+### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_04_13.pdf)  
 
 
 ### **EMPLOYMENT**
@@ -23,7 +23,7 @@ Last update:  **Mar 24, 2021**
 
 ### **PROFESSIONAL AFFILIATIONS & VISITING POSITIONS**
 2020 -    
-[Households in Conﬂict Network](hicn.org), Research Afﬁliate.    
+[Households in Conﬂict Network](hicn.org), Research Affiliate.    
 2019 -     
 [Economic Research Forum](https://erf.org.eg/), Research Fellow.     
 2018 -     
@@ -69,65 +69,6 @@ Award amount:  $1,500, Role: PI.
 
  
 
-
-### **PRESENTATIONS and SEMINARS**
-
-2021 (Includes scheduled)   
-ERF 27th Annual Conference, Cairo.  
-Economics Department Seminar, Bentley University.  
-Economics Department Seminar, TOBB University.   
-
-2020   
-Fifth Annual Population Health Science Research Workshop (PHS 2020).    
-NBER Health Economics Program 2020 Fall Meeting.  
-Economics Department Seminar, Bentley University.    
-Humanities Seminar, Bentley University.    
-Middle East Economic Association Annual Meeting, MEAA (2020).         
-Economics Department Seminar, University of Connecticut.         
-United Nations High Commissioner for Refugees, Lebanon.   
-Remote seminar in Economics, Boğaziçi University, TOBB, Hacettepe University.   
-Population Association of America, (PAA 2020).     
-Economics Department Seminar, Emory University.     
-Conference on Forced Displacement, Joint Data Center on Forced Displacement in Copenhagen.    
-
-2019    
-Research Initiative on the Economics of the Middle East (RIEME 2019), Heriot-Watt University.    
-Friday Lunch Seminar, Harvard Center for Population and Development Studies.    
-Population Association of America (PAA 2019).     
-International Health Economics Association (iHEA 2019).      
-IZA Annual Migration Meeting, UCD Geary Institute for Public Policy.     
-
-
-2018     
-Research Initiative on the Economics of the Middle East (RIEME 2018), Paris 1-Sorbonne University.     
-Conference on the Impacts of Refugees in Hosting Economies,  USC Marshall School of Business.   
-Social Policy and Development Seminars, Boğaziçi  University.     
-Seminar, The Rockwool Foundation.     
-Seminar, VIVE - The Danish Center for Social Science Research.    
-Midwest Economics Association, SOLE special session.    
-
-
-
-2017     
-Research Initiative on the Economics of the Middle East (RIEME 2018), Oxford University.    
-Friday Lunch Seminar, Harvard Center for Population and Development Studies.     
-Economic Department Seminar, Bentley University.     
-Eastern Economic Association (EEA 2017).     
-Population Association of America (PAA 2017).    
-Economics Department Seminar, Koç University.    
-International Health Economics Association (iHEA 2017).     
-
-
-
-2016    
-Conference on Human Capital, Galatasaray University.    
-Economics Department Seminar, Boğaziçi  University.     
-Economics Department Seminar, Sabancı University.     
-Economics Department Seminar, Koç University.     
-Economics Department Seminar, Bilgi University.     
-Economics Department Seminar, TOBB University.     
-Economics Department Seminar, Auckland University of Technology.     
-Economics Department Seminar, Bentley University.     
 
 
 

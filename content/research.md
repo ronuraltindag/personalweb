@@ -7,20 +7,28 @@ draft: false
 ---
 
 
-Last update: **Mar 24th, 2020**     
+Last update: **Apr 13th, 2021**     
 &dagger;: equal co-authorship 
 
 
 #### **Peer-Reviewed Publications and Working Papers**    
 
-#### Development & Migration 
+#### Development and Migration 
 
 
 [Unconditional cash-based assistance to the poor: What do at-scale programs achieve?<sup>&dagger;</sup>     
-Altindag, O., O’Connell S.D., 2020](/static/pdfs/wp/AOC_RefugeeAidEfx_Feb2021.pdf). (Working paper).        
+Altindag, O., O’Connell S.D., 2021](/static/pdfs/wp/AOC_RefugeeAidEfx_Apr2021.pdf) (under review).        
 *UCT's positive impact on economic wellbeing of refugees is short-lived.*
 
 * [OSF Pre-analysis plan.](https://osf.io/pnauc/?view_only=a32fb02e9540408da8b2ed7bff83e046)
+
+
+[Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](/static/pdfs/published/AK_2020_Public_Choice.pdf)     
+Altindag, O., Kaushal, N., 2021.    
+**Public Choice**, 186, 149-178.   
+*Refugee inflows polarize voters but do not change the election outcomes.*
+* [Replication kit](/static/rep/publicchoice2021/public_choice_replication_kit.zip) 
+
 
 [Targeting Humanitarian Aid Using Administrative Data: Model Design and Validation.](/static/pdfs/published/AOSBCJK_JDE_2021.pdf)   
 Altindag, O., O'Connell S.D., Sasmaz A., Balcioglu Z., Jerneck M., Foong A.K., 2021.    
@@ -34,33 +42,31 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 **Journal of Development Economics**, 146, 102490.  
 *Refugee inflows lead to an economic boom in host regions*.
 
-* Included in the 
+* Mentioned in 
   + [Forced Displacement Literature Review.](http://documents.worldbank.org/curated/en/940291575434038147/Forced-Displacement-Literature-Review-2019-2020)
   + [Labour Economics literature review on forced migration.](https://www.sciencedirect.com/science/article/pii/S0927537119300132?via%3Dihub) 
   + [Annual Reviews of Resource Economics.](https://www.annualreviews.org/doi/abs/10.1146/annurev-resource-090518-095629)
 
 
 
-[Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](/static/pdfs/published/AK_2020_Public_Choice.pdf)     
-Altindag, O., Kaushal, N., 2020.    
-**Public Choice**.  
-*Refugee inflows polarize voters but do not change election outcomes.*
-
 
 
 
 #### Health 
 
-[Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Mar2021.pdf) 
-NBER Working Paper No. 28621.   
+[Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Apr2021.pdf) 
+NBER Working Paper No. 28621 (under review).   
 Altindag, O., Greve, J., Tekin, E., 2021.          
 *Effective public health policy can save lives and mitigate early life health disparities.*
+* Mentioned in 
+    + [Newsletter of Prof. Emily Oster](https://emilyoster.substack.com/p/back-sleeping-and-sids-new-research)
 
-[Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/wp/altindag_erten_keskin_Jan2021.pdf)       
-Altindag, O., Erten, B., Keskin, P., 2020.   
-(Conditionally accepted at **American Economic Journal: Applied Economics**)     
+[Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/published/altindag_erten_keskin_Apr2021.pdf)       
+Altindag, O., Erten, B., Keskin, P., 2021.   
+**American Economic Journal: Applied Economics**, forthcoming.      
 *Social and physical isolation are bad for mental health.* 
-
+* Mentioned in 
+    + [GlobalDev Blog](http://globaldev.blog/blog/mental-health-costs-lockdowns-evidence-curfews-turkey)
 
 [Effects of the Affordable Care Act Medicaid Expansion on Subjective Well-Being in the US Adult Population, 2010–2016.<sup>&dagger;</sup>](/static/pdfs/published/ajph2019effects.pdf)     
 Kobayashi, L., Altindag, O., Truskinovsky, Y., Berkman, L., 2019.      
@@ -89,7 +95,7 @@ Reeder, J.A., Joyce, T., Sibley, K., Arnold, D., Altindag, O., 2014.
 *Telephone peer counseling increases breastfeeding duration among low-income women.* 
 
 * [Online appendix](/static/pdfs/sup/pedsap.pdf)     
-* Included in the 
+* Mentioned in  
   + [Cochrane Review](https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001688.pub3/epdf/full)      
 
 [The Great Recession, Older Workers with Disabilities, and Implications for Retirement Security.<sup>&dagger;</sup>](/static/pdfs/wp/wp277.pdf)    
@@ -113,17 +119,77 @@ Joyce, T., Remler, D.K., Jaeger, D.A., Altindag, O., O’Connell, S.D., Crockett
 **Journal of Policy Analysis and Management**, 36(2), 36, 438-459.   
 *Observational studies do well when self-selection into treatment is hard.* 
 
-* [JPAM featured article](http://www.appam.org/jpam-featured-article-on-measuring-and-reducing-selection-bias-with-a-quasi-doubly-randomized-preference-trial/)    
-
-
 [Does Classroom Time Matter?](/static/pdfs/published/eer2015does.pdf)      
 Joyce, T., Crockett, S., Jaeger, D.A., Altindag, O., O’Connell, S.D., 2015.   
 **Economics of Education Review**, 46, 64-77.      
 *Classroom time increases academic achievement in college students, even in large lectures.*  
 
-* Coverage: [Marginal Revolution](http://marginalrevolution.com/marginalrevolution/2014/04/does-classroom-time-matter.html) | [Mankiw's Blog](http://gregmankiw.blogspot.com/2014/04/do-more-lectures-improve-student.html) | [Education Next](http://educationnext.org/a-silver-lining-for-online-higher-education/)      
+* Mentioned in  
+    + [Marginal Revolution](http://marginalrevolution.com/marginalrevolution/2014/04/does-classroom-time-matter.html)  
+    + [Prof. Greg Mankiw's Blog](http://gregmankiw.blogspot.com/2014/04/do-more-lectures-improve-student.html) 
+    + [Education Next](http://educationnext.org/a-silver-lining-for-online-higher-education/)      
 
 
+
+### **Presentations and Seminars**
+
+2021 (Includes scheduled)   
+Department Seminar, Erasmus School of Economics.    
+ERF 27th Annual Conference, Cairo.  
+Economics Department Seminar, Bentley University.  
+Economics Department Seminar, TOBB University.   
+
+2020   
+Fifth Annual Population Health Science Research Workshop (PHS 2020).    
+NBER Health Economics Program 2020 Fall Meeting.  
+Economics Department Seminar, Bentley University.    
+Humanities Seminar, Bentley University.    
+Middle East Economic Association Annual Meeting, MEAA (2020).         
+Economics Department Seminar, University of Connecticut.         
+United Nations High Commissioner for Refugees, Lebanon.   
+Remote seminar in Economics, Boğaziçi University, TOBB, Hacettepe University.   
+Population Association of America, (PAA 2020).     
+Economics Department Seminar, Emory University.     
+Conference on Forced Displacement, Joint Data Center on Forced Displacement in Copenhagen.    
+
+2019    
+Research Initiative on the Economics of the Middle East (RIEME 2019), Heriot-Watt University.    
+Friday Lunch Seminar, Harvard Center for Population and Development Studies.    
+Population Association of America (PAA 2019).     
+International Health Economics Association (iHEA 2019).      
+IZA Annual Migration Meeting, UCD Geary Institute for Public Policy.     
+
+
+2018     
+Research Initiative on the Economics of the Middle East (RIEME 2018), Paris 1-Sorbonne University.     
+Conference on the Impacts of Refugees in Hosting Economies,  USC Marshall School of Business.   
+Social Policy and Development Seminars, Boğaziçi  University.     
+Seminar, The Rockwool Foundation.     
+Seminar, VIVE - The Danish Center for Social Science Research.    
+Midwest Economics Association, SOLE special session.    
+
+
+
+2017     
+Research Initiative on the Economics of the Middle East (RIEME 2018), Oxford University.    
+Friday Lunch Seminar, Harvard Center for Population and Development Studies.     
+Economic Department Seminar, Bentley University.     
+Eastern Economic Association (EEA 2017).     
+Population Association of America (PAA 2017).    
+Economics Department Seminar, Koç University.    
+International Health Economics Association (iHEA 2017).     
+
+
+
+2016    
+Conference on Human Capital, Galatasaray University.    
+Economics Department Seminar, Boğaziçi  University.     
+Economics Department Seminar, Sabancı University.     
+Economics Department Seminar, Koç University.     
+Economics Department Seminar, Bilgi University.     
+Economics Department Seminar, TOBB University.     
+Economics Department Seminar, Auckland University of Technology.     
+Economics Department Seminar, Bentley University.     
 
 
 
