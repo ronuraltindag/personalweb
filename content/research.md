@@ -58,7 +58,7 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 NBER Working Paper No. 28621 (under review).   
 Altindag, O., Greve, J., Tekin, E., 2021.          
 *Effective public health policy can save lives and mitigate early life health disparities.*
-* Mentioned in 
+* Mentioned in
     + [Newsletter of Prof. Emily Oster](https://emilyoster.substack.com/p/back-sleeping-and-sids-new-research)
 
 [Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/published/altindag_erten_keskin_Apr2021.pdf)       
@@ -67,6 +67,7 @@ Altindag, O., Erten, B., Keskin, P., 2021.
 *Social and physical isolation are bad for mental health.* 
 * Mentioned in 
     + [GlobalDev Blog](http://globaldev.blog/blog/mental-health-costs-lockdowns-evidence-curfews-turkey)
+    + [Bentley University Health TLN](https://videos.bentley.edu/media/Onur+AltindagA+Lockdown+%26+mental+health/1_zg5c110g?_ga=2.57554030.597439100.1618371692-104916621.1611206386)
 
 [Effects of the Affordable Care Act Medicaid Expansion on Subjective Well-Being in the US Adult Population, 2010–2016.<sup>&dagger;</sup>](/static/pdfs/published/ajph2019effects.pdf)     
 Kobayashi, L., Altindag, O., Truskinovsky, Y., Berkman, L., 2019.      

@@ -58,7 +58,7 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 NBER Working Paper No. 28621 (under review).   
 Altindag, O., Greve, J., Tekin, E., 2021.          
 *Effective public health policy can save lives and mitigate early life health disparities.*
-* Mentioned in 
+* Mentioned in
     + [Newsletter of Prof. Emily Oster](https://emilyoster.substack.com/p/back-sleeping-and-sids-new-research)
 
 [Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/published/altindag_erten_keskin_Apr2021.pdf)       
