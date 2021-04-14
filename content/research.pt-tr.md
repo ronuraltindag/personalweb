@@ -17,7 +17,7 @@ Last update: **Apr 13th, 2021**
 
 
 [Unconditional cash-based assistance to the poor: What do at-scale programs achieve?<sup>&dagger;</sup>     
-Altindag, O., O’Connell S.D., 2021](/static/pdfs/wp/AOC_RefugeeAidEfx_Apr2021.pdf) (under review).
+Altindag, O., O’Connell S.D., 2021](/static/pdfs/wp/AOC_RefugeeAidEfx_Apr2021.pdf).     
 *UCT's positive impact on economic wellbeing of refugees is short-lived.*
 
 * [OSF Pre-analysis plan.](https://osf.io/pnauc/?view_only=a32fb02e9540408da8b2ed7bff83e046)
@@ -42,7 +42,7 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 **Journal of Development Economics**, 146, 102490.  
 *Refugee inflows lead to an economic boom in host regions*.
 
- * Mentioned in 
+* Mentioned in 
   + [Forced Displacement Literature Review.](http://documents.worldbank.org/curated/en/940291575434038147/Forced-Displacement-Literature-Review-2019-2020)
   + [Labour Economics literature review on forced migration.](https://www.sciencedirect.com/science/article/pii/S0927537119300132?via%3Dihub) 
   + [Annual Reviews of Resource Economics.](https://www.annualreviews.org/doi/abs/10.1146/annurev-resource-090518-095629)
@@ -54,9 +54,9 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 
 #### Health 
 
-[Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Apr2021.pdf) 
-NBER Working Paper No. 28621 (under review).   
-Altindag, O., Greve, J., Tekin, E., 2021.          
+[Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Apr2021.pdf)     
+NBER Working Paper No. 28621.     
+Altindag, O., Greve, J., Tekin, E., 2021.      
 *Effective public health policy can save lives and mitigate early life health disparities.*      
 
  * Mentioned in
