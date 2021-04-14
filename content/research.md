@@ -26,7 +26,7 @@ Altindag, O., O’Connell S.D., 2021](/static/pdfs/wp/AOC_RefugeeAidEfx_Apr2021.
 [Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](/static/pdfs/published/AK_2020_Public_Choice.pdf)     
 Altindag, O., Kaushal, N., 2021.    
 **Public Choice**, 186, 149-178.   
-*Refugee inflows polarize voters but do not change the election outcomes.*
+*Refugee inflows polarize voters but do not change the election outcomes.*     
 * [Replication kit](/static/rep/publicchoice2021/public_choice_replication_kit.zip) 
 
 
@@ -42,7 +42,7 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 **Journal of Development Economics**, 146, 102490.  
 *Refugee inflows lead to an economic boom in host regions*.
 
-* Mentioned in 
+ * Mentioned in 
   + [Forced Displacement Literature Review.](http://documents.worldbank.org/curated/en/940291575434038147/Forced-Displacement-Literature-Review-2019-2020)
   + [Labour Economics literature review on forced migration.](https://www.sciencedirect.com/science/article/pii/S0927537119300132?via%3Dihub) 
   + [Annual Reviews of Resource Economics.](https://www.annualreviews.org/doi/abs/10.1146/annurev-resource-090518-095629)
@@ -57,8 +57,9 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 [Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Apr2021.pdf) 
 NBER Working Paper No. 28621 (under review).   
 Altindag, O., Greve, J., Tekin, E., 2021.          
-*Effective public health policy can save lives and mitigate early life health disparities.*
-* Mentioned in
+*Effective public health policy can save lives and mitigate early life health disparities.*      
+
+ * Mentioned in
     + [Newsletter of Prof. Emily Oster](https://emilyoster.substack.com/p/back-sleeping-and-sids-new-research)
 
 [Mental Health Costs of Lockdowns: Evidence from Age-specific Curfews in Turkey. <sup>&dagger;</sup>](/static/pdfs/published/altindag_erten_keskin_Apr2021.pdf)       
