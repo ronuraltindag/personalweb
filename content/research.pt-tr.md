@@ -7,7 +7,7 @@ draft: false
 ---
 
 
-Last update: **Apr 13th, 2021**     
+Last update:  **June 24, 2021**      
 &dagger;: equal co-authorship 
 
 
@@ -20,7 +20,9 @@ Last update: **Apr 13th, 2021**
 Altindag, O., O’Connell S.D., 2021](/static/pdfs/wp/AOC_RefugeeAidEfx_Apr2021.pdf).     
 *UCT's positive impact on economic wellbeing of refugees is short-lived.*
 
-* [OSF Pre-analysis plan.](https://osf.io/pnauc/?view_only=a32fb02e9540408da8b2ed7bff83e046)
+* [OSF Pre-analysis plan.](https://osf.io/pnauc/?view_only=a32fb02e9540408da8b2ed7bff83e046)   
+* Best paper award at the Economic Research Forum (ERF) 27th Annual Conference.
+
 
 
 [Do Refugees Impact Voting Behavior in the Host Country? Evidence from Syrian Refugee Inflows in Turkey.<sup>&dagger;</sup>](/static/pdfs/published/AK_2020_Public_Choice.pdf)     
@@ -137,8 +139,10 @@ Joyce, T., Crockett, S., Jaeger, D.A., Altindag, O., O’Connell, S.D., 2015.
 ### **Presentations and Seminars**
 
 2021 (Includes scheduled)   
+European Economic Association Annual Congress.  
 Department Seminar, Erasmus School of Economics.    
-ERF 27th Annual Conference, Cairo.  
+ERF 27th Annual Conference, Cairo.    
+41st BREAD Virtual Conference on Development Economics.    
 Economics Department Seminar, Bentley University.  
 Economics Department Seminar, TOBB University.   
 

@@ -8,9 +8,9 @@ weight: 4
 
 
 
-Last update:  **Apr 13, 2021**        
+Last update:  **June 24, 2021**        
 
-### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_04_13.pdf)  
+### CV [<span style="color:blue">(pdf)</span>](/static/pdfs/CV/CV_web_06_24.pdf)  
 
 
 ### **EMPLOYMENT**
@@ -22,6 +22,8 @@ Last update:  **Apr 13, 2021**
 [National Bureau of Economic Research](nber.org), Research Assistant. 
 
 ### **PROFESSIONAL AFFILIATIONS & VISITING POSITIONS**
+2021 -     
+[IZA - Institute of Labor Economics](https://www.iza.org/), Research Affiliate.    
 2020 -    
 [Households in Conﬂict Network](hicn.org), Research Affiliate.    
 2019 -     
