@@ -17,7 +17,7 @@ Last update:  **June 24, 2021**
 
 
 [Unconditional cash-based assistance to the poor: What do at-scale programs achieve?<sup>&dagger;</sup>     
-Altindag, O., O’Connell S.D., 2021](/static/pdfs/wp/AOC_RefugeeAidEfx_Apr2021.pdf).     
+Altindag, O., O’Connell S.D., 2021](/static/pdfs/wp/AOC_RefugeeAidEfx_Jun2021.pdf).     
 *UCT's positive impact on economic wellbeing of refugees is short-lived.*
 
 * [OSF Pre-analysis plan.](https://osf.io/pnauc/?view_only=a32fb02e9540408da8b2ed7bff83e046)   
@@ -56,7 +56,7 @@ Altindag, O., Bakis, O., Rozo, S., 2020.
 
 #### Health 
 
-[Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Apr2021.pdf)     
+[Public Health Policy At Scale: Impact of a Government-sponsored Information Campaign on Infant Mortality in Denmark.<sup>&dagger;</sup>](/static/pdfs/wp/SIDS_Jun2021.pdf)     
 NBER Working Paper No. 28621.     
 Altindag, O., Greve, J., Tekin, E., 2021.      
 *Effective public health policy can save lives and mitigate early life health disparities.*      
